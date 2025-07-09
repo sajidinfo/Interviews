@@ -1584,6 +1584,63 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
     console.log(addition(20)); //output: 40 cached
     ```
 
+**Memoization** JavaScript (aur kisi bhi programming language) mein ek **optimization technique** hai jiska use expensive function calls ko fast banane ke liye hota hai by **caching** the result.
+
+### 📌 Simple Definition (Desi Style):
+
+> Agar koi function baar-baar same input ke saath call ho raha hai, to uska result yaad rakh lena chahiye taaki dobara calculation na karna pade. Isi ko kehte hain memoization.
+
+---
+
+### 🔁 Real-life Example:
+
+> Tum ek aadmi ho jo math questions solve karta hai. Ek student baar-baar tumse puchta hai: "2 + 2?"
+> Pehli baar tum soch ke answer dete ho: 4
+> Agli baar tum answer yaad rakh ke turant bol dete ho: 4
+> Ye hi memoization hai – **pehle ka result yaad rakhna**!
+
+---
+
+### ✅ JavaScript Example:
+
+```js
+function add(a, b) {
+  console.log('Calculating...');
+  return a + b;
+}
+
+function memoize(fn) {
+  const cache = {};
+  return function (...args) {
+    const key = JSON.stringify(args);
+    if (cache[key]) {
+      return cache[key];
+    } else {
+      const result = fn(...args);
+      cache[key] = result;
+      return result;
+    }
+  };
+}
+
+const memoizedAdd = memoize(add);
+
+console.log(memoizedAdd(2, 3)); // Calculating... 5
+console.log(memoizedAdd(2, 3)); // (No calculation) 5
+```
+
+---
+
+### 🔍 Summary:
+
+| Concept         | Meaning                                                                |
+| --------------- | ---------------------------------------------------------------------- |
+| **Memoization** | Ek technique jo previous results ko **cache** me store karti hai       |
+| **Use case**    | Performance boost in functions like recursion, math ops, API calls etc |
+| **JS Tool**     | `closure` + `object`/`Map` for cache                                   |
+
+---
+
     **[⬆ Back to Top](#table-of-contents)**
 
 27. ### What is Hoisting
@@ -1620,6 +1677,8 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
 28. ### What are classes in ES6
 
+In ES6 (ECMAScript 2015), classes were introduced as a cleaner and more readable way to create objects and handle inheritance in JavaScript.
+
     In ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based inheritance.
     For example, the prototype based inheritance written in function expression as below,
 
@@ -1653,11 +1712,21 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
 29. ### What are closures
 
+Closure ek JavaScript concept hai jisme inner function apne outer function ke variables ko access kar sakta hai even after the outer function has finished execution.
+
     A closure is the combination of a function bundled(enclosed) together with its lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables, functions and other data even after the outer function has finished its execution. The closure has three scope chains.
 
     1. Own scope where variables defined between its curly brackets
     2. Outer function's variables
     3. Global variables
+
+    | Use Case            | Example                            |
+| ------------------- | ---------------------------------- |
+| Data Privacy        | Private variables (no global leak) |
+| Function Factories  | Return customized functions        |
+| Memoization/Caching | Store previous results             |
+| Event Handlers      | Maintain access to parent data     |
+
 
     Let's take an example of closure concept,
 
@@ -1695,6 +1764,15 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
 32. ### What is scope in javascript
 
+Scope ka matlab hota hai kahaan se kisi variable ya function ko access kiya ja sakta hai.
+
+| Scope Type            | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| **Global Scope**      | Sabko dikhta hai, har jagah se accessible       |
+| **Function Scope**    | Sirf function ke andar dikhta hai               |
+| **Block Scope (ES6)** | Sirf `{ }` ke andar dikhta hai (`let`, `const`) |
+
+
     Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
 
     **[⬆ Back to Top](#table-of-contents)**
@@ -1702,6 +1780,92 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 33. ### What is a service worker
 
     A Service worker is basically a script (JavaScript file) that runs in the background, separate from a web page and provides features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
+
+    ### 🛠️ What is a Service Worker in JavaScript?
+
+**Service Worker** ek JavaScript file hoti hai jo **browser ke background me run** karti hai, bina kisi web page ke interaction ke.
+Iska use mainly **offline support, background sync, push notifications**, aur **caching** ke liye hota hai.
+
+---
+
+### 📦 Simple Definition (Desi Style):
+
+> Service Worker ek **background worker** hai jo tumhare web app ko **offline chalane** me madad karta hai.
+> Ye ek **chowkidar** ki tarah hota hai jo background me gate sambhalta hai – network request aaye to decide karta hai ki **network se lena hai ya cache se**.
+
+---
+
+### 🧠 Important Properties:
+
+| Feature                     | Description                                    |
+| --------------------------- | ---------------------------------------------- |
+| Runs in background          | Independent of main UI thread                  |
+| Intercepts network requests | Can modify, cache, or redirect them            |
+| Enables offline access      | Like Progressive Web Apps (PWA)                |
+| Works with HTTPS only       | For security reasons (except on localhost)     |
+| Event-driven                | Listens to `install`, `activate`, `fetch` etc. |
+
+---
+
+### ✅ Basic Example:
+
+```js
+// sw.js (Service Worker File)
+self.addEventListener('install', function(event) {
+  console.log('Service Worker Installed');
+});
+
+self.addEventListener('fetch', function(event) {
+  console.log('Fetching:', event.request.url);
+});
+```
+
+**Register this in your main JS:**
+
+```js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('Service Worker Registered!'))
+    .catch(err => console.error('Error:', err));
+}
+```
+
+---
+
+### 🔁 Life Cycle of Service Worker:
+
+1. **Register** → Browser registers service worker.
+2. **Install** → Cache static assets.
+3. **Activate** → Clean old cache, prepare to control pages.
+4. **Fetch** → Intercepts all network requests.
+
+---
+
+### 🌐 Use Cases:
+
+* Offline web apps (like Gmail, Twitter Lite)
+* Load site faster using cache
+* Push notifications
+* Background data sync
+
+---
+
+### ⚠️ Limitations:
+
+| Limitation        | Reason                       |
+| ----------------- | ---------------------------- |
+| No DOM access     | Runs outside the main thread |
+| HTTPS required    | For security                 |
+| Asynchronous only | Uses Promises and events     |
+
+---
+
+### 📌 Summary (1 Line):
+
+> **Service Worker = Background JS file that powers offline experience, caching, and push notifications.**
+
+---
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1720,6 +1884,105 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 36. ### What is IndexedDB
 
     IndexedDB is a low-level API for client-side storage of larger amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data.
+
+    ### 🗃️ What is IndexedDB in JavaScript?
+
+**IndexedDB** ek **browser ke andar built-in database** hota hai jo large amount of structured data ko **store** karne ke liye use hota hai.
+Ye **client-side** storage hota hai, aur **key-value** format me data store karta hai.
+
+---
+
+### 📦 Simple Definition (Desi Style):
+
+> **IndexedDB** ek **local database** hai jo tumhare browser ke andar hoti hai.
+> Jaise mobile me "offline WhatsApp chat" store hoti hai — waise hi IndexedDB me **offline web app ka data** store hota hai.
+
+---
+
+### 🧠 Key Features:
+
+| Feature              | Description                             |
+| -------------------- | --------------------------------------- |
+| Large data storage   | Much more than `localStorage` (MBs/GBs) |
+| Asynchronous         | Works with Promises or events           |
+| Structured data      | Stores objects, arrays, blobs, etc.     |
+| Indexed & searchable | Fast searching using indexes            |
+| Persistent           | Data remains even after browser close   |
+
+---
+
+### ✅ Use Cases:
+
+* Offline web apps (e.g., Gmail, Trello)
+* Caching API responses
+* Storing files, blobs
+* Storing form data locally
+
+---
+
+### 🔧 Basic IndexedDB Workflow:
+
+```js
+let db;
+
+let request = indexedDB.open("MyDatabase", 1);
+
+request.onerror = function (event) {
+  console.error("Database error:", event.target.error);
+};
+
+request.onsuccess = function (event) {
+  db = event.target.result;
+  console.log("DB opened successfully");
+};
+
+request.onupgradeneeded = function (event) {
+  db = event.target.result;
+  const store = db.createObjectStore("users", { keyPath: "id" });
+  store.createIndex("name", "name", { unique: false });
+};
+```
+
+### ➕ Adding Data:
+
+```js
+const transaction = db.transaction(["users"], "readwrite");
+const store = transaction.objectStore("users");
+store.add({ id: 1, name: "Sajid" });
+```
+
+### 🔍 Reading Data:
+
+```js
+const tx = db.transaction("users");
+const store = tx.objectStore("users");
+const request = store.get(1);
+
+request.onsuccess = function () {
+  console.log("User:", request.result); // { id: 1, name: "Sajid" }
+};
+```
+
+---
+
+### 🆚 IndexedDB vs localStorage:
+
+| Feature      | IndexedDB                | localStorage           |
+| ------------ | ------------------------ | ---------------------- |
+| Storage size | Large (100MB+)           | Small (\~5MB)          |
+| Data type    | Objects, binary data     | Strings only           |
+| Async        | Yes (non-blocking)       | No (blocking)          |
+| Indexing     | Yes                      | No                     |
+| Use cases    | Offline apps, large data | Simple key-value pairs |
+
+---
+
+### 🧠 One Line Summary:
+
+> **IndexedDB = Browser ke andar ek powerful, async, offline database.**
+
+---
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1849,6 +2112,11 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
     The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
     The syntax would be as below
+
+    The storage event is triggered when data in localStorage or sessionStorage changes, but only across different tabs or windows of the same origin (domain).
+
+    Jab tum ek tab me localStorage ka data change karte ho, to doosri tab ko batane ke liye storage event fire hota hai.
+Ye ek signal deta hai: “Bhai, kuch change hua hai storage me!”
 
     ```javascript
     window.onstorage = functionRef;

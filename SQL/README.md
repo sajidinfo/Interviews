@@ -1670,3 +1670,956 @@ Database engine **automatically optimize** karta hai query plan — aur hum bhi 
 * **OLAP:** BI dashboards, Data warehouse
 
 ---
+
+
+Sajid bhai, chalo ab in **Top 10 SQL Query-Based Questions** ko solve karte hain with examples — ye questions coding round aur real-world project me **bahut common aur practical** hote hain. Main **MySQL** syntax ke base pe likh raha hoon, lekin batata bhi rahunga agar SQL Server/PostgreSQL me difference ho.
+
+---
+
+### **1. How to retrieve the second-highest salary of an employee?**
+
+```sql
+SELECT MAX(salary)
+FROM employees
+WHERE salary < (
+  SELECT MAX(salary) FROM employees
+);
+```
+
+✅ Alternate (Using LIMIT):
+
+```sql
+SELECT DISTINCT salary 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;
+```
+
+---
+
+### **2. How to get the Nth highest salary?**
+
+(maan lo n = 4)
+
+```sql
+SELECT DISTINCT salary 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 3;
+```
+
+> `OFFSET = n-1` (4th salary means offset 3)
+
+---
+
+### **3. How do you fetch all employees whose salary is greater than the average salary?**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+
+---
+
+### **4. Write a query to display the current date and time**
+
+✅ **MySQL:**
+
+```sql
+SELECT NOW() AS current_datetime;
+```
+
+✅ **SQL Server:**
+
+```sql
+SELECT GETDATE() AS current_datetime;
+```
+
+✅ **PostgreSQL:**
+
+```sql
+SELECT CURRENT_TIMESTAMP;
+```
+
+---
+
+### **5. How to find duplicate records in a table?**
+
+(maan lo column `email` me duplicate dekhna hai)
+
+```sql
+SELECT email, COUNT(*) AS count
+FROM employees
+GROUP BY email
+HAVING COUNT(*) > 1;
+```
+
+---
+
+### **6. How can you delete duplicate rows?**
+
+```sql
+WITH cte AS (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) AS rn
+  FROM employees
+)
+DELETE FROM cte WHERE rn > 1;
+```
+
+> ✅ MySQL 8+, PostgreSQL, SQL Server me ye kaam karta hai.
+> Pehle duplicates ko number do, fir rn > 1 ko delete karo.
+
+---
+
+### **7. How to get the common records from two tables?**
+
+(maan lo `employees` aur `managers` table dono me `id` column hai)
+
+```sql
+SELECT id 
+FROM employees 
+WHERE id IN (SELECT id FROM managers);
+```
+
+✅ OR with JOIN:
+
+```sql
+SELECT e.* 
+FROM employees e
+JOIN managers m ON e.id = m.id;
+```
+
+---
+
+### **8. How to retrieve the last 10 records from a table?**
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY id DESC 
+LIMIT 10;
+```
+
+> Ye descending me aayega, agar ascending chahiye:
+
+```sql
+SELECT * FROM (
+  SELECT * FROM employees ORDER BY id DESC LIMIT 10
+) AS temp
+ORDER BY id ASC;
+```
+
+---
+
+### **9. How do you fetch the top 5 employees with the highest salaries?**
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 5;
+```
+
+---
+
+### **10. How to calculate the total salary of all employees?**
+
+```sql
+SELECT SUM(salary) AS total_salary 
+FROM employees;
+```
+
+---
+
+Sajid bhai, yeh rahe tumhare **query-based SQL questions (11–25)** ka complete solution set — real-world logic ke sath likha gaya hai, taaki tumhara **interview + practical duno crack ho jaye** 💯
+
+---
+
+### **11. Employees who joined in 2020**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE YEAR(joining_date) = 2020;
+```
+
+---
+
+### **12. Employees whose name starts with 'A'**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE name LIKE 'A%';
+```
+
+---
+
+### **13. Employees who do not have a manager**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE manager_id IS NULL;
+```
+
+✅ OR
+
+```sql
+SELECT e.* 
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.id
+WHERE m.id IS NULL;
+```
+
+---
+
+### **14. Department with the highest number of employees**
+
+```sql
+SELECT department_id, COUNT(*) AS emp_count
+FROM employees
+GROUP BY department_id
+ORDER BY emp_count DESC
+LIMIT 1;
+```
+
+---
+
+### **15. Count of employees in each department**
+
+```sql
+SELECT department_id, COUNT(*) AS emp_count
+FROM employees
+GROUP BY department_id;
+```
+
+---
+
+### **16. Highest salary in each department**
+
+```sql
+SELECT * FROM (
+  SELECT *,
+         RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rnk
+  FROM employees
+) AS temp
+WHERE rnk = 1;
+```
+
+---
+
+### **17. Update salary of all employees by 10%**
+
+```sql
+UPDATE employees
+SET salary = salary * 1.10;
+```
+
+---
+
+### **18. Employees with salary between 50,000 and 1,00,000**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE salary BETWEEN 50000 AND 100000;
+```
+
+---
+
+### **19. Youngest employee in the organization**
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY date_of_birth DESC 
+LIMIT 1;
+```
+
+✅ Latest DOB → sabse chhota employee
+
+---
+
+### **20. First and Last Record from a table**
+
+✅ **First:**
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY id ASC 
+LIMIT 1;
+```
+
+✅ **Last:**
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY id DESC 
+LIMIT 1;
+```
+
+---
+
+### **21. Employees who report to a specific manager (e.g., id = 101)**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE manager_id = 101;
+```
+
+---
+
+### **22. Total number of departments**
+
+```sql
+SELECT COUNT(DISTINCT department_id) AS total_departments
+FROM employees;
+```
+
+---
+
+### **23. Department with the lowest average salary**
+
+```sql
+SELECT department_id, AVG(salary) AS avg_sal
+FROM employees
+GROUP BY department_id
+ORDER BY avg_sal ASC
+LIMIT 1;
+```
+
+---
+
+### **24. Delete all employees from a department (e.g., department\_id = 5)**
+
+```sql
+DELETE FROM employees 
+WHERE department_id = 5;
+```
+
+---
+
+### **25. Employees who have been in company for more than 5 years**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE DATEDIFF(CURDATE(), joining_date) >= 365 * 5;
+```
+
+✅ SQL Server:
+
+```sql
+SELECT * 
+FROM employees 
+WHERE DATEDIFF(YEAR, joining_date, GETDATE()) >= 5;
+```
+
+---
+
+### ✅ All Queries Done Bhai!
+
+Tumne ab 25 aur **query-based problem-solving** kar li — isme:
+
+* `JOIN`, `GROUP BY`, `UPDATE`, `DELETE`, `AGGREGATE`, `WINDOW FUNCTION` sab cover ho gaya 🎯
+* Tum ready ho SQL coding round ke liye
+
+---
+
+Sajid bhai, chalo karte hain tumhare next **26 to 40 SQL coding questions** ka full solution — saare practical use cases ke sath, bilkul **job-level clarity** me. Yah set thoda aur advanced hai, lekin tumhari 4 saal ki skill se perfect match karega 💪
+
+---
+
+### **26. How to find the second-largest value from a table?**
+
+```sql
+SELECT MAX(salary) 
+FROM employees 
+WHERE salary < (SELECT MAX(salary) FROM employees);
+```
+
+✅ Alternate:
+
+```sql
+SELECT DISTINCT salary 
+FROM employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;
+```
+
+---
+
+### **27. Remove all records but keep the table structure**
+
+```sql
+TRUNCATE TABLE employees;
+```
+
+> TRUNCATE data hataata hai, structure safe rehta hai.
+
+---
+
+### **28. Get all employee records in XML format** (SQL Server)
+
+```sql
+SELECT id, name, salary
+FROM employees
+FOR XML AUTO;
+```
+
+✅ MySQL doesn't support native XML out-of-box.
+
+---
+
+### **29. Get current month’s name**
+
+✅ **MySQL:**
+
+```sql
+SELECT MONTHNAME(CURDATE()) AS current_month;
+```
+
+✅ **SQL Server:**
+
+```sql
+SELECT DATENAME(MONTH, GETDATE()) AS current_month;
+```
+
+---
+
+### **30. Convert string to lowercase**
+
+✅ MySQL:
+
+```sql
+SELECT LOWER('SAJID') AS lower_text;
+```
+
+✅ SQL Server:
+
+```sql
+SELECT LOWER('SAJID');
+```
+
+---
+
+### **31. Find employees who do not have subordinates**
+
+```sql
+SELECT * 
+FROM employees e
+WHERE NOT EXISTS (
+  SELECT 1 
+  FROM employees sub 
+  WHERE sub.manager_id = e.id
+);
+```
+
+---
+
+### **32. Total sales per customer (sales table)**
+
+```sql
+SELECT customer_id, SUM(sale_amount) AS total_sales
+FROM sales
+GROUP BY customer_id;
+```
+
+---
+
+### **33. Check if a table is empty**
+
+```sql
+SELECT CASE 
+  WHEN EXISTS (SELECT 1 FROM employees) 
+  THEN 'Not Empty' 
+  ELSE 'Empty' 
+END AS table_status;
+```
+
+---
+
+### **34. Second highest salary in each department**
+
+```sql
+SELECT * FROM (
+  SELECT *, 
+         DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rnk
+  FROM employees
+) AS temp
+WHERE rnk = 2;
+```
+
+---
+
+### **35. Employees with salary multiple of 10,000**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE salary % 10000 = 0;
+```
+
+✅ MySQL me `%` and `MOD()` dono chalega.
+
+---
+
+### **36. Fetch records where column is NULL**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE manager_id IS NULL;
+```
+
+> Always use `IS NULL`, not `= NULL`.
+
+---
+
+### **37. Total number of employees in each job title**
+
+```sql
+SELECT job_title, COUNT(*) AS total_employees
+FROM employees
+GROUP BY job_title;
+```
+
+---
+
+### **38. Employees whose names end with ‘n’**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE name LIKE '%n';
+```
+
+---
+
+### **39. Employees who work in both departments 101 and 102**
+
+🧠 Table should support multi-department mapping (assume `emp_dept` table exists)
+
+```sql
+SELECT employee_id 
+FROM emp_dept
+WHERE department_id IN (101, 102)
+GROUP BY employee_id
+HAVING COUNT(DISTINCT department_id) = 2;
+```
+
+---
+
+### **40. Employees with the same salary**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE salary IN (
+  SELECT salary 
+  FROM employees 
+  GROUP BY salary 
+  HAVING COUNT(*) > 1
+);
+```
+
+---
+
+Sajid bhai, aaj ke set me tum **41–55 tak ke SQL advanced query questions** pooch rahe ho — yah sab **real-world problem-solving** ke example hain, jo tumhare jaise experienced developer ke level ke hote hain. Let’s crack them all 💪
+
+---
+
+### **41. Update salaries of employees based on their department**
+
+```sql
+UPDATE employees
+SET salary = CASE department_id
+  WHEN 101 THEN salary * 1.10
+  WHEN 102 THEN salary * 1.15
+  ELSE salary
+END;
+```
+
+---
+
+### **42. List all employees without a department**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE department_id IS NULL;
+```
+
+---
+
+### **43. Max and Min salary in each department**
+
+```sql
+SELECT department_id, 
+       MAX(salary) AS max_salary,
+       MIN(salary) AS min_salary
+FROM employees
+GROUP BY department_id;
+```
+
+---
+
+### **44. Employees hired in the last 6 months**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE joining_date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH);
+```
+
+---
+
+### **45. Department-wise total and average salary**
+
+```sql
+SELECT department_id,
+       SUM(salary) AS total_salary,
+       AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department_id;
+```
+
+---
+
+### **46. Employees who joined in the same month & year as their manager**
+
+```sql
+SELECT e.*
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE MONTH(e.joining_date) = MONTH(m.joining_date)
+  AND YEAR(e.joining_date) = YEAR(m.joining_date);
+```
+
+---
+
+### **47. Count of employees whose names start & end with same letter**
+
+```sql
+SELECT COUNT(*) AS total
+FROM employees
+WHERE LOWER(LEFT(name, 1)) = LOWER(RIGHT(name, 1));
+```
+
+---
+
+### **48. Employee names and salaries in a single string**
+
+```sql
+SELECT CONCAT(name, ' earns ₹', salary) AS emp_salary_info
+FROM employees;
+```
+
+---
+
+### **49. Employees whose salary > manager’s salary**
+
+```sql
+SELECT e.*
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary;
+```
+
+---
+
+### **50. Employees in departments with less than 3 employees**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE department_id IN (
+  SELECT department_id 
+  FROM employees 
+  GROUP BY department_id 
+  HAVING COUNT(*) < 3
+);
+```
+
+---
+
+### **51. Employees with same first name**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE name IN (
+  SELECT name 
+  FROM employees 
+  GROUP BY name 
+  HAVING COUNT(*) > 1
+);
+```
+
+---
+
+### **52. Delete employees who’ve been in company for more than 15 years**
+
+```sql
+DELETE FROM employees
+WHERE DATEDIFF(CURDATE(), joining_date) > (15 * 365);
+```
+
+---
+
+### **53. Employees under the same manager**
+
+```sql
+SELECT manager_id, GROUP_CONCAT(name) AS team_members
+FROM employees
+WHERE manager_id IS NOT NULL
+GROUP BY manager_id
+HAVING COUNT(*) > 1;
+```
+
+> Shows managers with more than 1 team member.
+
+---
+
+### **54. Top 3 highest-paid employees in each department**
+
+```sql
+SELECT * FROM (
+  SELECT *, 
+         DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rnk
+  FROM employees
+) AS temp
+WHERE rnk <= 3;
+```
+
+---
+
+### **55. Employees with 5+ years of experience in each department**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE DATEDIFF(CURDATE(), joining_date) >= (5 * 365);
+```
+
+> You can group later for department-wise count if needed:
+
+```sql
+SELECT department_id, COUNT(*) 
+FROM employees 
+WHERE DATEDIFF(CURDATE(), joining_date) >= (5 * 365)
+GROUP BY department_id;
+```
+
+---
+
+Sajid bhai, welcome to **SQL Advanced Set (56–70)** — yah set tumhare **query writing, analytics, date functions, salary bands**, aur grouping ke concepts ko full polish kar dega 💯
+Let’s solve these one by one — with real-life interview-level clarity:
+
+---
+
+### **56. Employees in departments that haven't hired anyone in past 2 years**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE department_id IN (
+  SELECT department_id 
+  FROM employees 
+  GROUP BY department_id
+  HAVING MAX(joining_date) < DATE_SUB(CURDATE(), INTERVAL 2 YEAR)
+);
+```
+
+---
+
+### **57. Employees earning more than their department’s average**
+
+```sql
+SELECT * 
+FROM employees e
+WHERE salary > (
+  SELECT AVG(salary) 
+  FROM employees 
+  WHERE department_id = e.department_id
+);
+```
+
+---
+
+### **58. Managers with more than 5 subordinates**
+
+```sql
+SELECT manager_id, COUNT(*) AS sub_count
+FROM employees
+WHERE manager_id IS NOT NULL
+GROUP BY manager_id
+HAVING COUNT(*) > 5;
+```
+
+---
+
+### **59. Name and hire date in "Name - MM/DD/YYYY" format**
+
+```sql
+SELECT CONCAT(name, ' - ', DATE_FORMAT(joining_date, '%m/%d/%Y')) AS formatted_info
+FROM employees;
+```
+
+---
+
+### **60. Employees whose salary is in top 10%**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE salary >= (
+  SELECT PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY salary) 
+  FROM employees
+);
+```
+
+✅ MySQL workaround:
+
+```sql
+SELECT * 
+FROM employees 
+ORDER BY salary DESC
+LIMIT FLOOR(0.1 * (SELECT COUNT(*) FROM employees));
+```
+
+---
+
+### **61. Group employees by age brackets (20–30, 31–40, etc.)**
+
+```sql
+SELECT 
+  CASE 
+    WHEN age BETWEEN 20 AND 30 THEN '20-30'
+    WHEN age BETWEEN 31 AND 40 THEN '31-40'
+    WHEN age BETWEEN 41 AND 50 THEN '41-50'
+    ELSE '50+'
+  END AS age_group,
+  COUNT(*) AS total
+FROM (
+  SELECT TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) AS age
+  FROM employees
+) AS derived
+GROUP BY age_group;
+```
+
+---
+
+### **62. Average salary of top 5 earners in each department**
+
+```sql
+SELECT department_id, AVG(salary) AS avg_top5_salary
+FROM (
+  SELECT *, 
+         ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rnk
+  FROM employees
+) AS temp
+WHERE rnk <= 5
+GROUP BY department_id;
+```
+
+---
+
+### **63. Percentage of employees in each department**
+
+```sql
+SELECT department_id, 
+       COUNT(*) AS emp_count,
+       ROUND(100 * COUNT(*) / (SELECT COUNT(*) FROM employees), 2) AS percentage
+FROM employees
+GROUP BY department_id;
+```
+
+---
+
+### **64. Employees with email containing '@example.com'**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE email LIKE '%@example.com';
+```
+
+---
+
+### **65. Year-to-date sales for each customer**
+
+```sql
+SELECT customer_id, SUM(sale_amount) AS ytd_sales
+FROM sales
+WHERE sale_date >= DATE_FORMAT(CURDATE(), '%Y-01-01')
+GROUP BY customer_id;
+```
+
+---
+
+### **66. Hire date and day of the week**
+
+```sql
+SELECT name, 
+       joining_date,
+       DAYNAME(joining_date) AS day_of_week
+FROM employees;
+```
+
+---
+
+### **67. Employees older than 30 years**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) > 30;
+```
+
+---
+
+### **68. Employees grouped by salary range (e.g., 0–20K, 20K–50K)**
+
+```sql
+SELECT 
+  CASE 
+    WHEN salary <= 20000 THEN '0-20K'
+    WHEN salary <= 50000 THEN '20K-50K'
+    WHEN salary <= 80000 THEN '50K-80K'
+    ELSE '80K+'
+  END AS salary_range,
+  COUNT(*) AS total
+FROM employees
+GROUP BY salary_range;
+```
+
+---
+
+### **69. Employees who do not have a bonus**
+
+```sql
+SELECT * 
+FROM employees 
+WHERE bonus IS NULL OR bonus = 0;
+```
+
+---
+
+### **70. Highest, lowest & average salary per job role**
+
+```sql
+SELECT job_title,
+       MAX(salary) AS highest,
+       MIN(salary) AS lowest,
+       ROUND(AVG(salary), 2) AS average
+FROM employees
+GROUP BY job_title;
+```
+
+---

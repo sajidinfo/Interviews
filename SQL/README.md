@@ -103,6 +103,26 @@ Har user ka email alag hona chahiye, lekin kuch rows me `NULL` ho sakta hai.
 | Count per table | 1 hi hoti hai                 | Multiple UNIQUE ho sakte |
 | Use             | Record identify karne ke liye | Extra validation ke liye |
 
+| Key Type      | Uniqueness | NULL Allowed | Count Per Table | Purpose                        |
+| ------------- | ---------- | ------------ | --------------- | ------------------------------ |
+| Primary Key   | ✅          | ❌            | 1 only          | Unique ID of row               |
+| Foreign Key   | ❌          | ✅            | Many            | Link with other table          |
+| Unique Key    | ✅          | ✅            | Many            | Ensure unique data             |
+| Composite Key | ✅          | ❌            | 1 (as primary)  | Combine columns for uniqueness |
+| Candidate Key | ✅          | ❌            | Many            | Potential primary keys         |
+| Alternate Key | ✅          | ❌            | Many            | Candidate keys not selected    |
+| Super Key     | ✅          | ✅            | Many            | Any combo identifying row      |
+
+| Term          | Desi Bhasha Me Example                                           |
+| ------------- | ---------------------------------------------------------------- |
+| Primary Key   | Aapka **Aadhar Card Number**                                     |
+| Foreign Key   | Aapki **Gaav ki Family ID** — jo dusre table se juri hai         |
+| Unique Key    | Aapka **Mobile Number** ya **Email** — unique hona chahiye       |
+| Composite Key | Aapka **(Aadhar + Date of Birth)** dono milke unique banta hai   |
+| Candidate Key | Aapke paas 3 ID proofs — koi bhi valid ho sakta tha              |
+| Alternate Key | Jo ID proof select nahi hua, par fir bhi unique tha              |
+| Super Key     | Aapka **Aadhar + Name + Email** — extra info ke saath bhi unique |
+
 ---
 
 ### **8. What is NOT NULL Constraint?**

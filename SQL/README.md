@@ -328,8 +328,6 @@ SELECT name FROM clients;
 
 ---
 
-Bhai **Sajid**, tumhare 4 saal ke experience ke hisaab se ye sab questions easily samajh aa jayenge agar hum desi style me dekhen — chalo ek-ek karke samajhte hain 💡:
-
 ---
 
 ### **21. What is Normalization?**
@@ -479,9 +477,6 @@ SELECT city, COUNT(*) FROM users GROUP BY city;
 -- Sort users by name
 SELECT * FROM users ORDER BY name ASC;
 ```
-
----
-Sajid bhai, ab aage ke 31-40 SQL interview questions ka jawab **4 saal ke experience aur desi style** me leke aaya hoon. Simple examples ke sath samjha raha hoon:
 
 ---
 

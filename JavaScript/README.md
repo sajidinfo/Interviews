@@ -509,7 +509,7 @@
 
 ## 📌 What is JavaScript?
 
-**JavaScript** is a **high-level, dynamically typed, just-in-time compiled** programming language that plays a major role in building **interactive web applications**. It is one of the **core technologies of the web**, along with **HTML** and **CSS**.
+ JavaScript is a popular web scripting language with object orinted capabilities, JavaScript used both on the client-side and server-side that allows you to make interactive and static web pages.JavaScript can dynamically updating content and change both HTML and CSS,Control multimedia, animate images .JavaScript can calculate, manipulate and validate data. this is a Case sensitive language." and there are many more features in js such as lightweight & interpreted , intergrated ,cross platform, open source, object orinted , you can designe for creating network-centric applications.
 
 ---
 
@@ -632,59 +632,9 @@ You don’t need to define variable types explicitly. JS determines the type at 
        }
        var object = new Person("Sudheer");
        ```
-    5. **Function constructor with prototype:**
+    
 
-       This is similar to function constructor but it uses prototype for their properties and methods. Using prototype means you're sharing methods/properties across instances, which saves memory and improve performance.
-
-       ```javascript
-       function Person() {}
-       Person.prototype.name = "Sudheer";
-       var object = new Person();
-       ```
-
-       This is equivalent to creating an instance with `Object.create` method with a function prototype and then calling that function with an instance and parameters as arguments.
-
-       ```javascript
-       function func(x, y, z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-       }
-
-       var instance = new func(1, 2, 3);
-       ```
-
-       **(OR)**
-
-       ```javascript
-       function func(x, y, z) {
-          this.x = x;
-          this.y = y;
-          this.z = z;
-       }
-       // Create a new instance using function prototype.
-       var newInstance = Object.create(func.prototype)
-
-       // Call the function
-       var result = func.call(newInstance, 1, 2, 3),
-
-       // If the result is a non-null object then use it otherwise just use the new instance.
-       console.log(result && typeof result === 'object' ? result : newInstance);
-       ```
-
-    6. **Object's assign method:**
-
-       The `Object.assign` method is used to copy all the properties from one or more source objects and stores them into a target object. This is mainly used for cloning and merging
-
-       The following code creates a new staff object by copying properties of his working company and the car he owns.
-
-       ```javascript
-       const orgObject = { company: "XYZ Corp" };
-       const carObject = { name: "Toyota" };
-       const staff = Object.assign({}, orgObject, carObject);
-       ```
-
-    7. **ES6 Class syntax:**
+    5. **ES6 Class syntax:**
 
        ES6 introduces class feature to create objects. This is syntactic sugar over the prototype-based system.
 
@@ -698,44 +648,14 @@ You don’t need to define variable types explicitly. JS determines the type at 
        var object = new Person("Sudheer");
        ```
 
-    8. **Singleton pattern:**
-
-       A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance. This way one can ensure that they don't accidentally create multiple instances.
-
-        ##### Singleton with Closure (Classic JS Pattern)
-        ```javascript
-        const Singleton = (function () {
-        let instance;
-
-        function createInstance() {
-          return { name: "Sudheer" };
-        }
-
-        return {
-          getInstance: function () {
-            if (!instance) {
-              instance = createInstance();
-            }
-            return instance;
-          }
-        };
-        })();
-
-        // Usage
-        const obj1 = Singleton.getInstance();
-        const obj2 = Singleton.getInstance();
-
-        console.log(obj1 === obj2); // true
-        ```
          In modern JavaScript applications, singletons are commonly implemented using ES6 modules for their built-in caching behavior, or closures for encapsulated state management.
 
       **[⬆ Back to Top](#table-of-contents)**
 
 2. ### What is a prototype chain
 
-    Prototype Chain is a mechanism in JavaScript by which objects inherit properties and methods from other objects.
-
-    The prototype chain is a core concept in JavaScript’s inheritance model. It allows objects to inherit properties and methods from other objects. When you try to access a property or method on an object, JavaScript first looks for it on that object itself. If it’s not found, the engine looks up the object's internal `[[Prototype]]` reference (accessible via `Object.getPrototypeOf(obj)` or the deprecated `__proto__` property) and continues searching up the chain until it finds the property or reaches the end (usually `null`).
+    The prototype chain is a core concept in JavaScript’s inheritance model. 
+    It allows objects to inherit properties and methods from other objects. When you try to access a property or method on an object, JavaScript first looks for it on that object itself. If it’s not found, the engine looks up the object's internal `[[Prototype]]` reference (accessible via `Object.getPrototypeOf(obj)` or the deprecated `__proto__` property) and continues searching up the chain until it finds the property or reaches the end (usually `null`).
 
     "JavaScript doesn't have classical inheritance like Java or C++. It uses prototype-based inheritance, and the lookup happens through the prototype chain."
 
@@ -767,6 +687,15 @@ You don’t need to define variable types explicitly. JS determines the type at 
 3. ### What is the Difference Between `call`, `apply`, and `bind`
 
   In JavaScript, `call`, `apply`, and `bind` are methods that allow you to control the context (`this` value) in which a function is executed. While their purposes are similar, they differ in how they handle arguments and when the function is invoked.
+
+
+  #### Summary
+
+  | Method | Invokes Function Immediately? | How Arguments Are Passed         | Returns      |
+  |--------|-------------------------------|----------------------------------|--------------|
+  | `call` | Yes                           | Comma-separated list             | Function's result |
+  | `apply`| Yes                           | Array or array-like object       | Function's result |
+  | `bind` | No                            | (Optional) preset, then rest     | New function      |
 
   ---
 
@@ -854,16 +783,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
   ---
 
-  #### Summary
-
-  | Method | Invokes Function Immediately? | How Arguments Are Passed         | Returns      |
-  |--------|-------------------------------|----------------------------------|--------------|
-  | `call` | Yes                           | Comma-separated list             | Function's result |
-  | `apply`| Yes                           | Array or array-like object       | Function's result |
-  | `bind` | No                            | (Optional) preset, then rest     | New function      |
-
-  ---
-
   ## Key Points
 
   - **`call`** and **`apply`** are almost interchangeable; both invoke the function immediately, but differ in how arguments are passed.
@@ -878,7 +797,7 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
 4. ### What is JSON and its common operations
 
-    **JSON (JavaScript Object Notation)** is a lightweight, text-based data format that uses JavaScript object syntax for structuring data. It was popularized by Douglas Crockford and is widely used for transmitting data between a server and a client in web applications. JSON files typically have a `.json` extension and use the MIME type `application/json`. 
+    **JSON (JavaScript Object Notation)** is a lightweight, text-based data format that uses JavaScript object syntax for structuring data. It used for transmitting data between a server and a client in web applications. JSON files typically have a `.json` extension and use the MIME type `application/json`. 
 
     #### Common Operations with JSON
 
@@ -1102,6 +1021,8 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
 10. ### What are lambda expressions or arrow functions
 
+    Arrow functions (also called lambda expressions) are a shorter way to write functions in JavaScript.
+
     **Arrow functions** (also known as "lambda expressions") provide a concise syntax for writing function expressions in JavaScript. Introduced in ES6, arrow functions are often shorter and more readable, especially for simple operations or callbacks.
 
     #### Key Features:
@@ -1314,31 +1235,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
     **[⬆ Back to Top](#table-of-contents)**
 
-18. ### What is the purpose of the let keyword
-
-    The `let` keyword in JavaScript is used to declare a **block-scoped local variable**. This means that variables declared with `let` are only accessible within the block, statement, or expression where they are defined. This is a significant improvement over the older `var` keyword, which is function-scoped (or globally-scoped if declared outside a function), and does not respect block-level scoping.
-
-    #### Key Features of `let`:
-    - **Block Scope:** The variable exists only within the nearest enclosing block (e.g., inside an `{}` pair).
-    - **No Hoisting Issues:** While `let` declarations are hoisted, they are not initialized until the code defining them is executed. Accessing them before declaration results in a ReferenceError (temporal dead zone).
-    - **No Redeclaration:** The same variable cannot be declared twice in the same scope with `let`.
-
-    #### Example:
-
-    ```javascript
-    let counter = 30;
-    if (counter === 30) {
-      let counter = 31;
-      console.log(counter); // Output: 31 (block-scoped variable inside if-block)
-    }
-    console.log(counter); // Output: 30 (outer variable, unaffected by inner block)
-    ```
-
-    In this example, the `counter` inside the `if` block is a separate variable from the one outside. The `let` keyword ensures that both have their own distinct scope.
-
-    In summary, you need to use `let` when you want variables to be limited to the block in which they are defined, preventing accidental overwrites and bugs related to variable scope.
-
-
 ---
 
 ## 🆚 `var` vs `let` vs `const`
@@ -1352,62 +1248,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 | 📦 Initialisation | Optional                        | Optional                   | ✅ **Required**                    |
 | 📌 Use Case       | Old JS / not recommended now    | Recommended for variables  | Recommended for constants (fixed) |
 
----
-
-## 📘 Scope Example:
-
-```js
-{
-  var a = 10;
-  let b = 20;
-  const c = 30;
-}
-
-console.log(a); // ✅ 10
-console.log(b); // ❌ ReferenceError
-console.log(c); // ❌ ReferenceError
-```
-
-👉 `var` is function-scoped — block ke bahar bhi access ho gaya
-👉 `let` and `const` are block-scoped — sirf `{}` ke andar valid
-
----
-
-## 🔁 Re-declaration Example:
-
-```js
-var x = 5;
-var x = 10;   // ✅ Allowed
-
-let y = 5;
-// let y = 10; // ❌ Error
-
-const z = 5;
-// const z = 10; // ❌ Error
-```
-
----
-
-## ⏱ Hoisting Example:
-
-```js
-console.log(a); // undefined (var hoisted)
-var a = 5;
-
-console.log(b); // ❌ ReferenceError (let in TDZ)
-let b = 10;
-```
-
----
-
-## 🔒 `const` = Read-Only Binding (not value)
-
-```js
-const arr = [1, 2];
-arr.push(3); // ✅ Allowed
-
-arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
-```
 
 ---
 
@@ -1426,42 +1266,8 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 ---
 
 
-    **[⬆ Back to Top](#table-of-contents)**
+ **[⬆ Back to Top](#table-of-contents)**
 
-19. ### What is the difference between let and var
-
-    You can list out the differences in a tabular format
-
-    | var                                                            | let                                           |
-    | -------------------------------------------------------------- | --------------------------------------------- |
-    | It has been available from the beginning of JavaScript         | Introduced as part of ES6                     |
-    | It has function scope                                          | It has block scope                            |
-    | Variable declaration will be hoisted, initialized as undefined | Hoisted but not initialized                   |
-    | It is possible to re-declare the variable in the same scope    | It is not possible to re-declare the variable |
-
-    Let's take an example to see the difference,
-
-    ```javascript
-    function userDetails(username) {
-      if (username) {
-        console.log(salary); // undefined due to hoisting
-        console.log(age); // ReferenceError: Cannot access 'age' before initialization
-        let age = 30;
-        var salary = 10000;
-      }
-      console.log(salary); //10000 (accessible due to function scope)
-      console.log(age); //error: age is not defined(due to block scope)
-    }
-    userDetails("John");
-    ```
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-20. ### What is the reason to choose the name let as a keyword
-
-    The keyword `let` was chosen because it originates from mathematical notation, where "let" is used to introduce new variables (for example, "let x = 5"). This term was adopted by several early programming languages such as Scheme and BASIC, establishing a tradition in computer science. JavaScript follows this convention by using `let` to declare variables with block scope, providing a modern alternative to `var`. The choice helps make the language more familiar to programmers coming from other languages and aligns with the mathematical practice of variable assignment.
-
-    **[⬆ Back to Top](#table-of-contents)**
 
 21. ### How do you redeclare variables in a switch block without an error
 
@@ -1503,9 +1309,8 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
 22. ### What is the Temporal Dead Zone
 
-    The **Temporal Dead Zone (TDZ)** refers to the period between the start of a block and the point where a variable declared with `let` or `const` is initialized. During this time, the variable exists in scope but **cannot be accessed**, and attempting to do so results in a `ReferenceError`.
-    
-    This behavior is part of **JavaScript's ES6 (ECMAScript 2015)** specification and applies **only to variables declared with `let` and `const`**, not `var`. Variables declared with `var` are **hoisted** and initialized with `undefined`, so accessing them before the declaration does not throw an error, though it can lead to unexpected results.
+   The Temporal Dead Zone (TDZ) is the time between when a variable is declared using let or const and when it is actually initialized (given a value).
+   During this time, you cannot use the variable — if you try, it gives an error.
     
 23. ### Example
     
@@ -1560,8 +1365,11 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
 
 26. ### What is memoization
 
-    Memoization is a functional programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
-    Let's take an example of adding function with memoization,
+    Memoization ek technique hai jisme hum function ke result ko yaad (store) kar lete hain — taaki next time same input aaye toh dobara calculation na ho, seedha stored result return kar dein.
+
+    "Memoization is a technique to store the result of expensive function calls and return the cached result when the same inputs occur again. It helps improve performance."
+
+👉 Isse performance fast hoti hai, especially slow or heavy calculations ke cases me.
 
     ```javascript
     const memoizeAddition = () => {
@@ -1583,12 +1391,6 @@ arr = [4, 5]; // ❌ Error - const ka reference change nahi ho sakta
     console.log(addition(20)); //output: 40 calculated
     console.log(addition(20)); //output: 40 cached
     ```
-
-**Memoization** JavaScript (aur kisi bhi programming language) mein ek **optimization technique** hai jiska use expensive function calls ko fast banane ke liye hota hai by **caching** the result.
-
-### 📌 Simple Definition (Desi Style):
-
-> Agar koi function baar-baar same input ke saath call ho raha hai, to uska result yaad rakh lena chahiye taaki dobara calculation na karna pade. Isi ko kehte hain memoization.
 
 ---
 
@@ -1645,7 +1447,8 @@ console.log(memoizedAdd(2, 3)); // (No calculation) 5
 
 27. ### What is Hoisting
 
-    Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
+    Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. 
+    Remember that JavaScript only hoists declarations, not initialisation.
     Let's take a simple example of variable hoisting,
 
     ```javascript

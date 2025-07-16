@@ -405,10 +405,6 @@ export class HelloComponent {
 
 ---
 
-## 🧠 Interview Tip:
-
-> “Angular has evolved from being class-based and NgModule-heavy (v6–v12) to a modern, **signal-driven, standalone component-based** framework (v16–v20), reducing bundle size and improving developer experience.”
-
 ---
 
 ## 🔁 Angular vs React – Full Comparison
@@ -458,11 +454,6 @@ export class HelloComponent {
 
 ---
 
-## 🧠 Interview Tip:
-
-> “Angular is a full framework offering structure, routing, and DI out of the box. React is more flexible, developer-driven, and popular in product-based companies using modern tooling like Next.js.”
-
----
 
 
 ## 🆚 SSR vs CSR vs SSG vs ISR – Full Comparison

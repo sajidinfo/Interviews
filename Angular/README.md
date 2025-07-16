@@ -542,7 +542,7 @@ server.ts → renders full HTML and sends to browser
 
 1. ### What is Angular Framework?
 
-    Angular is a **TypeScript-based open-source** front-end platform that makes it easy to build web, mobile and desktop applications. The major features of this framework include declarative templates, dependency injection, end to end tooling which ease application development.
+    Angular Framework is a TypeScript-based open-source framework developed by Google. It is used to build dynamic, single-page web applications (SPAs).
 
   **[⬆ Back to Top](#table-of-contents)**
 

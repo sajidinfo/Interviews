@@ -1,26 +1,5 @@
 # 100 Days Of Frontend Interview Questions
 
-This repo will contain 500 frontend interview questions which will have HTML, CSS, Javascript & React questions. I will add not any question in which we have to write code, just theory questions.
-
-I am myself learning 5 questions a day and will add those 5 questions a day in this repo till day 100 days. I'll be posting those 5 questions on social media too so if you want to see the 5 questions daily in your social media feed, connect with me on [Twitter](https://twitter.com/saran_pariyar2) and [LinkedIn](https://www.linkedin.com/in/saran-pariyar-5078b5217/).
-
-<b>I've also added some tables, no need to memorize them, just take a look at them few times and you'll easily be able to answer those concepts if asked in interview.</b>
-
-`Source of the questions: Google, ChatGPT, Github repos, etc`
-
----
-
-## Tables of content
-
-| Techs      | No. of Questions |  Range  |  Day Range   |
-| ---------- | :--------------: | :-----: | :----------: |
-| HTML       |        50        |  0-50   |  Day 1 - 10  |
-| CSS        |       100        | 51-150  | Day 11 - 30  |
-| Javascript |       180        | 151-330 | Day 31 - 66  |
-| React      |       170        | 331-465 | Day 67 - 93  |
-| Typescript |        35        | 466-500 | Day 94 - 100 |
-
-## <br />
 
 # HTML
 
@@ -32,18 +11,31 @@ I am myself learning 5 questions a day and will add those 5 questions a day in t
 
 2. ### What is the purpose of Doctype in HTML?
 
-   The Doctype declaration specifies the type of document being used and tell the web browser how to interpret the pages content. It is located at the top of the HTML document.
+   <!DOCTYPE> is a declaration used at the very top of every HTML document.
+   It tells the browser which version of HTML you are using, so that the browser can render the page correctly.
 
 3. ### What is semantic HTML?
 
-   Semantic HTML uses specific HTML elements to provide additional information about the structure and content of the page, making it more accessible and easy to read.
+   Using HTML tags that clearly describe the meaning and purpose of the content inside them.
+
+   | Non-Semantic Tags | Semantic Tags                                 |
+| ----------------- | --------------------------------------------- |
+| `<div>`, `<span>` | `<header>`, `<main>`, `<footer>`, `<article>` |
+
 
 4. ### What are different types of list in HTML?
 
    There are 3 types of list in HTML. They are Ordered list, unordered list and definition list.
 
 5. ### What is the difference between div element and span element?
-   The div element is a block-level element that is used to group and organize other HTML elements while span element is an inline-element that is used to apply style or attribute to a specific part of a block-level element.
+
+   | Feature              | `<div>`                                 | `<span>`                                          |
+| -------------------- | --------------------------------------- | ------------------------------------------------- |
+| **Type**             | Block-level element                     | Inline element                                    |
+| **Default Behavior** | Starts on a new line (takes full width) | Stays in the same line (only takes content width) |
+| **Usage**            | Used to group big blocks of content     | Used to style small parts of text                 |
+| **Common Use**       | Layout, sections, wrappers              | Styling a word/phrase inside text                 |
+
 
 ## Day 2
 

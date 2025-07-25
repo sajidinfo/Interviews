@@ -1,59 +1,8 @@
-Here's the organized and properly formatted version of your Angular interview questions and answers:
-
----
 
 # **Angular Interview Questions and Answers for Beginners**  
 Learn the most frequent Angular interview questions and answers that freshers are expected to know.  
 
 ---
-
-## **1. What is Angular? Why was it introduced?**  
-**Angular** is an open-source web application framework for building dynamic, single-page applications (SPAs) with highly intuitive user interfaces. It encompasses **2-way data binding**, **component-based architecture**, and **dependency injection**.  
-
-Angular was introduced to:  
-- Create **SPAs** (Single Page Applications).  
-- Bring **structure and consistency** to web applications.  
-- Provide excellent **scalability and maintainability**.  
-
----
-
-## **2. What is TypeScript?**  
-**TypeScript** is a programming language that builds on JavaScript by adding extra features to make it powerful and easy to use. Its potential is implemented especially in large projects.  
-
-- TypeScript allows developers to define **data types** for variables.  
-- It helps **identify errors during development**, making debugging easier.  
-
----
-
-## **3. What is Data Binding in Angular? Which type of Data Binding does Angular deploy?**  
-**Data binding** allows users to manipulate web page elements using a web browser. It uses **dynamic HTML** and does not require complex scripting.  
-
-### **Types of Data Binding in Angular:**  
-1. **Interpolation** (`{{data}}`)  
-2. **Property Binding** (`[property]="value"`)  
-3. **Event Binding** (`(event)="handler()"`)  
-4. **Two-Way Binding** (`[(ngModel)]="value"`)  
-
----
-
-## **4. What are Single Page Applications (SPAs)?**  
-A **SPA (Single Page Application)** loads a single web page and **dynamically updates** it as the user interacts with it.  
-
-### **Advantages of SPAs:**  
-- Faster & more responsive.  
-- No full-page reloads.  
-- Provides a **seamless user experience**.  
-
----
-
-## **5. Differentiate between Angular and AngularJS**  
-
-| Feature       | AngularJS (v1.x) | Angular (v2+) |
-|--------------|----------------|--------------|
-| **Language** | JavaScript | TypeScript |
-| **Architecture** | Directive-based | Component-based |
-| **Performance** | Slower (uses real DOM) | Faster (uses virtual DOM) |
-| **Mobile Support** | Limited | Better (Ionic, NativeScript) |
 
 ---
 
@@ -75,17 +24,6 @@ A **SPA (Single Page Application)** loads a single web page and **dynamically up
 
 ---
 
-## **8. What are Templates in Angular?**  
-**Templates** are HTML files that define the **structure and layout** of what users see. They can include **Angular-specific syntax** like:  
-
-```html
-<ul>
-  <li *ngFor="let item of items">{{ item.name }}</li>
-</ul>
-```
-Here, `*ngFor` loops over `items` and displays each item’s name.  
-
----
 
 ## **9. What are Annotations in Angular?**  
 Annotations (similar to decorators) provide **metadata** to classes.  

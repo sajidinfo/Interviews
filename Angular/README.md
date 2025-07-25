@@ -467,6 +467,180 @@ export class HelloComponent {
 
 ---
 
+---
+
+### 🔥 1. **Normal (Traditional) Component kya hota hai?**
+
+Ye component hamesha **NgModule** ke andar declare kiya jata hai. Matlab jab bhi aap koi component banate ho, to usko kisi na kisi module (mostly `AppModule`) me register karna padta hai.
+
+#### ✅ Example (Traditional Component):
+
+```bash
+ng generate component example
+```
+
+```typescript
+// example.component.ts
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent {}
+```
+
+```typescript
+// app.module.ts
+@NgModule({
+  declarations: [ExampleComponent],
+  imports: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+---
+
+### 🚀 2. **Standalone Component kya hota hai? (Angular v14+)**
+
+Ye component kisi module ka mohtaj (dependent) nahi hota. Isko aap direct use kar sakte ho bina `AppModule` me declare kiye.
+
+#### ✅ Example (Standalone Component):
+
+```bash
+ng generate component standalone-example --standalone
+```
+
+```typescript
+// standalone-example.component.ts
+@Component({
+  standalone: true,
+  selector: 'app-standalone-example',
+  templateUrl: './standalone-example.component.html',
+  imports: [CommonModule, FormsModule]  // agar kuch aur chahiye
+})
+export class StandaloneExampleComponent {}
+```
+
+> ⚠️ Isko `AppModule` me declare karne ki zarurat nahi hoti, bas aap use `bootstrapApplication()` ke through direct app me bootstrap kar sakte ho.
+
+---
+
+### ⚖️ 3. **Traditional vs Standalone Component - Comparison Table**
+
+| Feature                      | Traditional Component      | Standalone Component                     |
+| ---------------------------- | -------------------------- | ---------------------------------------- |
+| NgModule required            | ✅ Yes                      | ❌ No                                     |
+| Declaration in module needed | ✅ Yes (`declarations: []`) | ❌ No                                     |
+| Angular version              | 🧓 Old (Before v14)        | ✨ v14+ (Modern Approach)                 |
+| Simpler & modular structure  | ❌ Not very modular         | ✅ Highly modular & reusable              |
+| Suitable for lazy loading?   | ✅ Yes                      | ✅ Yes (Even easier)                      |
+| Imports inside component     | ❌ Not supported            | ✅ Yes, use `imports: []` in `@Component` |
+
+---
+
+### 📌 4. **Standalone Component ko use kaise karte hain?**
+
+#### ✅ App bootstrap karne ka naya tarika:
+
+```typescript
+// main.ts (Angular v14+)
+import { bootstrapApplication } from '@angular/platform-browser';
+import { StandaloneExampleComponent } from './app/standalone-example.component';
+
+bootstrapApplication(StandaloneExampleComponent);
+```
+
+#### ✅ Routing me use karne ka tarika:
+
+```typescript
+// app.routes.ts
+export const routes: Routes = [
+  {
+    path: 'standalone',
+    loadComponent: () =>
+      import('./standalone-example.component').then(m => m.StandaloneExampleComponent),
+  }
+];
+```
+
+---
+
+### 📍 5. **Kab kis type ka component use karna chahiye?**
+
+| Situation                               | Suggestion                            |
+| --------------------------------------- | ------------------------------------- |
+| Badi application, jisme purana code hai | Traditional (compatible + stable)     |
+| Nayi choti ya micro frontend app        | Standalone (modular aur clean)        |
+| Lazy loading aur route based component  | Standalone best (kam code, fast load) |
+| Reusable component bana rahe ho         | Standalone ideal choice               |
+
+---
+
+Bhai **"Standalone APIs" vs "Normal APIs"** ka confusion aksar **Angular components** ke context me hota hai. Lekin lagta hai tum yaha Angular ke **Standalone APIs (Stable in Angular v15)** ke baare me pooch rahe ho.
+
+To chalo **Desi style** me samjhte hain ki **Standalone APIs** kya hoti hain, kaise alag hain "normal (module-based) APIs" se, aur kahan kisko use karna chahiye.
+
+---
+
+## 💡 Pehle ye samjho: "API" ka matlab yaha kya hai?
+
+Yaha API ka matlab hai Angular ki **core features / configuration approach**, jaise:
+
+* Component banane ka tarika
+* Bootstrap karne ka tarika
+* Routing setup karne ka tarika
+* Forms, HttpModule wagairah ko import karna
+
+---
+
+## 🔥 1. **Normal (Module-based) APIs** kya hoti hain?
+
+Angular v2 se lekar v13 tak hum har feature ko use karne ke liye **NgModule** banate the.
+
+### ✅ Example:
+
+```typescript
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+Ye purana traditional approach hai. Isme har cheez module ke through hi chalti thi. Isko hum **"module-based APIs"** ya **"normal APIs"** keh sakte hain.
+
+---
+
+## 🚀 2. **Standalone APIs (Stable from Angular v15)**
+
+Ye **modern modular approach** hai jo Angular v14 me introduce hui thi aur v15 me **stable** banayi gayi.
+
+Isme:
+
+* Aap **components**, **pipes**, **directives** ko **NgModule ke bina** define kar sakte ho.
+* Bootstrap bhi NgModule ke bina hota hai.
+* Routing bhi simple `provideRouter()` se ho sakta hai.
+
+---
+
+---
+
+## ⚖️ Comparison Table: Module-based APIs vs Standalone APIs
+
+| Feature                       | Module-based APIs (Normal)     | Standalone APIs (Modern)         |
+| ----------------------------- | ------------------------------ | -------------------------------- |
+| NgModule required             | ✅ Yes                          | ❌ No                             |
+| Component declaration         | `declarations: []` in NgModule | `standalone: true` in Component  |
+| Bootstrap method              | `platformBrowserDynamic()`     | `bootstrapApplication()`         |
+| Routing setup                 | `RouterModule.forRoot()`       | `provideRouter()`                |
+| Code splitting / Lazy loading | ✅ Yes                          | ✅ Easier and cleaner             |
+| First introduced              | Angular v2                     | v14 (experimental), v15 (Stable) |
+| Best for micro frontend apps  | ❌ Complex                      | ✅ Ideal                          |
+
+---
+
+
 ## 🔍 1. What is SSR (Server-Side Rendering)?
 
 > Page is rendered on the **server**, then sent to browser.

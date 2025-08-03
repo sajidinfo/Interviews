@@ -1550,8 +1550,54 @@ Closure ek JavaScript concept hai jisme inner function apne outer function ke va
     **[⬆ Back to Top](#table-of-contents)**
 
 30. ### What are modules
+    Modules are independent, reusable pieces of code that can be exported from one file and imported into another. They help organize code, avoid polluting the global namespace, and make maintenance easier.
 
-    Modules refer to small units of independent, reusable code and also act as the foundation of many JavaScript design patterns. Most of the JavaScript modules export an object literal, a function, or a constructor
+    In JavaScript, modules can be created in different ways:
+
+    1. **ES6 Modules (import/export):**
+    ```javascript
+    // math.js
+    export function add(a, b) {
+      return a + b;
+    }
+
+    // main.js
+    import { add } from './math.js';
+    console.log(add(2, 3)); // 5
+    ```
+
+    2. **CommonJS Modules (Node.js):**
+    ```javascript
+    // math.js
+    function add(a, b) {
+      return a + b;
+    }
+    module.exports = { add };
+
+    // main.js
+    const { add } = require('./math');
+    console.log(add(2, 3)); // 5
+    ```
+
+    3. **Immediately Invoked Function Expression (IIFE) Modules (Old way):**
+    ```javascript
+    var MyModule = (function() {
+      var privateVar = 'I am private';
+      return {
+        publicMethod: function() {
+          console.log(privateVar);
+        }
+      };
+    })();
+
+    MyModule.publicMethod(); // I am private
+    ```
+
+    **Key Points:**
+    - Modules help in code organization and reusability.
+    - They provide encapsulation, so variables/functions inside a module are not accessible outside unless exported.
+    - Modern JavaScript (ES6+) uses `import` and `export` for modules.
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2169,6 +2215,107 @@ Ye ek signal deta hai: “Bhai, kuch change hua hai storage me!”
 59. ### What are server-sent events
 
     Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This has been used in Facebook/Twitter/X updates, stock price updates, news feeds etc.
+
+---
+
+## 🧠 Pehle basic idea:
+
+> **SSE ek technique hai jisme sirf server client ko baar-baar data bhejta hai, bina client ke baar-baar maange.**
+
+---
+
+## 📦 Real-Life Desi Analogy:
+
+> Socho ek news channel ka WhatsApp group hai (client).
+>
+> News studio (server) automatically har thodi der me latest khabar bhej raha hai sabko bina unke maange.
+>
+> 🧑‍💻 Tumne ek baar group join kar liya (connection open kar diya), ab har 2 minute me breaking news milti rahegi automatically.
+
+**Yeh hi hai Server-Sent Events.**
+
+---
+
+## 🔁 SSE vs Polling vs WebSocket
+
+| Feature    | SSE                         | Polling                     | WebSocket                 |
+| ---------- | --------------------------- | --------------------------- | ------------------------- |
+| Connection | One-way (server → client)   | Repeated client requests    | Two-way (client ↔ server) |
+| Efficiency | Efficient for notifications | Inefficient (too many hits) | Best for real-time apps   |
+| Use Case   | News, live scores, logs     | Low priority updates        | Chat apps, games, trading |
+
+---
+
+## ⚙️ SSE Kaise Kaam Karta Hai (Step-by-Step):
+
+1. **Client** server ko request bhejta hai `/events` endpoint pe
+2. **Server** ek stream open karta hai aur `text/event-stream` format me data bhejna start karta hai
+3. Server jab chahe new data push karta rahta hai
+4. Client us data ko continuously receive karta hai bina reload kiye
+
+---
+
+## 🔧 Server-Sent Events Example
+
+### 🖥 Server (Node.js)
+
+```js
+const express = require("express");
+const app = express();
+
+app.get("/events", (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  setInterval(() => {
+    const msg = `data: Hello Sajid! ${new Date().toLocaleTimeString()}\n\n`;
+    res.write(msg);
+  }, 3000);
+});
+
+app.listen(3000, () => console.log("SSE running at http://localhost:3000"));
+```
+
+### 🌐 Client (HTML)
+
+```html
+<script>
+  const eventSource = new EventSource("http://localhost:3000/events");
+
+  eventSource.onmessage = function (event) {
+    console.log("New message:", event.data);
+  };
+</script>
+```
+
+---
+
+## 📌 SSE Kab Use Karte Hain?
+
+* 🔔 Notifications
+* 📈 Stock/price/live score updates
+* 🧪 Server logs / Monitoring
+* 📰 Breaking news auto-update
+
+---
+
+## ⚠️ Limitations:
+
+| Limitation                       | Explanation                               |
+| -------------------------------- | ----------------------------------------- |
+| One-way only                     | Sirf server → client (no client → server) |
+| Old browsers not supported fully | IE, etc.                                  |
+| No binary data                   | Sirf text data bhej sakte ho              |
+
+---
+
+## ✅ Interview ke liye yaad rakhne layak line:
+
+> **"SSE ek browser feature hai jisse server ek baar connection banake, continuous data push karta hai client ko bina client ke bar-bar request kiye."**
+
+---
+
 
     **[⬆ Back to Top](#table-of-contents)**
 

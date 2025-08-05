@@ -2,13 +2,15 @@
 
 ### 1. Tell me about yourself.
 **Answer:**  
-I’m Sajid Mohammad, a Full Stack Developer with over 4 years of experience in the software development lifecycle, including analysis, design, development, testing, and deployment. My expertise lies in the MEAN stack (MongoDB, Express.js, Angular, Node.js), with additional proficiency in MSSQL, MySQL, and DevOps tools like Jenkins and Docker. I’m skilled in building responsive frontends with Bootstrap 5 and Angular, and robust backend APIs with Express.js and NestJS using TypeScript. Currently, I work at SecurEyes Techno Services Pvt. Ltd., developing Third-Party Risk Management (TPRM) software.
+I’m Sajid Mohammad, a Full Stack Developer with 4 years of experience in the software development lifecycle, including analysis, design, development, testing, and deployment. Proficient in the MEAN stack (MongoDB, Express.js, Angular, Node.js), with additional proficiency in NestJS,Electron.js, MSSQL, MySQL, and DevOps tools like CI/CD Pipelines in Jenkins and Docker.
+I have worked on more than 30 projects, building secure and scalable web applications and softwares. Currently, I’m 
+working at SecurEyes Techno Services Pvt. Ltd. in benglure, where I am working as a full stack developer for TPRM.
 
 ---
 
 ### 2. Why should we hire you?
 **Answer:**  
-I am passionate about software development. I have three years of experience and my problem-solving skills, ability to work with modern technologies, and dedication to delivering high-quality code make me a strong fit for this role. I am eager to apply my knowledge and help your company achieve its software development goals efficiently.
+I am passionate about software development. I have 4 years of experience and my problem-solving skills, ability to work with modern technologies, and dedication to delivering high-quality code make me a strong fit for this role. I am eager to apply my knowledge and help your company achieve its software development goals efficiently.
 
 ---
 
@@ -20,13 +22,13 @@ I want this job because I love software programming and want to work for a leadi
 
 ### 4. What are your greatest strengths?
 **Answer:**  
-My ability to quickly learn new technologies, solve problems effectively, and work well in a team. I’m also very detail-oriented and focused on delivering high-quality solutions.
+My ability to quickly learn new technologies, solve problems effectively, and work well in a team. I’m also very detail-oriented and focused on delivering high-quality solutions on the time.
 
 ---
 
 ### 5. What is your greatest weakness?
 **Answer:**  
-I used to struggle with prioritizing tasks under tight deadlines, but I’ve worked on this by using tools like Trello to organize my workflow. For instance, during a recent project, I successfully managed multiple deliverables by breaking them into smaller, prioritized tasks, ensuring timely completion.
+I used to struggle with prioritizing tasks under tight deadlines, but I’ve worked on this by using tools like JIRA to organize my workflow. For instance, during a recent project, I successfully managed multiple deliverables by breaking them into smaller, prioritized tasks, ensuring timely completion.
 
 ---
 
@@ -38,19 +40,19 @@ I’m searching for new challenges and opportunities to grow further in my caree
 
 ### 7. Can you describe a challenging situation you faced and how you handled it?
 **Answer:**  
-Once, I had to combine four separate modules into one project within three days for a tight deadline. My team and I worked long hours, stayed focused, and collaborated well to deliver the project on time.
+Once, We had 4 separate product and client want combine four separate project into one project with Database within 7 days for a tight deadline.My team and I worked long hours, stayed focused, manages my jira task based on the deadline and collaborated well to deliver the project on time.
 
 ---
 
 ### 8. Where do you see yourself in 5 years?
 **Answer:**  
-In 5 years, I see myself as a senior developer or technical lead, contributing to impactful projects and mentoring others in the team.
+In the next 5 years, I see myself growing into a leadership role such as a Technical Lead or Project Manager. I aim to take on more responsibilities, lead development teams, and contribute to the success of larger projects. I also plan to continuously upgrade my skills and stay updated with the latest technologies to deliver high-quality solutions and drive innovation within the organization.
 
 ---
 
 ### 9. Why are you interested in this position?
 **Answer:**  
-This role aligns with my skills and career goals. I’m excited to contribute my experience in building scalable applications and to grow further with your organization.
+This role aligns with my skills and career goals. I’m excited to contribute my experience in building scalable software and applications and to grow further with your organization.
 
 ---
 
@@ -73,8 +75,8 @@ I enjoy both. I can work independently when needed but also value teamwork, as c
 ---
 
 ### 13. What are your salary requirements?
-**Answer:**  
-Based on my 4+ years of experience in full stack development, proficiency in the MEAN stack, and familiarity with DevOps tools, I believe a salary range of 14–16 LPA aligns with industry standards for this role.
+**Answer:**
+Based on my 4 years of experience in full stack development, especially with the MEAN stack, along with my exposure to DevOps tools and handling end-to-end project responsibilities, I believe a fair salary range would be between 15 to 18 LPA, in line with current industry standards. However, I’m open to discussion depending on the overall role, responsibilities, and growth opportunities the company offers.
 
 ---
 
@@ -92,13 +94,13 @@ I use tools like console logs, debuggers, and unit tests to identify and resolve
 
 ### 16. Can you describe your experience with version control?
 **Answer:**  
-I have experience using Git for version control, including managing branches, resolving conflicts, and collaborating on GitHub. I also work with SVN using TortoiseSVN.
+I have experience using  SVN for version control, including managing branches, resolving conflicts. I also work on Git and github.
 
 ---
 
-### 17. How do you handle criticism?
+### 17. How do you handle criticism (matlab sudhar ke liye suggestion)?
 **Answer:**  
-I see criticism as an opportunity to improve. I listen carefully, evaluate the feedback, and apply it to enhance my skills and work.
+I listen carefully, evaluate the feedback, and apply it to enhance my skills and work.
 
 ---
 

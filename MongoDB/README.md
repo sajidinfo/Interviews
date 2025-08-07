@@ -74,7 +74,7 @@ Graph base databases mostly used for social networks, logistics, spatial data.
 
 ## Q. ***What is MongoDB?***
 
-**MongoDB** is a document-oriented NoSQL database used for high volume data storage. Instead of using tables and rows as in the traditional relational databases, MongoDB makes use of collections and documents. Documents consist of key-value pairs which are the basic unit of data in MongoDB. Collections contain sets of documents and function which is the equivalent of relational database tables.
+**MongoDB** is a type of NoSQL database that is used to store a large amount of data. Unlike traditional databases that use tables and rows, MongoDB stores data in key-value pairs in the form of collections and documents.
 
 **Key Features**
 
@@ -119,294 +119,133 @@ Connecting MongoDB Cloud using MongoDB Compass
 
 ## Q. ***What are Indexes in MongoDB?***
 
-Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect.
+Indexes in MongoDB are like shortcuts that help the database find data faster.
 
-Indexes are special data structures that store a small portion of the collection\'s data set in an easy to traverse form. The index stores the value of a specific field or set of fields, ordered by the value of the field. The ordering of the index entries supports efficient equality matches and range-based query operations. In addition, MongoDB can return sorted results by using the ordering in the index.
+Just like in a book, if you want to find a topic quickly, you check the index page — same way, MongoDB uses indexes to quickly search and retrieve data from a large collection.
 
-**Example**
-
-The `createIndex()` method only creates an index if an index of the same specification does not already exist. The following example ( using Node.js ) creates a single key descending index on the name field:
-
-```js
-collection.createIndex( { name : -1 }, function(err, result) {
-   console.log(result);
-   callback(result);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the types of Indexes available in MongoDB?***
-
-MongoDB supports the following types of the index for running a query.
-
-**1. Single Field Index**
-
-MongoDB supports user-defined indexes like single field index. A single field index is used to create an index on the single field of a document. With single field index, MongoDB can traverse in ascending and descending order. By default, each collection has a single field index automatically created on the `_id` field, the primary key.
+Without indexes, MongoDB has to check every document one by one, which is slow. With indexes, it goes directly to the right data, saving time.
 
 **Example**
 
-```js
-{
-  "_id": 1,
-  "person": { name: "Alex", surname: "K" },
-  "age": 29,
-  "city": "New York"
-}
+### 🔧 **How to Create an Index in MongoDB**
+
+To create an index, you use the `createIndex()` method on a collection.
+
+### ✅ Example:
+
+Suppose you have a collection called `users`, and you want to create an index on the `name` field:
+
+```javascript
+db.users.createIndex({ name: 1 });
 ```
 
-We can define, a single field index on the age field.
+### 👉 Explanation:
 
-```js
-db.people.createIndex( {age : 1} ) // creates an ascending index
+* `users` is your collection name.
+* `{ name: 1 }` means you're creating an **ascending index** on the `name` field.
+  (Use `-1` for descending like `{ name: -1 }`)
 
-db.people.createIndex( {age : -1} ) // creates a descending index
+### 🧠 Tip:
+
+You can also create **compound indexes** (on multiple fields) like this:
+
+```javascript
+db.users.createIndex({ name: 1, age: -1 });
 ```
 
-With this kind of index we can improve all the queries that find documents with a condition and the age field, like the following:
+Bilkul Sajid bhai! Niche sabhi questions ke base par **MongoDB indexes** ko simple Indian English + thoda desi style me samjha raha hoon:
+
+---
+
+### 💡 **What are Indexes in MongoDB?**
+
+Indexes are like **book ke index page** — jahan se aap directly topic ka page number dekh ke pohch jate ho.
+Waise hi, MongoDB me indexes help karte hain data ko **fast** search karne me.
+
+Agar index na ho to MongoDB ko **har document check** karna padega (called **collection scan**) — jo slow hota hai.
+
+But index hone se wo directly sahi jagah pohch jata hai — fast query result.
+
+---
+
+### 🔧 **Explain Index Properties in MongoDB?**
+
+MongoDB me index banate waqt aap kuch **properties** define kar sakte ho:
+
+1. ✅ **Ascending (1) / Descending (-1):**
+
+   * `db.users.createIndex({ name: 1 })` → Ascending index.
+   * `db.users.createIndex({ age: -1 })` → Descending index.
+
+2. ✅ **Unique Index:**
+
+   * Prevents duplicate values in a field.
+   * Example: `db.users.createIndex({ email: 1 }, { unique: true })`
+
+3. ✅ **Compound Index:**
+
+   * Index on multiple fields.
+   * Example: `db.users.createIndex({ name: 1, age: -1 })`
+
+4. ✅ **Sparse Index:**
+
+   * Only indexes documents that have the indexed field.
+   * Example: `db.users.createIndex({ nickname: 1 }, { sparse: true })`
+
+5. ✅ **TTL Index (Time To Live):**
+
+   * Automatically deletes documents after a set time.
+   * Used for temporary data like OTP.
+   * Example:
+
+     ```js
+     db.logs.createIndex({ createdAt: 1 }, { expireAfterSeconds: 3600 })
+     ```
+
+---
+
+### ❓ **How many indexes does MongoDB create by default for a new collection?**
+
+👉 MongoDB automatically creates **1 index by default** on the **`_id` field** of every new collection.
+
+This `_id` index is:
+
+* **Unique**
+* **Mandatory**
+* Helps MongoDB quickly find documents by `_id`.
+
+---
+
+### ❓ **Can you create an index in an array field in MongoDB?**
+
+✅ Yes! You can create **index on an array field**, and it is called a **Multikey Index**.
+
+MongoDB automatically makes a multikey index when you create an index on a field that holds an array.
+
+**Example:**
 
 ```js
-db.people.find( { age : 20 } )
-db.people.find( { name : "Alex", age : 30 } )
-db.people.find( { age : { $gt : 25} } )
+db.products.createIndex({ tags: 1 })
 ```
 
-**2. Compound Index**
+Agar `tags` field ek array hai (like `["fashion", "summer", "sale"]`), MongoDB automatically handles it as multikey.
 
-A compound index is an index on multiple fields. Using the same people collection we can create a compound index combining the city and age field.
+---
 
-```js
-db.people.createIndex( {city: 1, age: 1, person.surname: 1  } )
-```
+### 📌 Summary:
 
-In this case, we have created a compound index where the first entry is the value of the city field, the second is the value of the age field, and the third is the person.name. All the fields here are defined in ascending order.
+| Feature            | Description                  |
+| ------------------ | ---------------------------- |
+| **Index**          | Shortcut to find data faster |
+| **Default Index**  | On `_id` field automatically |
+| **Multikey Index** | For array fields             |
+| **Compound Index** | On more than one field       |
+| **Unique Index**   | No duplicate allowed         |
+| **TTL Index**      | Auto delete after time       |
+| **Sparse Index**   | Only index if field exists   |
 
-Queries such as the following can benefit from the index:
+---
 
-```js
-db.people.find( { city: "Miami", age: { $gt: 50 } } )
-db.people.find( { city: "Boston" } )
-db.people.find( { city: "Atlanta", age: {$lt: 25}, "person.surname": "Green" } )
-```
-
-**3. Multikey Index**
-
-This is the index type for arrays. When creating an index on an array, MongoDB will create an index entry for every element.
-
-**Example**
-
-```js
-{
-   "_id": 1,
-   "person": { name: "John", surname: "Brown" },
-   "age": 34,
-   "city": "New York",
-   "hobbies": [ "music", "gardening", "skiing" ]
- }
-```
-
-The multikey index can be created as:
-
-```js
-db.people.createIndex( { hobbies: 1} )
-```
-
-Queries such as these next examples will use the index:
-
-```js
-db.people.find( { hobbies: "music" } )
-db.people.find( { hobbies: "music", hobbies: "gardening" } )
-```
-
-**4. Geospatial Index**
-
-GeoIndexes are a special index type that allows a search based on location, distance from a point and many other different features. To query geospatial data, MongoDB supports two types of indexes – `2d indexes` and `2d sphere indexes`. 2d indexes use planar geometry when returning results and 2dsphere indexes use spherical geometry to return results.
-
-**5. Text Index**
-
-It is another type of index that is supported by MongoDB. Text index supports searching for string content in a collection. These index types do not store language-specific stop words (e.g. "the", "a", "or"). Text indexes restrict the words in a collection to only store root words.
-
-**Example**
-
-Let\'s insert some sample documents.
-
-```js
-var entries = db.people("blogs").entries;
-entries.insert( {
-  title : "my blog post",
-  text : "i am writing a blog. yay",
-  site: "home",
-  language: "english" });
-entries.insert( {
-  title : "my 2nd post",
-  text : "this is a new blog i am typing. yay",
-  site: "work",
-  language: "english" });
-entries.insert( {
-  title : "knives are Fun",
-  text : "this is a new blog i am writing. yay",
-  site: "home",
-  language: "english" });
-```
-
-Let\'s define create the text index.
-
-```js
-var entries = db.people("blogs").entries;
-entries.ensureIndex({title: "text", text: "text"}, { weights: {
-    title: 10,
-    text: 5
-  },
-  name: "TextIndex",
-  default_language: "english",
-  language_override: "language" });
-```
-
-Queries such as these next examples will use the index:
-
-```js
-var entries = db.people("blogs").entries;
-entries.find({$text: {$search: "blog"}, site: "home"})
-```
-
-**6. Hashed Index**
-
-MongoDB supports hash-based sharding and provides hashed indexes. These indexes are the hashes of the field value. Shards use hashed indexes and create a hash according to the field value to spread the writes across the sharded instances.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain Index Properties in MongoDB?***
-
-**1. TTL Indexes**
-
-TTL ( **Time To Live** ) is a special option that we can apply only to a single field index to permit the automatic deletion of documents after a certain time.
-
-During index creation, we can define an expiration time. After that time, all the documents that are older than the expiration time will be removed from the collection. This kind of feature is very useful when we are dealing with data that don\'t need to persist in the database ( eg. `session data` ).
-
-**Example**
-
-```js
-db.sessionlog.createIndex( { "lastUpdateTime": 1 }, { expireAfterSeconds: 1800 } )
-```
-
-In this case, MongoDB will drop the documents from the collection automatically once half an hour (1800 seconds) has passed since the value in **lastUpdateTime** field.
-
-**Restrictions**
-
-* Only single field indexes can have the TTL option
-* the `_id` single field index cannot support the TTL option
-* the indexed field must be a date type
-* a capped collection cannot have a TTL index
-
-**2. Partial indexes**
-
-A partial index is an index that contains only a subset of the values based on a filter rule. They are useful in cases where:
-
-* The index size can be reduced
-* We want to index the most relevant and used values in the query conditions
-* We want to index the most selective values of a field
-
-**Example**
-
-```js
-db.people.createIndex(
-   { "city": 1, "person.surname": 1 },
-   { partialFilterExpression: { age : { $lt: 30 } } }
-)
-```
-
-We have created a compound index on city and person.surname but only for the documents with age less than 30.
-In order for the partial index to be used the queries must contain a condition on the age field.
-
-```js
-db.people.find( { city: "New Tork", age: { $eq: 20} } )
-```
-
-**3. Sparse indexes**
-
-Sparse indexes are a subset of partial indexes. A sparse index only contains elements for the documents that have the indexed field, even if it is null.
-
-Since MongoDB is a schemaless database, the documents in a collection can have different fields, so an indexed field may not be present in some of them.
-
-**Example**
-
-To create such an index use the sparse option:
-
-```js
-db.people.createIndex( { city: 1 }, { sparse: true } )
-```
-
-In this case, we are assuming there could be documents in the collection with the field city missing. Sparse indexes are based on the existence of a field in the documents and are useful to reduce the size of the index.
-
-**4. Unique indexes**
-
-MongoDB can create an index as unique. An index defined this way cannot contain duplicate entries.
-
-**Example**
-
-```js
-db.people.createIndex( { city: 1 }, { unique: true } )
-```
-
-Uniqueness can be defined for compound indexes too.
-
-```js
-db.people.createIndex( { city: 1, person.surname: 1}, { unique: true } )
-```
-
-By default, the index on `_id` is automatically created as unique.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How many indexes does MongoDB create by default for a new collection?***
-
-By default MongoDB creates a unique index on the `_id` field during the creation of a collection. The `_id` index prevents clients from inserting two documents with the same value for the `_id` field.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can you create an index in an array field in MongoDB?***
-
-Yes, To index a field that holds an array value, MongoDB creates an index key for each element in the array. Multikey indexes can be constructed over arrays that hold both scalar values (e.g. strings, numbers) and nested documents. MongoDB automatically creates a multikey index if any indexed field is an array.
-
-Syntax
-
-```js
-db.collection.createIndex( { <field>: < 1 or -1 > } )
-```
-
-For example, consider an inventory collection that contains the following documents:
-
-```js
-{ _id: 10, type: "food", item: "aaa", ratings: [ 5, 8, 9 ] }
-{ _id: 11, type: "food", item: "bbb", ratings: [ 5, 9 ] }
-{ _id: 12, type: "food", item: "ccc", ratings: [ 9, 5, 8, 4, 7 ] }
-```
-
-The collection has a multikey index on the ratings field:
-
-```js
-db.inventory.createIndex( { ratings: 1 } )
-```
-
-The following query looks for documents where the ratings field is the array [ 5, 9 ]:
-
-```js
-db.inventory.find( { ratings: [ 5, 9 ] } )
-```
-
-MongoDB can use the multikey index to find documents that have 5 at any position in the ratings array. Then, MongoDB retrieves these documents and filters for documents whose ratings array equals the query array [ 5, 9 ].
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***Why does Profiler use in MongoDB?***
 
@@ -448,6 +287,71 @@ db.setProfilingLevel(1, 40)
 { "was" : 0, "slowms" : 100, "ok" : 1 }
 ```
 
+### ✅ **Why is Profiler used in MongoDB?** (Simple Indian English)
+
+**MongoDB Profiler** is used to check:
+
+> *"Konsi query slow chal rahi hai, ya konsi query jyada resource use kar rahi hai."*
+
+It helps **developers** and **DB admins** to:
+
+* 👀 Track slow queries
+* ⚠️ Find performance problems
+* 📊 Understand how queries are running in the background
+
+---
+
+### 🔧 **What does Profiler do?**
+
+MongoDB Profiler records:
+
+* Query execution time (kitna time laga)
+* Which collection/query was slow
+* How many documents were scanned
+* Index use hua ya nahi
+
+---
+
+### 🛠️ **Example**: Enable profiler at slow query level
+
+```js
+db.setProfilingLevel(1, { slowms: 100 })
+```
+
+> This will **record all queries taking more than 100ms**.
+
+---
+
+### 🎯 Profiler ke Levels:
+
+| Level | Description                                             |
+| ----- | ------------------------------------------------------- |
+| 0     | Off (default) – no profiling                            |
+| 1     | Only slow queries                                       |
+| 2     | All queries (use only for debugging, not in production) |
+
+---
+
+### 📂 Where is profiling data stored?
+
+In the **`system.profile`** collection of the database.
+
+You can check the data like this:
+
+```js
+db.system.profile.find().pretty()
+```
+
+---
+
+### 📌 In Short:
+
+> **Profiler = Doctor for MongoDB queries**
+> Wo batata hai kaha problem hai, konsa query slow hai, kya optimize karna chahiye.
+
+---
+
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -455,8 +359,7 @@ db.setProfilingLevel(1, 40)
 ## Q. ***How to remove attribute from MongoDB Object?***
 
 **$unset**
-
-The `$unset` operator deletes a particular field. If the field does not exist, then `$unset` does nothing. When used with `$` to match an array element, `$unset` replaces the matching element with `null` rather than removing the matching element from the array. This behavior keeps consistent the array size and element positions.
+To remove (delete) a field from a document in MongoDB, you use the `$unset` operator.
 
 syntax:
 
@@ -464,174 +367,541 @@ syntax:
 { $unset: { <field1>: "", ... } }
 ```
 
+## Q. ***What is "Namespace" in MongoDB?***
+### ✅ **What is "Namespace" in MongoDB?** (Simple Indian English)
+
+In MongoDB, **Namespace** means:
+
+> **"Database name + Collection name" combined together."**
+
+---
+
+### 📌 **Format:**
+
+```
+<database>.<collection>
+```
+
 **Example:**
 
-delete the `properties.service` attribute from all records on this collection.
-
-```js
-db.collection.update(
-    {},
-    {
-        $unset : {
-            "properties.service" : 1
-        }
-    },
-    {
-        multi: true
-    }
-);
+```text
+mydb.users
 ```
 
-**To verify they have been deleted you can use:**
+* `mydb` = database name
+* `users` = collection name
+* So, `mydb.users` is the **namespace**
 
-```js
-db.collection.find(
-    {
-        "properties.service" : {
-            $exists : true
-         }
-    }
-).count(true);
-```
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+### 🔍 **Why is Namespace Important?**
 
-## Q. ***What is "Namespace" in MongoDB?***
+* MongoDB uses namespace to **uniquely identify** where data is stored.
+* Indexes and documents are also linked with a namespace.
+* Useful for profiling, monitoring, and error logs.
 
-MongoDB stores BSON (Binary Interchange and Structure Object Notation) objects in the collection. The concatenation of the collection name and database name is called a namespace
+---
+
+### 🧠 Real-Life Example:
+
+Think of **MongoDB** like a **school**:
+
+* `mydb` = School name
+* `users` = Class name
+* So `mydb.users` = That class in that school
+  (Just like `School.Class` → uniquely identifies)
+
+---
+
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. ***What is Replication in Mongodb?***
+### ✅ **What is Replication in MongoDB?** (Simple Indian English)
 
-Replication exists primarily to offer data redundancy and high availability. It maintain the durability of data by keeping multiple copies or replicas of that data on physically isolated servers. Replication allows to increase data availability by creating multiple copies of data across servers. This is especially useful if a server crashes or hardware failure.
+**Replication** in MongoDB means:
 
-With MongoDB, replication is achieved through a **Replica Set**. Writer operations are sent to the primary server (node), which applies the operations across secondary servers, replicating the data. If the primary server fails (through a crash or system failure), one of the secondary servers takes over and becomes the new primary node via election. If that server comes back online, it becomes a secondary once it fully recovers, aiding the new primary node.
+> **Copying your data from one server (primary) to other servers (secondaries)** — so that if one server fails, your data is still safe and available.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+---
 
-## Q. ***What is Replica Set in MongoDB?***
+### 📦 **Why is Replication Important?**
 
-It is a group of mongo processes that maintain same data set. Replica sets provide redundancy and high availability, and are the basis for all production deployments. A replica set contains a primary node and multiple secondary nodes.
+* ✅ **High Availability** – System keeps running even if one server goes down.
+* ✅ **Data Backup** – Your data is copied and safe.
+* ✅ **Read Scaling** – You can read from secondary servers also (optional).
 
-The primary node receives all write operations. A replica set can have only one primary capable of confirming writes with `{ w: "majority" }` write concern; although in some circumstances, another mongod instance may transiently believe itself to also be primary.
+---
 
-The secondaries replicate the primary\'s oplog and apply the operations to their data sets such that the secondaries\' data sets reflect the primary\'s data set. If the primary is unavailable, an eligible secondary will hold an election to elect itself the new primary.
+### 🔁 **How Replication Works in MongoDB:**
 
-<p align="center">
-  <img src="assets/replica-set.png" alt="Replica Set" width="400px" />
-</p>
+MongoDB uses a group of servers called a **Replica Set**.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+#### 📌 Replica Set Includes:
+
+1. 🟢 **Primary** – Main server where all writes and updates happen.
+2. 🟡 **Secondary** – One or more backup servers that copy data from primary.
+3. 🔄 **Automatic Failover** – If primary goes down, one of the secondaries becomes the new primary automatically.
+
+---
+
+### 🧠 Example:
+
+Let’s say you have a 3-server setup:
+
+```
+Replica Set:
+  - Server A (Primary)
+  - Server B (Secondary)
+  - Server C (Secondary)
+```
+
+Now:
+
+* You insert data into Server A.
+* MongoDB **automatically replicates** that data to B and C.
+* If A goes down, MongoDB promotes B or C to **become new Primary**.
+
+---
+
+### 🔧 To create a Replica Set (basic idea):
+
+```js
+rs.initiate()
+```
+
+More detailed configuration needs multiple instances.
+
+---
+
+### 🎯 In Short:
+
+> **Replication = MongoDB ka data backup + auto failover system.**
+> It helps in keeping your application **always running**, even during server crash.
+
 
 ## Q. ***How does MongoDB ensure high availability?***
+MongoDB ensures high availability using a feature called Replication with Replica Sets.
 
-**High Availability (HA)** refers to the improvement of system and app availability by minimizing the downtime caused by routine maintenance operations (planned) and sudden system crashes (unplanned).
+🧠 What is High Availability?
+High Availability (HA) means your application/database should always be available, even if a server crashes or goes down.
 
-**Replica Set**
-
-The replica set mechanism of MongoDB has two main purposes:
-
-* One is for data redundancy for failure recovery. When the hardware fails, or the node is down for other reasons, you can use a replica for recovery.
-* The other purpose is for read-write splitting. It routes the reading requests to the replica to reduce the reading pressure on the primary node.
-
-MongoDB automatically maintains replica sets, multiple copies of data that are distributed across servers, racks and data centers. Replica sets help prevent database downtime using native replication and automatic failover.
-
-A replica set consists of multiple replica set members. At any given time, one member acts as the primary member, and the other members act as secondary members. If the primary member fails for any reason (e.g., hardware failure), one of the secondary members is automatically elected to primary and begins to process all reads and writes.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***What is an Embedded MongoDB Document?***
 
-An embedded, or nested, MongoDB Document is a normal document that is nested inside another document within a MongoDB collection. Embedding connected data in a single document can reduce the number of read operations required to obtain data. In general, we should structure our schema so that application receives all of its required information in a single read operation.
+An **Embedded Document** in MongoDB means:
 
-**Example:**
+> **Ek document ke andar doosra document** (nested structure) store karna.
 
-In the normalized data model, the address documents contain a reference to the patron document.
+---
+
+### 📦 **Example:**
+
+Suppose you have a `users` collection:
 
 ```js
-// patron document
 {
-   _id: "joe",
-   name: "Joe Bookreader"
-}
-
-// address documents
-{
-   patron_id: "joe", // reference to patron document
-   street: "123 Fake Street",
-   city: "Faketon",
-   state: "MA",
-   zip: "12345"
-}
-
-{
-   patron_id: "joe",
-   street: "1 Some Other Street",
-   city: "Boston",
-   state: "MA",
-   zip: "12345"
+  name: "Sajid",
+  age: 28,
+  address: {
+    city: "Udaipur",
+    state: "Rajasthan",
+    pincode: 313001
+  }
 }
 ```
 
-Embedded documents are particularly useful when a **one-to-many** relationship exists between documents. In the example shown above, we see that a single customer has multiple addresses associated with him. The nested document structure makes it easy to retrieve complete address information about this customer with just a single query.
+Here, the `address` field is not just plain text — it is a **document inside another document**.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+This is called an **Embedded Document**.
+
+---
+
+### 🧠 Why Use Embedded Documents?
+
+1. ✅ **Related data together** – easy to access
+2. ✅ **Faster reads** – no need to join
+3. ✅ **Follows MongoDB's flexible structure (schema-less)**
+
+---
+
+### 📌 When Should You Use It?
+
+Use Embedded Documents when:
+
+* The nested data is **closely related** to the main document
+* You don’t need to access nested data separately too often
+
+---
+
+### ❌ When **Not** to Use:
+
+* If nested data grows too large (MongoDB document limit is **16MB**)
+* If you need to update nested data **frequently or independently**
+
+---
+
+### ✅ In Short:
+
+> **Embedded Document = Ek object ke andar doosra object.**
+> Useful for storing related data in one place.
+
+---
+
 
 ## Q. ***How can you achieve primary key - foreign key relationships in MongoDB?***
 
-The primary key-foreign key relationship can be achieved by embedding one document inside the another. As an example, a department document can have its employee document(s).
+MongoDB is a **NoSQL** database, so it **doesn't use strict primary key–foreign key rules** like in SQL (MySQL, MSSQL). But still, we can **create similar relationships manually**.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+---
 
-## Q. ***When should we embed one document within another in MongoDB?***
+### 🔑 **Primary Key in MongoDB:**
 
-You should consider embedding documents for:
+* Every document in MongoDB automatically has a unique `_id` field.
+* This `_id` acts like a **Primary Key**.
 
-* *contains* relationships between entities
-* One-to-many relationships
-* Performance reasons
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+### 🔗 **Foreign Key Relationship in MongoDB (Manually):**
 
-## Q. ***How is data stored in MongoDB?***
+You can create a reference (foreign key) by **storing one document's `_id` inside another document**.
 
-In MongoDB, Data is stored in BSON documents (short for `Bin­ary JSON`). These documents are stored in MongoDB in JSON (JavaScript Object Notation) format. JSON documents support embedded fields, so related data and lists of data can be stored with the document instead of an external table. Documents contain one or more fields, and each field contains a value of a specific data type, including arrays, binary data and sub-documents. Documents that tend to share a similar structure are organized as collections.
+---
 
-JSON is formatted as name/value pairs. In JSON documents, field names and values are separated by a colon, field name and value pairs are separated by commas, and sets of fields are encapsulated in "curly braces" ({}).
+### 📦 **Example: One-to-Many (User → Orders)**
 
-**Example:**
+#### 👤 users collection:
 
 ```js
 {
-  "name": "notebook",
-  "qty": 50,
-  "rating": [ { "score": 8 }, { "score": 9 } ],
-  "size": { "height": 11, "width": 8.5, "unit": "in" },
-  "status": "A",
-  "tags": [ "college-ruled", "perforated"]
+  _id: ObjectId("64a123..."),
+  name: "Sajid"
 }
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+#### 📦 orders collection:
+
+```js
+{
+  _id: ObjectId("64b456..."),
+  userId: ObjectId("64a123..."),  // This is the foreign key reference
+  product: "Laptop",
+  amount: 50000
+}
+```
+
+> Here, `userId` in orders is **foreign key**, and it points to `_id` in users (primary key).
+
+---
+
+### 🔍 How to Fetch Related Data (Manual Join):
+
+Use **`$lookup`** (like SQL join) in aggregation:
+
+```js
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userInfo"
+    }
+  }
+])
+```
+
+> This will give you order data + user data in one result.
+
+---
+
+### 🧠 Types of Relationships in MongoDB:
+
+| Type | Example           | Structure                   |
+| ---- | ----------------- | --------------------------- |
+| 1:1  | User → Profile    | Embed or Reference          |
+| 1\:N | User → Orders     | Reference (`_id`)           |
+| N\:N | Student → Courses | Reference with array of IDs |
+
+---
+
+### 📝 In Short:
+
+> **MongoDB me primary key – foreign key relationship manually banate hain**, by referencing one document’s `_id` in another document, and using `$lookup` to join when needed.
+
+---
+
+Sure Sajid bhai!
+Here’s a complete guide on **MongoDB Aggregation** with **all important stages**, explained in **simple Indian English** with **examples**.
+
+---
+
+## 🔍 **What is Aggregation in MongoDB?**
+
+> Aggregation means **data ko process karke report banana**, like filtering, grouping, sorting, counting, etc.
+
+MongoDB uses the **`aggregate()`** function with **pipeline stages** (like steps).
+
+---
+
+## 📦 Example Collection: `orders`
+
+```js
+{
+  _id: 1,
+  customer: "Sajid",
+  product: "Laptop",
+  price: 50000,
+  quantity: 2,
+  status: "delivered"
+}
+```
+
+---
+
+## 📚 **Aggregation Stages with Examples**
+
+---
+
+### 1️⃣ **\$match** – *Filter data (like WHERE in SQL)*
+
+```js
+db.orders.aggregate([
+  { $match: { status: "delivered" } }
+])
+```
+
+✅ Returns only orders where status is `delivered`.
+
+---
+
+### 2️⃣ **\$project** – *Show/hide fields or create new ones*
+
+```js
+db.orders.aggregate([
+  {
+    $project: {
+      customer: 1,
+      totalAmount: { $multiply: ["$price", "$quantity"] }
+    }
+  }
+])
+```
+
+✅ Shows customer name and calculates `totalAmount` (price × quantity).
+
+---
+
+### 3️⃣ **\$group** – *Group by field (like GROUP BY in SQL)*
+
+```js
+db.orders.aggregate([
+  {
+    $group: {
+      _id: "$customer",
+      totalSpent: { $sum: { $multiply: ["$price", "$quantity"] } }
+    }
+  }
+])
+```
+
+✅ Group orders by customer and calculate total amount spent.
+
+---
+
+### 4️⃣ **\$sort** – *Sort result (like ORDER BY)*
+
+```js
+db.orders.aggregate([
+  { $sort: { price: -1 } }  // Descending
+])
+```
+
+✅ Sort orders by price (highest first).
+
+---
+
+### 5️⃣ **\$limit** – *Limit number of results*
+
+```js
+db.orders.aggregate([
+  { $limit: 5 }
+])
+```
+
+✅ Show only first 5 documents.
+
+---
+
+### 6️⃣ **\$skip** – *Skip records (useful in pagination)*
+
+```js
+db.orders.aggregate([
+  { $skip: 5 }
+])
+```
+
+✅ Skip first 5 records (for page 2).
+
+---
+
+### 7️⃣ **\$count** – *Count number of documents*
+
+```js
+db.orders.aggregate([
+  { $match: { status: "delivered" } },
+  { $count: "totalDelivered" }
+])
+```
+
+✅ Count number of delivered orders.
+
+---
+
+### 8️⃣ **\$unwind** – *Break array field into separate documents*
+
+#### 📦 Sample:
+
+```js
+{
+  _id: 1,
+  customer: "Sajid",
+  items: ["laptop", "mouse", "keyboard"]
+}
+```
+
+#### Query:
+
+```js
+db.orders.aggregate([
+  { $unwind: "$items" }
+])
+```
+
+✅ Output:
+Creates 3 documents – one for each item.
+
+---
+
+### 9️⃣ **\$lookup** – *Join with another collection (like SQL JOIN)*
+
+```js
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "customers",
+      localField: "customerId",
+      foreignField: "_id",
+      as: "customerDetails"
+    }
+  }
+])
+```
+
+✅ Joins orders with customers and gives extra details.
+
+---
+
+### 🔟 **\$addFields** – *Add new field (like in project)*
+
+```js
+db.orders.aggregate([
+  {
+    $addFields: {
+      totalAmount: { $multiply: ["$price", "$quantity"] }
+    }
+  }
+])
+```
+
+✅ Adds a new field to each document.
+
+---
+
+### 🔁 **\$merge** – *Save aggregation output to another collection*
+
+```js
+db.orders.aggregate([
+  { $match: { status: "delivered" } },
+  { $merge: "delivered_orders" }
+])
+```
+
+✅ Saves the result to a new collection called `delivered_orders`.
+
+---
+
+### ⚙️ **\$bucket** – *Group data by range (like salary slabs)*
+
+```js
+db.orders.aggregate([
+  {
+    $bucket: {
+      groupBy: "$price",
+      boundaries: [0, 10000, 30000, 60000],
+      default: "Other",
+      output: {
+        count: { $sum: 1 }
+      }
+    }
+  }
+])
+```
+
+✅ Groups orders by price range.
+
+---
+
+### ⛓️ **Chaining Multiple Stages Example:**
+
+```js
+db.orders.aggregate([
+  { $match: { status: "delivered" } },
+  {
+    $group: {
+      _id: "$customer",
+      total: { $sum: { $multiply: ["$price", "$quantity"] } }
+    }
+  },
+  { $sort: { total: -1 } },
+  { $limit: 3 }
+])
+```
+
+✅ Top 3 customers by total spent on delivered orders.
+
+---
+
+## 🎯 Summary Table of Aggregation Stages:
+
+| Stage        | Purpose                           |
+| ------------ | --------------------------------- |
+| `$match`     | Filter documents                  |
+| `$project`   | Show/hide fields, create new ones |
+| `$group`     | Group data and apply functions    |
+| `$sort`      | Sort data                         |
+| `$limit`     | Limit number of results           |
+| `$skip`      | Skip documents (pagination)       |
+| `$count`     | Count documents                   |
+| `$unwind`    | Flatten array into documents      |
+| `$lookup`    | Join with another collection      |
+| `$addFields` | Add computed fields               |
+| `$merge`     | Store result in new collection    |
+| `$bucket`    | Group by range                    |
+
+---
+
+
+## Q. ***How is data stored in MongoDB?***
+
+MongoDB stores data as flexible JSON-like documents inside collections, which are grouped under databases. Internally, it uses BSON and binary files.
+
+🧾 1. MongoDB stores data as Documents
+Documents are stored in JSON-like format (called BSON – Binary JSON).
+
+Each document is a set of key-value pairs.
 
 ## Q. ***What are the differences between MongoDB and SQL-SERVER?***
 
@@ -657,13 +927,123 @@ JSON is formatted as name/value pairs. In JSON documents, field names and values
 |Concurrency         |Yes                 |yes                  |
 |XML Support         |Yes                 |No                   |
 
-<p align="center">
-  <img src="assets/RDBMS_MongoDB_Mapping.jpg" alt="MongoDB & SQL Server" width="500px" />
-</p>
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+## ✅ **MongoDB vs SQL Server – Key Differences**
+
+| Feature               | 🟢 **MongoDB**                       | 🔵 **SQL Server (MSSQL)**             |
+| --------------------- | ------------------------------------ | ------------------------------------- |
+| **Type**              | NoSQL (Document DB)                  | Relational Database (RDBMS)           |
+| **Data Format**       | JSON-like documents (BSON)           | Tables with rows and columns          |
+| **Schema**            | Dynamic (Schema-less)                | Fixed schema (strict)                 |
+| **Data Storage Unit** | Collection → Document                | Table → Row                           |
+| **Joins**             | Not native, done via `$lookup`       | Native SQL joins (INNER, LEFT, etc.)  |
+| **Query Language**    | MongoDB Query Language (MQL)         | SQL (Structured Query Language)       |
+| **Relationships**     | Manual (Embedding or Referencing)    | Well-supported (PK-FK)                |
+| **Scalability**       | Horizontally scalable (via sharding) | Mostly vertically scalable (scale-up) |
+| **Best Use Cases**    | Big Data, Real-time apps, Flex data  | Banking, ERP, Structured transactions |
+| **Transactions**      | Limited but supported (multi-doc)    | Strong ACID transaction support       |
+| **Performance**       | Faster for unstructured data         | Faster for complex structured queries |
+| **Indexing**          | Supports indexing                    | Supports indexing                     |
+| **Data Integrity**    | Weak (due to schema-less)            | Strong (via constraints)              |
+| **Learning Curve**    | Easy for developers                  | May be harder for beginners           |
+
+---
+
+## 🧠 **Desi Style Example:**
+
+### 🏢 SQL Server = Government Office
+
+* Sab kuch **rules ke hisaab se** hota hai
+* Har form me same fields hone chahiye
+* Strong checking (constraints, relations)
+
+### 🧳 MongoDB = Open Bazar Shop
+
+* Aap apne hisaab se saman rakh sakte ho
+* Har item ka size ya type alag ho sakta hai
+* Fast and flexible — but aapko manage karna padta hai
+
+---
+
+## 🔍 Use MongoDB When:
+
+* You need **flexibility** in data structure
+* You work with **real-time, big data**, or fast development
+* You don’t need complex joins or strict constraints
+
+## 🔍 Use SQL Server When:
+
+* You need **strong data integrity and relationships**
+* Data is **well structured**
+* You need complex joins, transactions, and reports
+
+---
+
+## 🎯 Final Words:
+
+| MongoDB              | SQL Server              |
+| -------------------- | ----------------------- |
+| Fast, flexible, JSON | Strong, strict, tabular |
+| Good for startups    | Good for enterprise     |
+
+Both are powerful — use based on project needs!
+
+---
+
+
+Let’s understand **Vertical vs Horizontal Scalability**:
+
+---
+
+### 🔸 **1. Vertical Scalability (Scale-Up)**
+
+**Matlab:**
+Ek hi server me jyada power (CPU, RAM, Storage) add karna.
+
+**Example:**
+Apke paas ek laptop hai, aur usme RAM 4GB se 16GB kar dete ho. Matlab wahi system powerful bana diya.
+
+**MongoDB me kab use karein:**
+Jab data ya traffic kam ho, aur ek hi server sab handle kar raha ho.
+
+**Limitations:**
+
+* Har server ki ek limit hoti hai (jitna upgrade ho sake).
+* Mehenga hota hai.
+
+---
+
+### 🔸 **2. Horizontal Scalability (Scale-Out)**
+
+**Matlab:**
+Ek se jyada servers add karna aur load sabme baat dena.
+
+**Example:**
+Aapke paas ek kirana dukaan hai, aur aap teen alag-alag dukaane aur khol lete ho, taki sab jagah saman mile aur rush kam ho.
+
+**MongoDB me kab use karein:**
+
+* Jab data bahut jyada ho.
+* Jab high availability aur performance chahiye.
+
+**MongoDB Feature:**
+MongoDB horizontal scaling ko support karta hai **sharding** ke through.
+
+---
+
+### 🔄 Summary Table:
+
+| Feature            | Vertical (Scale-Up)               | Horizontal (Scale-Out)         |
+| ------------------ | --------------------------------- | ------------------------------ |
+| Power badhate hain | Same server me                    | Alag-alag servers me           |
+| Cost               | High                              | Moderate                       |
+| MongoDB support    | Limited                           | Strong (via sharding)          |
+| Failure Risk       | High (ek server fail to sab band) | Low (load distribute hota hai) |
+| Real Example       | Laptop me RAM badhana             | Multiple systems use karna     |
+
+---
+
 
 ## Q. ***How can you achieve transaction and locking in MongoDB?***
 
@@ -723,116 +1103,352 @@ try {
    await client.close();
 }
 ```
+In MongoDB, you can achieve **transactions** and **locking**—but in a **different way** than traditional SQL databases like SQL Server.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+
+---
+
+## 🔹 1. **Transactions in MongoDB**
+
+### ✅ Since MongoDB 4.0+, **multi-document ACID transactions** are supported.
+
+### 🔸 What is a transaction?
+
+A transaction means:
+
+> Ya to sab operations sath me ho (commit), ya ek bhi na ho (rollback).
+> Example: Paisa transfer — A ka paisa ghatna aur B ka badhna — dono ek sath hona chahiye.
+
+### 🔸 How to use in MongoDB?
+
+#### 🔧 Syntax (Node.js example):
+
+```js
+const session = await mongoose.startSession();
+
+session.startTransaction();
+
+try {
+  await Account.updateOne({ _id: 'A' }, { $inc: { balance: -100 } }).session(session);
+  await Account.updateOne({ _id: 'B' }, { $inc: { balance: 100 } }).session(session);
+
+  await session.commitTransaction();
+  session.endSession();
+} catch (err) {
+  await session.abortTransaction();
+  session.endSession();
+}
+```
+
+> Note: Transactions need **replica set** (even on localhost for dev).
+
+---
+
+## 🔹 2. **Locking in MongoDB**
+
+### 🔸 Does MongoDB support locking like SQL?
+
+✅ Yes, but **internally**. MongoDB uses:
+
+* **Document-level locking** (not row, table, or collection level like SQL Server).
+* This means only **one write** can happen to a document at a time, others wait.
+
+### 🔸 You don’t manually lock/unlock — MongoDB handles it.
+
+But for **manual concurrency control**, you can use **`$isolated`**, **`findAndModify`**, or even create a **"lock" field** in your document.
+
+---
+
+## 🔸 Example of Soft Locking (Custom Lock Flag):
+
+```js
+// Step 1: Lock document
+await db.tasks.updateOne(
+  { _id: taskId, locked: false },
+  { $set: { locked: true } }
+);
+
+// Step 2: Process task...
+
+// Step 3: Unlock after done
+await db.tasks.updateOne(
+  { _id: taskId },
+  { $set: { locked: false } }
+);
+```
+
+---
+
+## 🆚 Comparison: MongoDB vs SQL Server
+
+| Feature        | MongoDB                     | SQL Server                     |
+| -------------- | --------------------------- | ------------------------------ |
+| Transactions   | Supported (since v4.0)      | Fully supported                |
+| Locking        | Document-level              | Row/Table-level                |
+| Performance    | Faster writes, less locking | May slow down with heavy locks |
+| Custom locking | Manual via field (optional) | Built-in                       |
+
+---
+
 
 ## Q. ***When to Use MongoDB Rather than MySQL?***
 
-**1. MongoDB**
+### **When to Use MongoDB Rather than MySQL**
 
-MongoDB is one of the most popular document-oriented databases under the banner of NoSQL database. It employs the format of key-value pairs, here called document store. Document stores in MongoDB are created is stored in BSON files which are, in fact, a little-modified version of JSON files and hence all JS are supported.
+You should use **MongoDB** instead of **MySQL** in the following situations:
 
-It offers greater efficiency and reliability which in turn can meet your storage capacity and speed demands. The schema-free implementation of MongoDB eliminates the prerequisites of defining a fixed structure. These models allow hierarchical relationships representation and facilitate the ability to change the structure of the record.
+---
 
-**Pros**
+### ✅ 1. **If your data structure is not fixed (Flexible schema):**
 
-* MongoDB has a lower latency per query & spends less CPU time per query because it is doing a lot less work (e.g. no joins, transactions). As a result, it can handle a higher load in terms of queries per second.
-* MongoDB is easier to shard (use in a cluster) because it doesn\'t have to worry about transactions and consistency.
-* MongoDB has a faster write speed because it does not have to worry about transactions or rollbacks (and thus does not have to worry about locking).
-* It supports many Features like automatic repair, easier data distribution, and simpler data models make administration and tuning requirements lesser in NoSQL.
-* NoSQL databases are cheap and open source.
-* NoSQL database support caching in system memory so it increases data output performance.
+* In MongoDB, you can store different types of data in the same collection.
+* Example: If your user data keeps changing (sometimes phone number, sometimes multiple addresses), MongoDB handles it easily.
 
-**Cons**
+> 🧠 Use MongoDB when your project needs flexibility and structure is not fixed.
 
-* MongoDB does not support transactions.
-* In general, MongoDB creates more work (e.g. more CPU cost) for the client server. For example, to join data one has to issue multiple queries and do the join on the client.
-* No Stored Procedures in mongo dB (NoSQL database).
+---
 
-**Reasons to Use a NoSQL Database**
+### ✅ 2. **If you are dealing with large volumes of unstructured or semi-structured data:**
 
-* **Storing large volumes of data without structure**: A NoSQL database doesn\'t limit storable data types. Plus, you can add new types as business needs change.
-* **Using cloud computing and storage**: Cloud-based storage is a great solution, but it requires data to be easily spread across multiple servers for scaling. Using affordable hardware on-site for testing and then for production in the cloud is what NoSQL databases are designed for.
-* **Rapid development**: If you are developing using modern agile methodologies, a relational database will slow you down. A NoSQL database doesn\'t require the level of preparation typically needed for relational databases.
+* MongoDB handles images, videos, logs, JSON data, etc., very well.
 
-**2. MySQL**
+> 🧠 Ideal for apps like social media, logs, analytics, IoT, etc.
 
-MySQL is a popular open-source relational database management system (RDBMS) that is developed, distributed and supported by Oracle Corporation. MySQL stores data in tables and uses structured query language (SQL) for database access. It uses Structured Query Language SQL to access and transfer the data and commands such as 'SELECT', 'UPDATE', 'INSERT' and 'DELETE' to manage it.
+---
 
-Related information is stored in different tables but the concept of JOIN operations simplifies the process of correlating it and performing queries across multiple tables and minimize the chances of data duplication. It follows the ACID (Atomic, Consistent, Isolated and Durable) model. This means that once a transaction is complete, the data remains consistent and stable on the disc which may include distinct multiple memory locations.
+### ✅ 3. **Faster development with changing requirements:**
 
-**Pros**
+* MongoDB lets you change the data model easily during development.
+* No need to write complex ALTER TABLE commands like in MySQL.
 
-* SQL databases are table based databases.
-* Data store in rows and columns
-* Each row contains a unique instance of data for the categories defined by the columns.
-* Provide facility primary key, to uniquely identify the rows.
+> 🧠 Great for startups or fast-moving projects.
 
-**Cons**
+---
 
-* Users have to scale relational database on powerful servers that are expensive and difficult to handle. To scale relational database, it has to be distributed on to multiple servers. Handling tables across different servers is difficult.
-* In SQL server\'s data has to fit into tables anyhow. If your data doesn\'t fit into tables, then you need to design your database structure that will be complex and again difficult to handle.
+### ✅ 4. **When you need high performance with large datasets:**
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+* MongoDB reads/writes fast when properly indexed.
+
+> 🧠 Use in real-time applications like chat apps, e-commerce, or stock trading platforms.
+
+---
+
+### ✅ 5. **When you want Horizontal Scalability (scale with more servers):**
+
+* MongoDB supports sharding, which means it can split data across many servers.
+* MySQL mostly supports vertical scaling (increase CPU, RAM).
+
+> 🧠 MongoDB is better when data is growing very large and needs distribution.
+
+---
+
+### ✅ 6. **Geolocation or hierarchical data:**
+
+* MongoDB supports complex data types like arrays, embedded documents.
+* You can store nested data directly without joins.
+
+> 🧠 Example: Store all addresses of a user inside the user document itself.
+
+---
+
+### ❌ **Don’t use MongoDB when:**
+
+* You need strong ACID transactions (like banking systems).
+* You need complex JOIN operations (like relational reports).
+
+---
+
+### 🔄 Simple Comparison:
+
+| Feature             | MongoDB                       | MySQL                        |
+| ------------------- | ----------------------------- | ---------------------------- |
+| Schema              | Flexible                      | Fixed                        |
+| Data Type           | JSON-like documents (BSON)    | Tables & Rows                |
+| Speed with Big Data | Faster                        | Slower                       |
+| Joins               | Limited                       | Strong                       |
+| Scalability         | Horizontal (easy)             | Vertical (harder)            |
+| Best For            | Real-time, fast-changing apps | Traditional, structured apps |
+
+---
 
 ## Q. ***How MongoDB supports ACID transactions and locking functionalities?***
+Here's a simple explanation of how **MongoDB supports ACID transactions and locking functionalities**, especially for someone coming from an SQL background:
 
-ACID stands that any update is:
+---
 
-* **Atomic:** it either fully completes or it does not
-* **Consistent:** no reader will see a "partially applied" update
-* **Isolated:** no reader will see a "dirty" read
-* **Durable:** (with the appropriate write concern)
+### ✅ **ACID Transactions in MongoDB (Since v4.0)**
 
-MongoDB, has always supported ACID transactions in a single document and, when leveraging the document model appropriately, many applications don\'t need ACID guarantees across multiple documents.
+**ACID** means:
 
-MongoDB is a document based  NoSQL database with a flexible schema. Transactions are not operations that should be executed for every write operation  since they incur a greater performance cost over a single document writes. With a document based structure and denormalized data model, there will be a minimized need for transactions. Since MongoDB allows document embedding, you don\'t necessarily need to use a transaction to meet a write operation.
+* **A**tomicity → All operations complete or none.
+* **C**onsistency → DB stays valid before & after transaction.
+* **I**solation → Other operations don’t see partial changes.
+* **D**urability → Once done, data stays saved—even after crash.
 
-MongoDB version 4.0 provides **multi-document transaction** support for replica set deployments only and probably the version 4.2 will extend support for sharded deployments.
+MongoDB **didn’t support full ACID** at the start, but now it supports **multi-document ACID transactions**, like SQL.
 
-**Example:** Multi-Document ACID Transactions in MongoDB
+---
 
-These are multi-statement operations that need to be executed sequentially without affecting each other. For example below we can create two transactions, one to add a user and another to update a user with a field of age. 
+### 🔐 How Transactions Work in MongoDB?
 
-```js
-$session.startTransaction()
+* Start a session:
 
-   db.users.insert({_id: 6, name: "John"})
+  ```js
+  const session = db.getMongo().startSession();
+  session.startTransaction();
+  ```
 
-   db.users.updateOne({_id: 3, {$set: {age:26} }})
+* Perform operations:
 
-session.commit_transaction()
+  ```js
+  db.collection1.insertOne({ name: "Sajid" }, { session });
+  db.collection2.updateOne({ _id: 1 }, { $set: { age: 30 } }, { session });
+  ```
+
+* Commit or abort:
+
+  ```js
+  session.commitTransaction(); // save changes
+  session.abortTransaction();  // rollback changes
+  ```
+
+✅ Useful when multiple collections/documents need to update together.
+
+---
+
+### 🔐 Locking in MongoDB
+
+MongoDB uses:
+
+* **Document-level locking** (not full table like SQL)
+* Means **other documents are not blocked** when one is being updated
+
+This gives:
+
+* Better **concurrency**
+* Faster **write/read performance**
+
+---
+
+### 📌 Summary:
+
+| Feature             | MongoDB Support                        |
+| ------------------- | -------------------------------------- |
+| Atomic operations   | Yes, on a single document              |
+| Multi-document ACID | Yes, from version 4.0                  |
+| Locking mechanism   | Document-level locking                 |
+| Rollback (abort)    | Supported in transactions              |
+| Performance         | Faster because of fine-grained locking |
+
+---
+
+---
+
+### 🔍 Pehle samjho: Transaction hota kya hai?
+
+**Transaction** ka matlab hota hai **ek ya zyada operations ka group** jo ek saath complete hona chahiye.
+
+#### 💡 Real-Life Example:
+
+Sochiye aapne kisi dost ko ₹100 bhejna hai:
+
+1. Aapke account se ₹100 **katna** (debit)
+2. Uske account me ₹100 **add hona** (credit)
+
+Yeh dono kaam **ek saath sahi hone chahiye**. Agar pehla ho gaya aur doosra nahi, to paisa gayab ho jayega. Isliye in dono operations ko **ek transaction me rakha jata hai**.
+
+---
+
+### 🤔 MongoDB me pehle ye possible nahi tha?
+
+Haan, MongoDB NoSQL database hai. Pehle sirf **ek single document** level par atomicity (ek saath update hone ki guarantee) milti thi. Lekin ab MongoDB ne **multi-document transactions** introduce kiye hain (from version 4.0 onward).
+
+---
+
+### ✅ MongoDB Transaction ke Features:
+
+1. **ACID-compliant** (Atomicity, Consistency, Isolation, Durability)
+2. **Multi-document support** (ek se zyada documents ko ek transaction me update kar sakte ho)
+3. Support for **Replica Set** aur **Sharded Cluster**
+
+---
+
+### 🧠 ACID ka matlab kya hota hai MongoDB me?
+
+| 🔠 ACID Principle | Matlab (Desi Style)                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| **Atomicity**     | Sabhi operations ek saath ho ya ek bhi na ho                       |
+| **Consistency**   | Data hamesha valid state me rahe                                   |
+| **Isolation**     | Ek transaction doosre me interfere na kare                         |
+| **Durability**    | Transaction commit hone ke baad data safe hai, chahe crash ho jaye |
+
+---
+
+### 🧪 Example: Transaction in MongoDB (Node.js Shell Syntax)
+
+```javascript
+const session = await mongoose.startSession();
+session.startTransaction();
+
+try {
+  await Account.updateOne(
+    { name: 'Sajid' },
+    { $inc: { balance: -100 } },
+    { session }
+  );
+
+  await Account.updateOne(
+    { name: 'Gulista' },
+    { $inc: { balance: 100 } },
+    { session }
+  );
+
+  await session.commitTransaction();
+  console.log('Transaction Successful');
+} catch (error) {
+  await session.abortTransaction();
+  console.error('Transaction Failed', error);
+} finally {
+  session.endSession();
+}
 ```
 
-Transactions can be applied to operations against multiple documents contained in one or many collection/database. Any changes due to document transaction do not impact performance for workloads not related or do not require them. Until the transaction is committed, uncommitted writes are neither replicated to the secondary nodes nor are they readable outside the transactions.
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+### ⚙️ Kaise kaam karta hai:
 
-## Q. ***What are the best practices for MongoDB Transactions?***
+1. `startSession()` se ek session start hota hai.
+2. `startTransaction()` se transaction shuru hota hai.
+3. Sabhi queries ke andar `{ session }` dena padta hai.
+4. `commitTransaction()` se sab operation apply hote hain.
+5. Agar koi error aaye to `abortTransaction()` se rollback ho jata hai.
 
-The multi-document transactions are only supported in the `WiredTiger` storage engine. For a single ACID transaction, if you try performing an excessive number of operations, it can result in high pressure on the WiredTiger cache. The cache is always dictated to maintain state for all subsequent writes since the oldest snapshot was created. This means new writes will accumulate in the cache throughout the duration of the transaction and will be flushed only after transactions currently running on old snapshots are committed or aborted.
+---
 
-For the best database performance on the transaction, developers should consider:
+### 🎯 MongoDB Transactions Use Kab Karein?
 
-1. Always modify a small number of documents in a transaction. Otherwise, you will need to break the transaction into different parts and process the documents in different batches. At most, process 1000 documents at a time.
+* Jab aapko **banking type** ya **order management** system banana ho.
+* Jab aapko ek saath **multiple documents update karne ho**.
+* Jab data **critical ho**, jaise: inventory count, money transfer, etc.
 
-2. Temporary exceptions such as awaiting to elect primary and transient network hiccups may result in abortion of the transaction. Developers should establish a logic to retry the transaction if the defined errors are presented.
+---
 
-3. Configure optimal duration for the execution of the transaction from the default 60 seconds provided by MongoDB. Besides, employ indexing so that it can allow fast data access within the transaction.
+### 🚫 Caution: Transactions are heavy
 
-4. Decompose your transaction into a small set of operation so that it fits the 16MB size constraints. Otherwise, if the operation together with oplog description exceed this limit, the transaction will be aborted.
+* Transactions thode **performance costly** hote hain.
+* Agar sirf ek hi document update karna hai to **transactions ki jarurat nahi**.
 
-5. All data relating to an entity should be stored in a single, rich document structure. This is to reduce the number of documents that are to be cached when different fields are going to be changed.
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+### 📌 Best Practices:
+
+1. Transactions ko **short and fast** rakho.
+2. Error handle karo — **abortTransaction()** lagao.
+3. Use **Replica Set** (required for transactions).
+4. Agar possible ho to **single document design** rakho (embedded documents).
+
+---
+
 
 ## Q. ***Explain limitations of MongoDB Transactions?***
 
@@ -844,9 +1460,6 @@ MongoDB transactions can exist only for relatively short time periods.  By defau
 4. Transaction size is limited to 16MB requiring one to split any that tends to exceed this size into smaller transactions.
 5. Subjecting a large number of documents to a transaction may exert excessive pressure on the WiredTiger engine and since it relies on the snapshot capability, there will be a retention of large unflushed operations in memory. This renders some performance cost on the database.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***Should I normalize my data before storing it in MongoDB?***
 
@@ -882,38 +1495,162 @@ In this case, mongoDB document structure should be as follows.
 </div>
 
 ## Q. ***What is upsert operation in MongoDB?***
+### 🔁 What is an **Upsert** Operation in MongoDB?
 
-Upsert operation in MongoDB is utilized to save document into collection. If document matches query criteria then it will perform update operation otherwise it will insert a new document into collection.
+**Upsert** = **Update + Insert**
 
-Upsert operation is useful while importing data from external source which will update existing documents if matched otherwise it will insert new documents into collection.
+The `upsert` option in MongoDB is used with `updateOne()`, `updateMany()`, or `replaceOne()` operations.
 
-**Example:** Upsert option set for update
+It tells MongoDB:
 
-This operation first searches for the document if not present then inserts the new document into the database.
+* If the document **exists**, update it.
+* If the document **doesn’t exist**, create a new document with the specified fields.
+
+---
+
+### ✅ Syntax:
 
 ```js
-
-> db.car.update(
-...    { name: "Qualis" },
-...    {
-...       name: "Qualis",
-...       speed: 50
-...    },
-...    { upsert: true }
-... )
-WriteResult({
-	"nMatched" : 0,
-	"nUpserted" : 1,
-	"nModified" : 0,
-	"_id" : ObjectId("548d3a955a5072e76925dc1c")
-})
+db.collection.updateOne(
+  { filter_criteria },
+  { $set: { field1: value1, field2: value2 } },
+  { upsert: true }
+);
 ```
 
-The car with the name Qualis is checked for existence and if not, a document with car name "Qualis" and speed 50 is inserted into the database. The nUpserted with value "1" indicates a new document is inserted.
+---
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+### 🔎 Example:
+
+Suppose you have a collection `users`.
+
+```js
+db.users.updateOne(
+  { name: "Sajid" }, // Filter: find user with name = Sajid
+  { $set: { age: 30, city: "Udaipur" } }, // What to update
+  { upsert: true } // If not found, insert
+);
+```
+
+### 💡 What happens:
+
+* If a user named "Sajid" exists → update his age and city.
+* If not → insert a **new document** like:
+
+  ```js
+  { name: "Sajid", age: 30, city: "Udaipur" }
+  ```
+
+---
+
+### 📌 Use Cases:
+
+* Syncing user data from another source.
+* When you’re unsure if a document exists.
+* Logging the first access of a user/device/event.
+
+---
+
+### ⚠️ Important Notes:
+
+* `upsert: false` (default): will **not** insert if no match found.
+* MongoDB will only insert what’s inside the update operators (`$set`, `$inc`, etc.).
+
+---
+
+Sure Sajid bhai!
+Here are simple **MongoDB examples** of `updateOne()`, `updateMany()`, and `replaceOne()` – each with and without **`upsert`**.
+
+---
+
+## 🧪 Sample Collection: `users`
+
+```js
+[
+  { name: "Sajid", city: "Udaipur", age: 28 },
+  { name: "Gulista", city: "Jaipur", age: 26 },
+  { name: "Rahul", city: "Udaipur", age: 30 }
+]
+```
+
+---
+
+## ✅ 1. `updateOne()`
+
+> 🔹 Updates **only one** matching document.
+
+### 🔹 Example: Without Upsert
+
+```js
+db.users.updateOne(
+  { name: "Sajid" },
+  { $set: { age: 29 } }
+);
+```
+
+📌 Changes Sajid's age to 29.
+
+---
+
+### 🔹 Example: With Upsert
+
+```js
+db.users.updateOne(
+  { name: "Zoya" },
+  { $set: { city: "Delhi", age: 22 } },
+  { upsert: true }
+);
+```
+
+📌 If "Zoya" not found, it creates:
+
+```js
+{ name: "Zoya", city: "Delhi", age: 22 }
+```
+
+---
+
+## ✅ 2. `updateMany()`
+
+> 🔹 Updates **all documents** matching the filter.
+
+### 🔹 Example:
+
+```js
+db.users.updateMany(
+  { city: "Udaipur" },
+  { $set: { state: "Rajasthan" } }
+);
+```
+
+📌 Adds `state: "Rajasthan"` to all users in Udaipur.
+
+---
+
+## ✅ 3. `replaceOne()`
+
+> 🔹 **Replaces entire document** (not partial update).
+
+### 🔹 Example: Replace Sajid’s full document
+
+```js
+db.users.replaceOne(
+  { name: "Sajid" },
+  { name: "Sajid", city: "Bangalore", age: 29 }
+);
+```
+
+📌 Replaces whole document. Old fields not mentioned will be **removed**.
+
+---
+
+### 💡 Tip:
+
+Use `updateOne()` with `$set` for **partial updates**.
+Use `replaceOne()` when you want to **replace full object**.
+
+---
+
 
 ## Q. ***Is there an "upsert" option in the mongodb insert command?***
 

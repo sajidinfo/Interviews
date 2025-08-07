@@ -295,7 +295,7 @@ let words = sentence2.split(" ");  // Words me tod diya
 
 let longest = words.reduce((longestWord, currentWord) => {
     return currentWord.length > longestWord.length ? currentWord : longestWord;
-}, "");
+}, ""); 
 
 // console.log(longest);
 

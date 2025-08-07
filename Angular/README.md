@@ -725,13 +725,23 @@ server.ts → renders full HTML and sends to browser
 
     Here are some of the major differences in tabular format:-
 
-    | AngularJS | Angular |
-    |---- | ---------
-    | It is based on MVC architecture| This is based on Service/Controller|
-    | It uses JavaScript to build the application| Uses TypeScript to build the application|
-    | Based on controllers concept| This is a component based UI approach|
-    | No support for mobile platforms| Fully supports mobile platforms|
-    | Difficult to build SEO friendly application| Ease to build SEO friendly applications|
+| Feature                       | **AngularJS** (v1.x)            | **Angular** (v2+)                                               |
+| ----------------------------- | ------------------------------- | --------------------------------------------------------------- |
+| **Language**                  | JavaScript                      | TypeScript (superset of JS)                                     |
+| **Architecture**              | MVC (Model-View-Controller)     | Component-based                                                 |
+| **Mobile Support**            | ❌ Not optimized for mobile      | ✅ Designed with mobile-first in mind                            |
+| **Performance**               | Slower due to dirty checking    | Much faster with better change detection (Zone.js + Ivy engine) |
+| **Dependency Injection (DI)** | Basic                           | Advanced, powerful DI system                                    |
+| **Tooling Support**           | Limited                         | Rich support (CLI, testing, lazy loading, etc.)                 |
+| **Two-way Binding**           | Available but performance heavy | Controlled and optimized                                        |
+| **DOM Manipulation**          | Done directly in controllers    | Done via directives and component lifecycle hooks               |
+| **Modularity**                | Monolithic structure            | Fully modular with NgModules                                    |
+| **CLI Support**               | ❌ No official CLI               | ✅ Angular CLI for easy scaffolding, testing, builds             |
+| **Routing**                   | Inbuilt but not modular         | Powerful RouterModule with lazy loading                         |
+| **Learning Curve**            | Easier for JS developers        | Slightly steep due to TypeScript & architecture                 |
+| **Community Support**         | Legacy support only             | Actively maintained and improved                                |
+| **Current Status**            | Deprecated (no updates)         | Actively developed and widely used                              |
+
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -897,13 +907,34 @@ server.ts → renders full HTML and sends to browser
 
     The description of each lifecycle method is as below,
     1. **ngOnChanges:** When the value of a data bound property changes, then this method is called.
-    2. **ngOnInit:** This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
-    3. **ngDoCheck:** This is for the detection and to act on changes that Angular can't or won't detect on its own.
-    4. **ngAfterContentInit:** This is called in response after Angular projects external content into the component's view.
-    5. **ngAfterContentChecked:** This is called in response after Angular checks the content projected into the component.
-    6. **ngAfterViewInit:** This is called in response after Angular initializes the component's views and child views.
-    7. **ngAfterViewChecked:** This is called in response after Angular checks the component's views and child views.
-    8. **ngOnDestroy:** This is the cleanup phase just before Angular destroys the directive/component.
+       Jab component ka koi @Input() property update hota hai (parent component se naya data milta hai).
+	
+ 	@Input() userName: string;
+	```typescript
+	ngOnChanges(changes: SimpleChanges) {
+	  if (changes['userName']) {
+	    this.userName = this.userName.toUpperCase();
+	  }
+	}
+ 	```
+
+    3. **ngOnInit:** This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
+    4. **ngDoCheck:** This is for the detection and to act on changes that Angular can't or won't detect on its own.
+       Jab Angular change detection chalaata hai, aur aap manually changes ko detect karna chahte ho jo Angular detect nahi kar pata.
+```typescript
+       ngDoCheck() {
+	  // Custom change detection
+	  if (this.userDetails.name !== this.prevUserName) {
+	    console.log('Name Changed!');
+	    this.prevUserName = this.userDetails.name;
+	  }
+	}
+```
+    6. **ngAfterContentInit:** This is called in response after Angular projects external content into the component's view.
+    7. **ngAfterContentChecked:** This is called in response after Angular checks the content projected into the component.
+    8. **ngAfterViewInit:** This is called in response after Angular initializes the component's views and child views.
+    9. **ngAfterViewChecked:** This is called in response after Angular checks the component's views and child views.
+    10. **ngOnDestroy:** This is the cleanup phase just before Angular destroys the directive/component.
 
   **[⬆ Back to Top](#table-of-contents)**
 
@@ -1092,7 +1123,20 @@ server.ts → renders full HTML and sends to browser
   **[⬆ Back to Top](#table-of-contents)**
 
 17. ### What is dependency injection in Angular?
-    Dependency injection (DI), is an important application design pattern in which a class asks for dependencies from external sources rather than creating them itself. Angular comes with its own dependency injection framework for resolving dependencies( services or objects that a class needs to perform its function).So you can have your services depend on other services throughout your application.
+> Dependency Injection in Angular is a technique where Angular provides required services (dependencies) to components or other services automatically, rather than the components creating them themselves.
+
+---
+
+### 🔄 Benefits of Dependency Injection
+
+| ✅ Benefit           | Explanation                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| **Reusability**     | Services can be reused in multiple components                  |
+| **Testability**     | You can mock services in unit tests                            |
+| **Maintainability** | You don’t need to manually create and manage service instances |
+| **Loose Coupling**  | Components don’t know how services work internally             |
+
+---
 
   **[⬆ Back to Top](#table-of-contents)**
 

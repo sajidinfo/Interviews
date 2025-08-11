@@ -543,8 +543,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
 ---
 
----
-
 1. ### What are the possible ways to create objects in JavaScript
 
     There are many ways to create objects in javascript as mentioned below:

@@ -4,15 +4,8 @@
 
 <p align="center">
   <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=javascript-interview-questions>
-    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo" width="100" height="50">
+  
   </a>
-  <p align="center">
-    <ol>
-    <li>Take this <a href=https://links.zerotomastery.io/jsp_sudheer>JavaScript Projects</a> course to go from a JS beginner to confidently building your own projects</li>
-    <li>Take this <a href=https://links.zerotomastery.io/mci_sudheer2>coding interview bootcamp</a> if you’re serious about getting hired and don’t have a CS degree</li>
-    <li>Take this <a href=https://links.zerotomastery.io/ajs_sudheer>Advanced JavaScript Course</a> to learn advanced JS concepts and become a top JS developer</li>
-    </ol>
-  </p>
 </p>
 
 ---
@@ -550,12 +543,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
 ---
 
-## 🛠️ Summary:
-
-> JavaScript is the **language of the web**, used to build everything from simple UI interactions to full-scale applications, both in the browser and on the server.
-
----
-
 1. ### What are the possible ways to create objects in JavaScript
 
     There are many ways to create objects in javascript as mentioned below:
@@ -670,18 +657,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
     This mechanism allows for property and method sharing among objects, enabling code reuse and a form of inheritance.
 
-    **Summary:**
-
-    *   The prototype chain enables inheritance in JavaScript.
-    *   If a property isn’t found on an object, JavaScript looks up its prototype chain.
-    *   The prototype of an object instance can be accessed with `Object.getPrototypeOf(obj)` or `__proto__`.
-    *   The prototype of a constructor function is available via `Constructor.prototype`.
-    *   The chain ends when the prototype is `null`.
-
-    The prototype chain among objects appears as below, 
-    
-    ![Screenshot](images/prototype_chain.png)
-
     **[⬆ Back to Top](#table-of-contents)**
 
 3. ### What is the Difference Between `call`, `apply`, and `bind`
@@ -712,7 +687,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
   - **Example:**
     ```js
     var employee1 = { firstName: "John", lastName: "Rodson" };
-    var employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
     function invite(greeting1, greeting2) {
       console.log(
@@ -721,7 +695,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
     }
 
     invite.call(employee1, "Hello", "How are you?"); // Hello John Rodson, How are you?
-    invite.call(employee2, "Hello", "How are you?"); // Hello Jimmy Baily, How are you?
     ```
 
   ---
@@ -739,7 +712,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
   - **Example:**
     ```js
     var employee1 = { firstName: "John", lastName: "Rodson" };
-    var employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
     function invite(greeting1, greeting2) {
       console.log(
@@ -748,7 +720,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
     }
 
     invite.apply(employee1, ["Hello", "How are you?"]); // Hello John Rodson, How are you?
-    invite.apply(employee2, ["Hello", "How are you?"]); // Hello Jimmy Baily, How are you?
     ```
 
   ---
@@ -766,7 +737,6 @@ You don’t need to define variable types explicitly. JS determines the type at 
   - **Example:**
     ```js
     var employee1 = { firstName: "John", lastName: "Rodson" };
-    var employee2 = { firstName: "Jimmy", lastName: "Baily" };
 
     function invite(greeting1, greeting2) {
       console.log(
@@ -775,22 +745,12 @@ You don’t need to define variable types explicitly. JS determines the type at 
     }
 
     var inviteEmployee1 = invite.bind(employee1);
-    var inviteEmployee2 = invite.bind(employee2);
 
     inviteEmployee1("Hello", "How are you?"); // Hello John Rodson, How are you?
-    inviteEmployee2("Hello", "How are you?"); // Hello Jimmy Baily, How are you?
     ```
 
   ---
 
-  ## Key Points
-
-  - **`call`** and **`apply`** are almost interchangeable; both invoke the function immediately, but differ in how arguments are passed.
-      - _Tip:_ "Call is for Comma-separated, Apply is for Array."
-  - **`bind`** does not execute the function immediately. Instead, it creates a new function with the specified `this` value and optional arguments, which can be called later.
-
-  - Use `call` or `apply` when you want to immediately invoke a function with a specific `this` context. Use `bind` when you want to create a new function with a specific `this` context to be invoked later.
-  
   ---
 
   **[⬆ Back to Top](#table-of-contents)**
@@ -823,14 +783,16 @@ You don’t need to define variable types explicitly. JS determines the type at 
 
     **[⬆ Back to Top](#table-of-contents)**
 
-5. ### What is the purpose of the array slice method
+7. ### What is the difference between slice and splice
+   
+    Here are the key differences between `slice()` and `splice()` methods in JavaScript arrays:
 
-    The `slice()` method in JavaScript is used to extract a section of an array, returning a new array containing the selected elements. It does not modify the original array. The method takes two arguments:
-
-    - **start**: The index at which extraction begins (inclusive).
-    - **end** (optional): The index before which to end extraction (exclusive). If omitted, extraction continues to the end of the array.
-
-    You can also use negative indices, which count from the end of the array.
+    | `slice()`                                         | `splice()`                                          |
+    | ------------------------------------------------- | --------------------------------------------------- |
+    | Does **not** modify the original array (immutable) | Modifies the original array (mutable)               |
+    | Returns a **shallow copy** (subset) of selected elements | Returns an array of the **removed** elements           |
+    | Used to **extract** elements from an array         | Used to **add**, **remove**, or **replace** elements in an array |
+    | Syntax: `array.slice(start, end)`                  | Syntax: `array.splice(start, deleteCount, ...items)`             |
 
     #### Examples:
 
@@ -842,28 +804,7 @@ You don’t need to define variable types explicitly. JS determines the type at 
     let arrayIntegers3 = arrayIntegers.slice(4);       // [5]
     let arrayIntegers4 = arrayIntegers.slice(-3, -1);  // [3, 4]
     ```
-
-    **Note:**  
-    The `slice()` method does **not** mutate (change) the original array; instead, it returns a new array containing the extracted elements.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-6. ### What is the purpose of the array splice method
-
-    The `splice()` method in JavaScript is used to add, remove, or replace elements within an array. Unlike `slice()`, which creates a shallow copy and does not alter the original array, `splice()` **modifies the original array in place** and returns an array containing the removed elements.
-
-    #### Syntax
-
-    ```javascript
-    array.splice(start, deleteCount, item1, item2, ...)
-    ```
-    - **start:** The index at which to start changing the array.
-    - **deleteCount:** (Optional) The number of elements to remove from the array. If omitted, all elements from the start index to the end of the array will be removed.
-    - **item1, item2, ...:** (Optional) Elements to add to the array, starting at the start position.
-
-    #### Examples
-
-    ```javascript
+   ```javascript
     let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
     let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
     let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
@@ -883,48 +824,25 @@ You don’t need to define variable types explicitly. JS determines the type at 
     // arrayIntegers3: [4]
     // arrayIntegersOriginal3 (after): [1, 2, 3, "a", "b", "c", 5]
     ```
-
-    **Note:**  
-    - The `splice()` method **modifies the original array**.
-    - It returns an array containing the elements that were removed (if any).
-    - You can use it both to remove and insert elements in a single operation.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-7. ### What is the difference between slice and splice
-   
-    Here are the key differences between `slice()` and `splice()` methods in JavaScript arrays:
-
-    | `slice()`                                         | `splice()`                                          |
-    | ------------------------------------------------- | --------------------------------------------------- |
-    | Does **not** modify the original array (immutable) | Modifies the original array (mutable)               |
-    | Returns a **shallow copy** (subset) of selected elements | Returns an array of the **removed** elements           |
-    | Used to **extract** elements from an array         | Used to **add**, **remove**, or **replace** elements in an array |
-    | Syntax: `array.slice(start, end)`                  | Syntax: `array.splice(start, deleteCount, ...items)`             |
-
+    
     **Summary:**  
     - Use `slice()` when you want to copy or extract elements without altering the original array.
     - Use `splice()` when you need to add, remove, or replace elements and want to change the original array.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-8. ### How do you compare Object and Map
+7. ### How do you compare Object and Map
 
     **Objects** and **Maps** both allow you to associate keys with values, retrieve those values, delete keys, and check if a key exists. Historically, Objects have been used as Maps, but there are several key differences that make `Map` a better choice in certain scenarios:
 
-    | Feature                  | Object                                              | Map                                                      |
-    |--------------------------|-----------------------------------------------------|----------------------------------------------------------|
-    | **Key Types**            | Only strings and symbols are valid keys             | Any value can be used as a key (objects, functions, primitives) |
-    | **Key Order**            | Keys are unordered (in practice, insertion order is mostly preserved for string keys, but not guaranteed) | Keys are ordered by insertion; iteration follows insertion order |
-    | **Size Property**        | No built-in way to get the number of keys; must use `Object.keys(obj).length` | Use the `.size` property for the number of entries        |
-    | **Iterability**          | Not directly iterable; must use `Object.keys`, `Object.values`, or `Object.entries` | Directly iterable with `for...of`, `.keys()`, `.values()`, `.entries()` |
-    | **Prototype**            | Has a prototype chain; may have default properties that can collide with custom keys (can be avoided with `Object.create(null)`) | Does not have a prototype, so there are no default keys   |
-    | **Performance**          | May be less efficient for frequent additions/removals | Optimized for frequent additions and deletions            |
-    | **Serialization**        | Can be easily serialized to JSON                    | Cannot be directly serialized to JSON                     |
+
+* **Object** → Stores key–value pairs where keys are always strings (or symbols), not ordered reliably, and better for structured data.
+* **Map** → Stores key–value pairs with keys of any type, maintains insertion order, and has built-in methods (`set`, `get`, `has`) for easier iteration and size checking.
+
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9. ### What is the difference between == and === operators
+8. ### What is the difference between == and === operators
     JavaScript provides two types of equality operators:
 
     - **Loose equality (`==`, `!=`)**: Performs type conversion if the types differ, comparing values after converting them to a common type.

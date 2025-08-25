@@ -2208,3 +2208,388 @@ require('dotenv').config({ path: '.env.test' });
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interview Tips ( 🚀)
+•	Intro me bol:
+“I am a Node.js developer with experience in building APIs, working on containerized environments like Docker, and I follow Agile methodologies with focus on CI/CD and problem solving.”
+•	If kuch nahi aata toh boldo:
+“I have basic exposure but I am a fast learner, and I can quickly pick up this skill.”
+•	Practice ek do chhote Node.js API banane ka code revise kar lena.
+•	Docker 4-5 commands revise kar le.
+•	Event Loop & Promises revise kar le – Node interview ka favourite hai.
+________________________________________
+🟢 Node.js / JavaScript
+1.	Aapki Node.js API sudden high traffic (10x) load handle nahi kar pa rahi – aap performance improve karne ke liye kya karoge?
+2.	Agar ek Node.js process memory leak kar raha hai to aap kaise debug karoge?
+3.	Aap ek API bana rahe ho jo 3rd party service call karti hai – agar wo service slow / down ho jaye to aap kaise handle karoge?
+4.	Aapke REST API ke response time 2s hai, client ne bola 500ms chahiye – aap optimization kaise karoge?
+5.	Node.js me agar ek async function me exception aa jaye aur crash ho jaye, to aap usko kaise prevent karoge?
+6.	Aapke paas ek system hai jisme multiple users ek saath data update karte hain – race condition avoid karne ke liye kya karoge?
+7.	Ek API me large JSON (50MB) response return karna hai – isko efficiently kaise bhejoge?
+8.	Agar ek microservice ki dependency service down ho jaye to aap fallback mechanism kaise implement karoge?
+Error Handling & Performance
+1.	Agar aapke Node.js API me ek external API call bahut slow ho raha hai, toh aap kaise handle karoge taki pura server block na ho?
+2.	Agar ek request continuously crash kar rahi hai aur logs me clear error nahi dikh raha, aap debugging kaise karoge?
+3.	Aapko ek API ka response time reduce karna hai (500ms → 100ms). Aap Node.js me kaunse techniques use karoge?
+________________________________________
+
+Asynchronous Programming
+4.	Aapko ek file read karni hai aur uske data ke basis pe dusra API call karna hai. Ye kaam aap callback, promises aur async/await teenon se kaise karoge?
+5.	Agar ek DB query aur ek external API call parallel me chalani ho, toh aap kaunsa Node.js pattern use karoge?
+________________________________________
+API Design & REST
+6.	Aapke paas ek API hai jo heavy JSON object return karta hai. Frontend slow ho raha hai. Aap Node.js me performance optimize kaise karoge?
+7.	Agar ek API endpoint par DDOS attack ho raha hai, toh aap Node.js me kaise protect karoge?
+________________________________________
+
+
+Database Scenarios
+8.	Agar Node.js service me ek query frequently slow chal rahi hai, toh aap kaise identify karoge ki issue Node.js code me hai ya DB me?
+9.	Node.js app me agar ek query bahut heavy hai, toh aap usko optimize karne ke liye kya karoge? (Indexes, caching, pagination)
+________________________________________
+Authentication & Security
+10.	JWT authentication implement karte waqt agar token expire ho jaye to aap kaise handle karoge?
+11.	Aap Node.js app ko SQL Injection aur XSS se kaise secure karoge?
+________________________________________
+Scaling & Load Handling
+12.	Aapke Node.js server ko ek hi time me 1 lakh concurrent users handle karne hain. Aap scaling kaise karoge?
+13.	Agar ek microservice 100 requests/sec handle kar raha hai, aur aapko 1000 requests/sec handle karna hai, toh Node.js side se kya changes karoge?
+________________________________________
+File Handling & Streams
+14.	Ek bada CSV file (1GB+) read karke process karna hai bina server crash kiye. Aap Node.js me kaise karoge?
+15.	Agar ek image upload API slow ho rahi hai kyunki bada file hai, aap kaise optimize karoge (streaming / chunk upload)?
+________________________________________
+Testing & Debugging
+16.	Aap ek Node.js API ke liye unit tests likh rahe ho. Agar API DB pe depend karti hai, toh aap kaise isolate karke test likhoge?
+17.	Aapke test cases CI/CD pipeline me fail ho rahe hain lekin local pe pass ho rahe hain. Aap troubleshooting kaise karoge?
+________________________________________
+Real-World Scenarios
+18.	Aapke Node.js service ka memory usage badh raha hai continuously (memory leak). Aap kaise detect aur fix karoge?
+19.	Agar ek background job (cron job) Node.js me fail ho jaye bina error ke, toh aap monitoring aur alerting kaise implement karoge?
+20.	Ek user report karta hai ki usko 500 error mil raha hai but aapke logs me koi error nahi hai. Aap root cause kaise find karoge?
+________________________________________
+🔵 DevOps / CI-CD / Jenkins
+9.	Jenkins pipeline slow chal rahi hai – aap usko kaise optimize karoge?
+10.	Jenkins me ek build frequently fail ho raha hai due to flaky tests – aap usko kaise diagnose karoge?
+11.	Aapke CI/CD pipeline me secrets (API keys, passwords) kaise securely manage karoge?
+12.	Aap ek microservice deploy karte ho aur production me container crash loop ho raha hai – kaise debug karoge?
+13.	Jenkins me agar ek job automatically trigger nahi ho rahi webhook ke baad – aap kaise troubleshoot karoge?
+14.	CI pipeline me test coverage 40% hai aur lead ne bola 80% chahiye – aap kya approach loge?
+15.	Agar ek deployment production me fail ho gaya to rollback strategy kya hogi?
+________________________________________
+🟠 Docker / Podman / Containers
+16.	Aapke Docker container ka size bahut bada hai (1.5GB) – aap usko optimize kaise karoge?
+17.	Container ke andar ek app crash kar raha hai, logs bahar nahi aa rahe – debugging kaise karoge?
+18.	Agar ek container continuously high CPU use kar raha hai to kaise diagnose karoge?
+19.	Agar Docker image me secret keys galti se commit ho gayi to aap kya karoge?
+20.	Agar ek container service ko scale karna ho 100+ instances tak – aap kya karoge?
+________________________________________
+🟣 Linux / Scripting
+21.	Production server me ek port pe app run nahi ho raha – Linux commands use karke kaise debug karoge?
+22.	Server me disk space suddenly full ho gaya – kaise check karoge aur clean karoge?
+23.	Agar ek process continuously high memory use kar raha hai – Linux me kaise find aur kill karoge?
+24.	Aapko ek bash script likhni hai jo logs ko 7 din purane delete kare – kaise likhoge?
+25.	Aapko Python script likhni hai jo REST API call karke data save kare – approach kya hogi?
+________________________________________
+🟤 Database / System Design
+26.	Agar ek DB query bahut slow chal rahi hai to aap performance kaise improve karoge?
+27.	System me read-heavy traffic hai (90% reads) – database design kaise karoge?
+28.	Agar ek DB table me deadlocks frequently aa rahe hain to kya karoge?
+29.	Large JSON store karna hai DB me – relational DB use karoge ya NoSQL? Kyu?
+30.	Ek collaborative system hai jisme 10 billion minutes per month traffic aa raha hai – aap scalability aur fault tolerance kaise ensure karoge?
+________________________________________
+🟢 JavaScript Core Questions
+1.	JavaScript me var, let, aur const me kya difference hai?
+2.	JavaScript me hoisting kya hota hai? Example do.
+3.	JavaScript me closure kya hai? Real life use-case batao.
+4.	Event Loop Node.js/JavaScript me kaise kaam karta hai? (Call stack, queue, microtask queue explain karo).
+5.	Synchronous vs Asynchronous JavaScript me kya difference hai?
+6.	JavaScript me Promises aur async/await kaise kaam karte hain?
+7.	Callback Hell kya hota hai? Isko kaise avoid karte ho?
+8.	JavaScript me this keyword kaise kaam karta hai alag-alag situations me? (function, arrow function, object, class).
+9.	JavaScript me prototype inheritance kaise kaam karti hai? Example do.
+10.	Shallow copy aur Deep copy me kya difference hai? Example ke sath.
+11.	JavaScript me debounce aur throttle kya hote hain? Real-life example do.
+12.	JavaScript me memory leak kaise hota hai? Usko kaise fix karte ho?
+13.	Map vs Set vs Object me difference kya hai?
+14.	JavaScript me == aur === operator me difference kya hai?
+15.	ES6+ features (arrow functions, template literals, spread/rest, destructuring, default params) me se sabse useful kaunsa hai aur kyu?
+
+
+
+🔵 Node.js Core Questions
+16.	Node.js ka single-threaded hone ka matlab kya hai?
+17.	Node.js me non-blocking I/O kaise kaam karta hai?
+18.	Node.js me EventEmitter kya hota hai? Example ke sath.
+19.	CommonJS vs ES Modules Node.js me difference kya hai?
+20.	Node.js me process.nextTick() vs setImmediate() me kya difference hai?
+21.	Node.js me cluster module ka use kyu hota hai?
+22.	Node.js me streams kya hote hain? Types samjhao (Readable, Writable, Duplex, Transform).
+23.	Node.js me buffer kya hota hai? Kyu use karte hain?
+24.	Node.js me middleware kya hota hai (Express example ke sath).
+25.	Node.js me error handling kaise karte ho (sync vs async)?
+26.	Node.js me global objects kaunse hote hain (setTimeout, process, __dirname, etc.)?
+27.	Node.js me package.json file me kya hota hai? Important fields explain karo.
+28.	npm vs npx me difference kya hai?
+29.	Node.js me child_process module kyu use hota hai?
+30.	Node.js me security best practices kya hote hain? (e.g. input validation, helmet.js, rate limiting).
+🟢 HTML5 Questions
+1.	HTML aur HTML5 me kya difference hai?
+2.	HTML5 ke new semantic tags kaunse hain? (e.g. <header>, <article>, <section>, etc.)
+3.	<canvas> aur <svg> me difference kya hai?
+4.	HTML5 me <audio> aur <video> tag kaise use karte ho? Example do.
+5.	Local Storage, Session Storage aur Cookies me kya difference hai?
+6.	HTML5 me geolocation API kya hai?
+7.	<datalist> tag ka use kyu hota hai?
+8.	<progress> aur <meter> tag me kya difference hai?
+9.	doctype ka role kya hota hai?
+10.	<iframe> ka use kya hota hai aur security concerns kya hain?
+11.	HTML5 forms me naye input types kaunse aaye hain? (e.g. email, date, range, color, etc.)
+12.	placeholder aur value attribute me kya difference hai?
+13.	defer aur async attribute script tag me kya kaam karte hain?
+14.	<link> aur <a> tag me difference kya hai?
+15.	SEO ke liye semantic HTML kyu important hai?
+🔵 CSS3 Questions
+16.	CSS aur CSS3 me kya difference hai?
+17.	Inline, Internal aur External CSS me difference kya hai?
+18.	CSS selectors ke types kya hain? (e.g. class, id, attribute, pseudo-class)
+19.	Pseudo-classes aur Pseudo-elements me kya difference hai? Example do.
+20.	CSS specificity kaise calculate hoti hai?
+21.	Flexbox aur Grid me kya difference hai?
+22.	CSS transitions aur animations me kya difference hai?
+23.	position: relative, absolute, fixed, sticky me kya difference hai?
+24.	Z-index kaise kaam karta hai?
+25.	CSS media queries kya hain? Responsive design me kaise use karte ho?
+26.	CSS me em, rem, % aur px units me kya difference hai?
+27.	CSS variables (custom properties) kaise declare aur use karte ho?
+28.	Inline-block aur block element me kya difference hai?
+29.	overflow: hidden, scroll, auto kaise kaam karte hain?
+30.	CSS me opacity aur visibility: hidden me kya difference hai?
+🟢 CI/CD Concepts
+1.	CI/CD kya hai? Dono me difference samjhao.
+2.	CI/CD ke benefits kya hote hain?
+3.	CI/CD pipeline ke major stages kaunse hote hain?
+4.	Build aur Deployment pipeline me kya difference hai?
+5.	Continuous Deployment aur Continuous Delivery me kya difference hai?
+6.	CI/CD me rollback kaise handle karte ho?
+7.	Infrastructure as Code (IaC) kya hai aur CI/CD me kyu important hai?
+8.	Git hooks ka CI/CD me kya role hota hai?
+9.	Canary deployment aur Blue-Green deployment me kya difference hai?
+10.	CI/CD pipelines me secrets ko securely kaise manage karte ho?
+________________________________________
+🔵 Jenkins
+11.	Jenkins kya hai aur kyu use karte hain?
+12.	Jenkins pipeline ke types kya hote hain? (Declarative vs Scripted)
+13.	Jenkinsfile kya hota hai? Example explain karo.
+14.	Jenkins me agent (slave node) ka role kya hota hai?
+15.	Jenkins me plugins ka kya role hai?
+16.	Jenkins me pipeline trigger karne ke different ways kya hain? (SCM, webhook, schedule, manual)
+17.	Jenkins me master-slave architecture kaise kaam karta hai?
+18.	Jenkins me artifacts kaise store aur share karte ho?
+19.	Jenkins me post block ka kya use hai pipeline me?
+20.	Jenkins pipeline me parallel execution kaise karte ho?
+________________________________________
+🟠 Docker
+21.	Docker kya hai aur kaise kaam karta hai?
+22.	Docker aur Virtual Machine (VM) me kya difference hai?
+23.	Dockerfile kya hai? Common instructions kaunse hain (FROM, RUN, COPY, CMD, ENTRYPOINT)?
+24.	Docker image aur Docker container me kya difference hai?
+25.	Docker volume kya hota hai? Persistent data kaise manage karte ho?
+26.	Docker networking ke modes kaunse hote hain? (bridge, host, overlay, none)
+27.	Docker Compose kya hai aur kyu use karte ho?
+28.	Docker registry aur DockerHub me kya difference hai?
+29.	Multi-stage Docker build kya hota hai?
+30.	Docker me security best practices kya follow karte ho?
+________________________________________
+🟣 Podman (Extra if interviewer asks)
+•	Podman Docker se kaise different hai?
+•	Podman me rootless container ka kya benefit hai?
+
+
+
+
+
+
+🔵 Shell / Bash Scripting (Core Concepts)
+11.	Shell aur Bash me kya difference hai?
+12.	Bash me variable declare aur use kaise karte ho?
+13.	Bash me positional parameters ($0, $1, $2…) ka use kya hai?
+14.	Bash me conditional statements kaise likhte ho? (if-else, case)
+15.	Bash me loops kaise likhte ho? (for, while, until)
+16.	Bash me functions kaise define aur call karte ho?
+17.	Bash me string manipulation kaise karte ho?
+18.	Bash me arrays kaise declare aur use karte ho?
+19.	Bash me exit codes ka kya role hai?
+20.	Bash script me arguments kaise pass karte ho?
+🟠 Shell / Bash Advanced
+21.	Bash me grep, awk, sed kaise use karte ho? (Text processing ke liye)
+22.	Bash me cut, sort, uniq, wc commands kaise kaam karte hain?
+23.	Bash scripting me logging kaise implement karte ho?
+24.	Bash me cron job kaise schedule karte ho?
+25.	Bash me signals (e.g. SIGINT, SIGKILL) ko kaise handle karte ho?
+26.	Bash script me error handling kaise karte ho? (set -e, trap)
+27.	Bash me pipes (|) aur redirection (>, >>, <) kaise kaam karte hain?
+28.	Bash me process management ke liye ps, kill, jobs, fg, bg commands kaise kaam karte hain?
+29.	Bash me environment variables (PATH, HOME, USER) kaise set aur use karte ho?
+30.	Bash script me automation ka real example do (e.g. backup script, log cleanup, server health check).
+🟢 Array Based
+1.	Array me second largest element find karo.
+2.	Array ko reverse karo (without built-in reverse).
+3.	Array me duplicate elements remove karo.
+4.	Array me pair of elements jinka sum X hai find karo.
+5.	Array me kadane’s algorithm use karke maximum subarray sum find karo.
+6.	Array ko rotate karo (left/right rotation).
+7.	Array me majority element find karo (element > n/2 times repeat).
+8.	Merge two sorted arrays without extra space.
+9.	Move all zeros to end of array (maintain order).
+10.	Find missing number from 1…n series.
+________________________________________
+🔵 String Based
+11.	String palindrome check karo.
+12.	Reverse words in a string (e.g. "Hello World" → "World Hello").
+13.	String me first non-repeating character find karo.
+14.	String me character frequency count karo.
+15.	String me anagram check karo (two strings same letters ke saath bane hain ya nahi).
+16.	Longest substring without repeating characters find karo.
+17.	Valid parentheses/brackets check karo ("(){}[]").
+18.	String me vowels aur consonants count karo.
+19.	String ko integer me convert karo (without parseInt).
+20.	String me longest palindromic substring find karo.
+________________________________________
+
+🟠 Linked List / Stack / Queue
+21.	Reverse a linked list.
+22.	Detect cycle in a linked list (Floyd’s cycle detection).
+23.	Merge two sorted linked lists.
+24.	Implement stack using array.
+25.	Implement queue using two stacks.
+26.	Implement min stack (stack with getMin in O(1)).
+27.	Next Greater Element in array (using stack).
+28.	Implement circular queue.
+29.	LRU Cache implement karo (LinkedList + HashMap).
+30.	Balanced parentheses problem using stack.
+🟢 OOPs Basics
+1.	OOPs (Object Oriented Programming) kya hai?
+2.	OOPs ke 4 pillars (Encapsulation, Abstraction, Inheritance, Polymorphism) samjhao.
+3.	Class aur Object me kya difference hai?
+4.	Constructor kya hota hai?
+5.	Destructor / Finalizer ka role kya hota hai?
+6.	Static method aur Instance method me kya difference hai?
+7.	Overloading aur Overriding me kya difference hai?
+8.	"this" keyword OOPs me kaise kaam karta hai?
+9.	Object cloning kya hota hai?
+10.	Access modifiers (public, private, protected) kya hote hain?
+________________________________________
+🔵 Encapsulation / Abstraction
+11.	Encapsulation kya hai? Example do.
+12.	Abstraction kya hai? Example do.
+13.	Abstraction aur Encapsulation me kya difference hai?
+14.	Getter aur Setter methods ka use kyu hota hai?
+15.	Interface aur Abstract class me kya difference hai?
+________________________________________
+🟠 Inheritance / Polymorphism
+16.	Inheritance kya hai aur kaise kaam karta hai?
+17.	JavaScript me inheritance kaise achieve hota hai? (prototype / class extends)
+18.	Multiple inheritance kya hai? JS me support hota hai ya nahi?
+19.	Polymorphism kya hai? Example do.
+20.	Compile-time vs Runtime polymorphism me difference kya hai?
+21.	Method overriding ka real use case batao.
+22.	Method overloading JS me directly hota hai ya nahi?
+________________________________________
+🟣 Advanced OOPs Concepts
+23.	Composition vs Inheritance me kya difference hai?
+24.	SOLID principles kya hote hain OOPs me?
+25.	Design Patterns kya hote hain? Example do (Factory, Singleton).
+26.	Singleton pattern kya hota hai? Node.js me kaise implement karte ho?
+27.	Factory pattern kya hota hai?
+28.	Dependency Injection kya hota hai?
+29.	Duck typing kya hota hai (JavaScript specific)?
+30.	OOPs ke advantages aur disadvantages kya hote hain?
+
+1. Cloud me scaling ke kitne tareeke hote hain? (Horizontal vs Vertical)
+2. Kubernetes aur Docker Swarm me difference kya hai?
+3. Secrets management kaise karte ho cloud me?
+4. CI/CD me Canary Deployment aur Blue-Green Deployment ka kya difference hai?
+
+🟢 Unit Testing Basics
+1.	Unit testing kya hota hai?
+2.	Unit test aur Integration test me kya difference hai?
+3.	Unit testing ke benefits kya hote hain?
+4.	Test Pyramid kya hai? (Unit, Integration, E2E tests)
+5.	TDD (Test Driven Development) aur BDD (Behavior Driven Development) me kya difference hai?
+6.	Mocking, Stubbing aur Spying me kya difference hai?
+7.	Code coverage kya hai aur kaise measure karte ho?
+8.	Unit testing me edge cases kaise identify karte ho?
+9.	Positive aur Negative test cases kya hote hain?
+10.	Regression testing kya hota hai?
+________________________________________
+🔵 Node.js Unit Testing (Frameworks & Tools)
+11.	Node.js me kaunse testing frameworks commonly use hote hain? (Mocha, Jest, Jasmine)
+12.	Jest aur Mocha me kya difference hai?
+13.	Supertest ka use kyu hota hai Node.js testing me?
+14.	Sinon.js ka role kya hai? (Mocks, Stubs, Spies)
+15.	Chai assertion library ka kya role hai?
+16.	Express.js API ke liye test cases kaise likhte ho?
+17.	Node.js me async code (Promises, async/await) ka test kaise likhte ho?
+18.	Database ko mock karke test cases kaise likhte ho? (MongoDB / MySQL)
+19.	Unit test me environment variables kaise handle karte ho?
+20.	CI/CD pipeline me unit tests kaise integrate karte ho?
+________________________________________
+🟠 Automation & Best Practices
+21.	Automation testing kya hota hai?
+22.	Selenium aur Cypress me kya difference hai? (Web automation)
+23.	API testing automation kaise karte ho? (Postman, Newman, Supertest)
+24.	Load testing aur Performance testing Node.js app me kaise karte ho? (e.g. k6, Artillery)
+25.	Automated test execution kaise schedule karte ho? (Jenkins, GitHub Actions)
+26.	Git pre-commit hooks me unit tests kaise run karte ho?
+27.	Test data management automation kaise karte ho?
+28.	Node.js testing me mocking external API calls kaise karte ho? (nock library)
+29.	Unit testing me flaky tests ko kaise handle karte ho?
+30.	Node.js automation me best practices kya follow karte ho?
+
+

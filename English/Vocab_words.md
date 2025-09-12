@@ -6801,3 +6801,1462 @@ The project requires a cohesive strategy. .
 
 
 
+Agenda.
+<br>
+means.
+<br>
+Meeting ka schedule ya topics.
+<br>
+jese.
+<br>
+Check the agenda before the meeting.
+<br>
+The agenda includes project updates.
+<br>
+
+
+
+Briefing.
+<br>
+means.
+<br>
+Jaldi se important information dena.
+<br>
+jese.
+<br>
+The manager gave a briefing before the event.
+<br>
+Attend the daily briefing at 9 AM.
+<br>
+
+
+
+Clarify.
+<br>
+means.
+<br>
+Saaf karna, doubt dur karna.
+<br>
+jese.
+<br>
+Please clarify your doubts.
+<br>
+Clarify the instructions for better understanding.
+<br>
+
+
+
+Collaborate.
+<br>
+means.
+<br>
+Milkar kaam karna.
+<br>
+jese.
+<br>
+We collaborate with other teams.
+<br>
+Collaborate to complete the project.
+<br>
+
+
+
+Communicate.
+<br>
+means.
+<br>
+Baatchit ya soochna dena.
+<br>
+jese.
+<br>
+Communicate your ideas clearly.
+<br>
+Good leaders communicate well.
+<br>
+
+
+
+Conference.
+<br>
+means.
+<br>
+Badi meeting ya discussion.
+<br>
+jese.
+<br>
+Attend the annual sales conference.
+<br>
+The conference was held online.
+<br>
+
+
+
+Correspondence.
+<br>
+means.
+<br>
+Letters ya emails ka aadan-pradaan.
+<br>
+jese.
+<br>
+Keep a record of all correspondence.
+<br>
+They exchanged correspondence regularly.
+<br>
+
+
+
+Discussion.
+<br>
+means.
+<br>
+Varta ya baatcheet.
+<br>
+jese.
+<br>
+We had a discussion about the new project.
+<br>
+Join the team discussion.
+<br>
+
+
+
+Email.
+<br>
+means.
+<br>
+Electronic letter bhejna.
+<br>
+jese.
+<br>
+Send me an email with the details.
+<br>
+Check your email inbox.
+<br>
+
+
+
+Feedback.
+<br>
+means.
+<br>
+Kaam ke baare me sujhav ya response.
+<br>
+jese.
+<br>
+Give feedback after the presentation.
+<br>
+Positive feedback motivates employees.
+<br>
+
+
+
+Follow-up.
+<br>
+means.
+<br>
+Pehle wale kaam ya baat par dobara contact karna.
+<br>
+jese.
+<br>
+Follow up with the client for updates.
+<br>
+We will follow up after the meeting.
+<br>
+
+
+
+Memo.
+<br>
+means.
+<br>
+Chhota likhit message ya notification.
+<br>
+jese.
+<br>
+Send a memo to all staff about the policy.
+<br>
+The memo contained important instructions.
+<br>
+
+
+
+Negotiate.
+<br>
+means.
+<br>
+Baatchit karke faisla ya deal banana.
+<br>
+jese.
+<br>
+Negotiate the contract terms carefully.
+<br>
+They negotiated a better salary.
+<br>
+
+
+
+Presentation.
+<br>
+means.
+<br>
+Kisi topic par information dena ya dikhana.
+<br>
+jese.
+<br>
+Prepare a presentation for the meeting.
+<br>
+Her presentation was very informative.
+<br>
+
+
+
+Proposal.
+<br>
+means.
+<br>
+Naya plan ya sujhav dena.
+<br>
+jese.
+<br>
+Submit your project proposal by Friday.
+<br>
+The proposal was accepted by management.
+<br>
+
+
+
+Query.
+<br>
+means.
+<br>
+Sawal ya shanka.
+<br>
+jese.
+<br>
+Ask queries if you have any doubts.
+<br>
+The customer raised several queries.
+<br>
+
+
+
+Report.
+<br>
+means.
+<br>
+Kaam ka likhit vivaran.
+<br>
+jese.
+<br>
+Prepare a report on the sales figures.
+<br>
+Submit your weekly report every Monday.
+<br>
+
+
+
+Request.
+<br>
+means.
+<br>
+Formal maang ya darkhwast.
+<br>
+jese.
+<br>
+Send a request for additional resources.
+<br>
+I made a request for leave.
+<br>
+
+
+
+Response.
+<br>
+means.
+<br>
+Jawaab ya pratikriya.
+<br>
+jese.
+<br>
+Wait for a response from the client.
+<br>
+She responded quickly to the email.
+<br>
+
+
+
+Update.
+<br>
+means.
+<br>
+Nayi jankari dena ya badlav.
+<br>
+jese.
+<br>
+Give an update on the project status.
+<br>
+The software received a recent update.
+<br>
+
+
+
+Attachment.
+<br>
+means.
+<br>
+Email me file ya document jodna.
+<br>
+jese.
+<br>
+Check the attachment for details.
+<br>
+Send the invoice as an email attachment.
+<br>
+
+
+
+Contract.
+<br>
+means.
+<br>
+Kanuni agreement ya samjhauta.
+<br>
+jese.
+<br>
+Sign the contract before starting work.
+<br>
+The contract lasts for one year.
+<br>
+
+
+
+Database.
+<br>
+means.
+<br>
+Jankari ka digital storage.
+<br>
+jese.
+<br>
+Update the customer database regularly.
+<br>
+The database contains all client records.
+<br>
+
+
+
+Document.
+<br>
+means.
+<br>
+Koi bhi likhit file ya kagaz.
+<br>
+jese.
+<br>
+Scan and save the document.
+<br>
+Keep all important documents safe.
+<br>
+
+
+
+Draft.
+<br>
+means.
+<br>
+Pehla version ya masooda.
+<br>
+jese.
+<br>
+Prepare a draft of the report.
+<br>
+Review the draft before final submission.
+<br>
+
+
+
+File.
+<br>
+means.
+<br>
+Data ya documents ka digital ya physical record.
+<br>
+jese.
+<br>
+Save the file on the desktop.
+<br>
+Organize files in folders.
+<br>
+
+
+
+Folder.
+<br>
+means.
+<br>
+File rakhne ka digital ya kagzi dabba.
+<br>
+jese.
+<br>
+Create a new folder for project documents.
+<br>
+Keep related files in one folder.
+<br>
+
+
+
+Form.
+<br>
+means.
+<br>
+Likhit format jisme data bhara jata hai.
+<br>
+jese.
+<br>
+Fill out the registration form.
+<br>
+Submit the form to the HR department.
+<br>
+
+
+
+Invoice.
+<br>
+means.
+<br>
+Bill ya payment request.
+<br>
+jese.
+<br>
+Send the invoice to the client.
+<br>
+The invoice shows the amount due.
+<br>
+
+
+
+Ledger.
+<br>
+means.
+<br>
+Lekha-jokha rakhne ki kitaab.
+<br>
+jese.
+<br>
+Maintain a ledger of all expenses.
+<br>
+The accountant updated the ledger.
+<br>
+
+
+
+Log.
+<br>
+means.
+<br>
+Record ya diary jahan events likhe jate hain.
+<br>
+jese.
+<br>
+Keep a log of daily activities.
+<br>
+The system logs all user actions.
+<br>
+
+
+
+Manual.
+<br>
+means.
+<br>
+Hath se likha ya guide book.
+<br>
+jese.
+<br>
+Read the manual before using the machine.
+<br>
+The manual explains the process step-by-step.
+<br>
+
+
+
+Minutes.
+<br>
+means.
+<br>
+Meeting ka official record.
+<br>
+jese.
+<br>
+Prepare the minutes after the meeting.
+<br>
+Send the minutes to all participants.
+<br>
+
+
+
+Note.
+<br>
+means.
+<br>
+Chhoti likhit jankari ya reminder.
+<br>
+jese.
+<br>
+Take notes during the lecture.
+<br>
+Leave a note on my desk.
+<br>
+
+
+
+Plan.
+<br>
+means.
+<br>
+Kaam karne ka tarika ya yojana.
+<br>
+jese.
+<br>
+Make a plan for the project.
+<br>
+Follow the plan to meet the deadline.
+<br>
+
+
+
+Policy.
+<br>
+means.
+<br>
+Niyam ya rules.
+<br>
+jese.
+<br>
+Read the company policy carefully.
+<br>
+The policy prohibits late arrivals.
+<br>
+
+
+
+Record.
+<br>
+means.
+<br>
+Data ya jankari ka likhit ya digital proof.
+<br>
+jese.
+<br>
+Keep a record of all transactions.
+<br>
+The record shows the history of sales.
+<br>
+
+
+
+Spreadsheet.
+<br>
+means.
+<br>
+Excel jaisi file jisme data arrange hota hai.
+<br>
+jese.
+<br>
+Update the sales spreadsheet weekly.
+<br>
+Create a spreadsheet for expenses.
+<br>
+
+
+
+Summary.
+<br>
+means.
+<br>
+Chhota aur mukhtasar vivaran.
+<br>
+jese.
+<br>
+Write a summary of the report.
+<br>
+Give a summary at the end of your presentation.
+<br>
+
+
+
+Appointment.
+<br>
+means.
+<br>
+Milne ka time fix karna.
+<br>
+jese.
+<br>
+I have an appointment with the manager at 3 PM.
+<br>
+Schedule your appointment in advance.
+<br>
+
+
+
+Availability.
+<br>
+means.
+<br>
+Koi cheez ya vyakti kab free ho.
+<br>
+jese.
+<br>
+Check the availability of the conference room.
+<br>
+Is the doctor available today? .
+<br>
+
+
+
+Calendar.
+<br>
+means.
+<br>
+Date aur events ka schedule.
+<br>
+jese.
+<br>
+Mark the meeting date on your calendar.
+<br>
+Check the calendar for holidays.
+<br>
+
+
+
+Deadline.
+<br>
+means.
+<br>
+Kaam pura karne ki antim tareekh.
+<br>
+jese.
+<br>
+The project deadline is next Friday.
+<br>
+Meet the deadline to avoid penalties.
+<br>
+
+
+
+Delay.
+<br>
+means.
+<br>
+Der ho jana ya kaam late hona.
+<br>
+jese.
+<br>
+There is a delay in the shipment.
+<br>
+Sorry for the delay in response.
+<br>
+
+
+
+Due.
+<br>
+means.
+<br>
+Jab koi kaam ya payment karna zaroori ho.
+<br>
+jese.
+<br>
+The payment is due by the end of this month.
+<br>
+The assignment is due tomorrow.
+<br>
+
+
+
+Event.
+<br>
+means.
+<br>
+Koi khas karyakram ya program.
+<br>
+jese.
+<br>
+The company is hosting a charity event.
+<br>
+Attend the networking event this weekend.
+<br>
+
+
+
+Itinerary.
+<br>
+means.
+<br>
+Safar ka poora schedule.
+<br>
+jese.
+<br>
+Prepare the itinerary for the business trip.
+<br>
+Check the itinerary for flight timings.
+<br>
+
+
+
+Meeting.
+<br>
+means.
+<br>
+Logon ka milna aur baatcheet karna.
+<br>
+jese.
+<br>
+We have a meeting at 10 AM.
+<br>
+Join the team meeting on Zoom.
+<br>
+
+
+
+Milestone.
+<br>
+means.
+<br>
+Koi important point ya goal.
+<br>
+jese.
+<br>
+Achieving this milestone is crucial.
+<br>
+The project has reached its first milestone.
+<br>
+
+
+
+Priority.
+<br>
+means.
+<br>
+Sabse pehla aur zaroori kaam.
+<br>
+jese.
+<br>
+Finish high priority tasks first.
+<br>
+Customer satisfaction is our priority.
+<br>
+
+
+
+Reminder.
+<br>
+means.
+<br>
+Yaad dilane wala sandesh.
+<br>
+jese.
+<br>
+Set a reminder for the meeting.
+<br>
+I got a reminder for the deadline.
+<br>
+
+
+
+Schedule.
+<br>
+means.
+<br>
+Kaam ya events ka plan.
+<br>
+jese.
+<br>
+Check your schedule before confirming.
+<br>
+The schedule is tight this week.
+<br>
+
+
+
+Task.
+<br>
+means.
+<br>
+Kaam ya zimmedari.
+<br>
+jese.
+<br>
+Complete your tasks on time.
+<br>
+Assign tasks to team members.
+<br>
+
+
+
+Timeline.
+<br>
+means.
+<br>
+Kaam poora karne ka samay.
+<br>
+jese.
+<br>
+Create a timeline for the project phases.
+<br>
+The timeline helps track progress.
+<br>
+
+
+
+Timesheet.
+<br>
+means.
+<br>
+Rozana kaam karne ka record.
+<br>
+jese.
+<br>
+Fill out your timesheet daily.
+<br>
+Submit the timesheet by Friday.
+<br>
+
+
+
+Today.
+<br>
+means.
+<br>
+Aaj ka din.
+<br>
+jese.
+<br>
+We have a meeting today.
+<br>
+Complete the report today.
+<br>
+
+
+
+Tomorrow.
+<br>
+means.
+<br>
+Kal ka din.
+<br>
+jese.
+<br>
+The deadline is tomorrow.
+<br>
+Plan the presentation for tomorrow.
+<br>
+
+
+
+Urgent.
+<br>
+means.
+<br>
+Bahut zaroori aur jaldi karne wala.
+<br>
+jese.
+<br>
+This is an urgent matter.
+<br>
+Please respond to this urgent email.
+<br>
+
+
+
+Weekly.
+<br>
+means.
+<br>
+Har hafta hone wala.
+<br>
+jese.
+<br>
+We have weekly team meetings.
+<br>
+Submit your weekly report every Monday.
+<br>
+
+
+
+Application.
+<br>
+means.
+<br>
+Kaam ya seva ke liye likhit arzi.
+<br>
+jese.
+<br>
+Submit your job application online.
+<br>
+The application process takes two weeks.
+<br>
+
+
+
+Computer.
+<br>
+means.
+<br>
+Digital machine jo kaam karta hai.
+<br>
+jese.
+<br>
+Turn on your computer.
+<br>
+Use the computer for data entry.
+<br>
+
+
+
+Copier.
+<br>
+means.
+<br>
+Copy banane wali machine.
+<br>
+jese.
+<br>
+Make copies using the copier.
+<br>
+The copier is out of order.
+<br>
+
+
+
+Email.
+<br>
+means.
+<br>
+Digital letter bhejna.
+<br>
+jese.
+<br>
+Send me an email with the details.
+<br>
+Check your email inbox regularly.
+<br>
+
+
+
+Internet.
+<br>
+means.
+<br>
+World wide web ya online connection.
+<br>
+jese.
+<br>
+The internet is slow today.
+<br>
+Use the internet for research.
+<br>
+
+
+
+Keyboard.
+<br>
+means.
+<br>
+Computer ka type karne wala part.
+<br>
+jese.
+<br>
+Type your report using the keyboard.
+<br>
+The keyboard is not working properly.
+<br>
+
+
+
+Laptop.
+<br>
+means.
+<br>
+Portable computer.
+<br>
+jese.
+<br>
+Carry your laptop to meetings.
+<br>
+My laptop needs repair.
+<br>
+
+
+
+Monitor.
+<br>
+means.
+<br>
+Computer screen.
+<br>
+jese.
+<br>
+Connect the monitor to the CPU.
+<br>
+Adjust the brightness of the monitor.
+<br>
+
+
+
+Network.
+<br>
+means.
+<br>
+Connected computers ya logon ka system.
+<br>
+jese.
+<br>
+The office network is down.
+<br>
+Connect to the Wi-Fi network.
+<br>
+
+
+
+Program.
+<br>
+means.
+<br>
+Software ya planned activity.
+<br>
+jese.
+<br>
+Install the program on your computer.
+<br>
+The training program starts next week.
+<br>
+
+
+
+Projector.
+<br>
+means.
+<br>
+Screen par image ya video dikhane wali machine.
+<br>
+jese.
+<br>
+Use the projector for the presentation.
+<br>
+The projector bulb needs replacement.
+<br>
+
+
+
+Scanner.
+<br>
+means.
+<br>
+Document ko digital copy banane wali machine.
+<br>
+jese.
+<br>
+Scan the documents using the scanner.
+<br>
+The scanner is slow today.
+<br>
+
+
+
+Server.
+<br>
+means.
+<br>
+Data ya services provide karne wala computer.
+<br>
+jese.
+<br>
+The server is down for maintenance.
+<br>
+Access the files stored on the server.
+<br>
+
+
+
+Software.
+<br>
+means.
+<br>
+Computer programs ka collection.
+<br>
+jese.
+<br>
+Update the software regularly.
+<br>
+The new software improves performance.
+<br>
+
+
+
+Spreadsheet.
+<br>
+means.
+<br>
+Excel jaisi file jisme data arrange hota hai.
+<br>
+jese.
+<br>
+Fill the spreadsheet with sales data.
+<br>
+Create charts from the spreadsheet data.
+<br>
+
+
+
+System.
+<br>
+means.
+<br>
+Jodne wale parts ka samuh.
+<br>
+jese.
+<br>
+The computer system is not working.
+<br>
+Install antivirus software on your system.
+<br>
+
+
+
+Tablet.
+<br>
+means.
+<br>
+Portable touchscreen computer.
+<br>
+jese.
+<br>
+Use the tablet for quick browsing.
+<br>
+Charge your tablet before the meeting.
+<br>
+
+
+
+Telephone.
+<br>
+means.
+<br>
+Phone ya baatcheet karne ka device.
+<br>
+jese.
+<br>
+Answer the telephone politely.
+<br>
+The telephone line is busy.
+<br>
+
+
+
+Wi-Fi.
+<br>
+means.
+<br>
+Wireless internet connection.
+<br>
+jese.
+<br>
+Connect to the office Wi-Fi.
+<br>
+Wi-Fi speed is slow today.
+<br>
+
+
+
+Analyze.
+<br>
+means.
+<br>
+Kisi cheez ko gahrai se samajhna ya jaanchna.
+<br>
+jese.
+<br>
+Analyze the sales data carefully.
+<br>
+We need to analyze customer feedback.
+<br>
+
+
+
+Approve.
+<br>
+means.
+<br>
+Kisi cheez ko manzoor karna.
+<br>
+jese.
+<br>
+The manager approved the budget.
+<br>
+Please approve the leave request.
+<br>
+
+
+
+Assign.
+<br>
+means.
+<br>
+Kaam ya zimmedari kisi ko dena.
+<br>
+jese.
+<br>
+Assign tasks to team members.
+<br>
+The supervisor assigned me a new project.
+<br>
+
+
+
+Coordinate.
+<br>
+means.
+<br>
+Milkar kaam karna ya manage karna.
+<br>
+jese.
+<br>
+Coordinate with the marketing team.
+<br>
+She coordinated the event successfully.
+<br>
+
+
+
+Delegate.
+<br>
+means.
+<br>
+Apne kuch kaam dusron ko dena.
+<br>
+jese.
+<br>
+Delegate tasks to junior staff.
+<br>
+Managers should delegate responsibility.
+<br>
+
+
+
+Edit.
+<br>
+means.
+<br>
+Sudhar karna ya badalna.
+<br>
+jese.
+<br>
+Edit the document before submission.
+<br>
+I need to edit the video clips.
+<br>
+
+
+
+File.
+<br>
+means.
+<br>
+Document ya data ka digital ya physical record.
+<br>
+jese.
+<br>
+Save the file in the correct folder.
+<br>
+Organize your files properly.
+<br>
+
+
+
+Implement.
+<br>
+means.
+<br>
+Plan ya decision ko amal me lana.
+<br>
+jese.
+<br>
+Implement the new policy from next month.
+<br>
+We need to implement these changes immediately.
+<br>
+
+
+
+Manage.
+<br>
+means.
+<br>
+Kaam ko sambhalna ya chalana.
+<br>
+jese.
+<br>
+Manage your time wisely.
+<br>
+She manages the project efficiently.
+<br>
+
+
+
+Monitor.
+<br>
+means.
+<br>
+Kisi cheez par nazar rakhna.
+<br>
+jese.
+<br>
+Monitor the progress regularly.
+<br>
+We monitor system performance daily.
+<br>
+
+
+
+Organize.
+<br>
+means.
+<br>
+Vyavastha karna ya theek se arrange karna.
+<br>
+jese.
+<br>
+Organize the files alphabetically.
+<br>
+They organized a charity event.
+<br>
+
+
+
+Plan.
+<br>
+means.
+<br>
+Kaam karne ka tarika tayar karna.
+<br>
+jese.
+<br>
+Plan your work before starting.
+<br>
+We need a plan to increase sales.
+<br>
+
+
+
+Prepare.
+<br>
+means.
+<br>
+Tayari karna.
+<br>
+jese.
+<br>
+Prepare the presentation slides.
+<br>
+Prepare for the client meeting.
+<br>
+
+
+
+Review.
+<br>
+means.
+<br>
+Dubara dekhna ya check karna.
+<br>
+jese.
+<br>
+Review the document for errors.
+<br>
+The manager reviewed the report.
+<br>
+
+
+
+Submit.
+<br>
+means.
+<br>
+Kaam ya document jama karna.
+<br>
+jese.
+<br>
+Submit the assignment by Friday.
+<br>
+Please submit your application online.
+<br>
+
+
+
+Track.
+<br>
+means.
+<br>
+Kisi cheez ko follow karna ya nazar rakhna.
+<br>
+jese.
+<br>
+Track the shipment status.
+<br>
+Use software to track project progress.
+<br>
+
+
+
+Train.
+<br>
+means.
+<br>
+Sikhaana ya practice karwana.
+<br>
+jese.
+<br>
+Train new employees regularly.
+<br>
+She is trained in customer service.
+<br>
+
+
+
+Verify.
+<br>
+means.
+<br>
+Sachai ya sahi hone ki jaanch karna.
+<br>
+jese.
+<br>
+Verify the information before sharing.
+<br>
+The auditor verified the accounts.
+<br>
+
+
+
+Work.
+<br>
+means.
+<br>
+Kaam karna.
+<br>
+jese.
+<br>
+I work from 9 to 6.
+<br>
+Work hard to achieve your goals.
+<br>
+
+
+
+
+
+
+

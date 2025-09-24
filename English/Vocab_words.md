@@ -1,8 +1,8 @@
-Acknowledge. means 
+Acknowledge. ka Matlab hota hai.. 
 <br>
 Kisi cheez ko maan lena ya phir accept karna.
 <br>
-jese
+jeshe ki 
 <br>
 I acknowledge that I made a mistake in the report. .
 <br>

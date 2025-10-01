@@ -18,19 +18,18 @@ function run1(params) {
 
 // 3. Find the largest number in an array in JavaScript.
 // ************************************************************************************************************************************
-function lgNum(params) {
-    return Math.max(...params);
+function lgNum(params, num) {
+  return params.sort((a, b) => b - a)[num];
 }
+console.log(lgNum([1, 33, 44, 1, 42, 2], 1));
 // console.log(lgNum([1,33,44,1,44,2]));
 
 // 3. Find the second largest number in an array in JavaScript.
 // ************************************************************************************************************************************
-function lgNum2(params) {
-    const ff = Math.max(...params);
-    const newA = params.filter(el => el !== ff);
-    return Math.max(...newA)
+function lgNum(params, num) {
+  return params.sort((a, b) => b - a)[num];
 }
-// console.log(lgNum2([1,33,44,1,44,2]));
+console.log(lgNum([1, 33, 44, 1, 42, 2], 2));
 
 // 4. How Remove the first element from an array in JavaScript?
 // ************************************************************************************************************************************

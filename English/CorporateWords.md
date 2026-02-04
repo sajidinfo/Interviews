@@ -496,3 +496,721 @@ Employees value work-life balance.
 Good policies support work-life balance.
 Remote work improves work-life balance.
 
+Update.
+नया हाल बताना।
+Please update me once the task is done.
+I’ll update you by evening.
+She sent a quick update on the project.
+We need a status update.
+Thanks for the update.
+
+Priority.
+प्राथमिकता।
+This task is my top priority.
+Client issues are high priority.
+We must set clear priorities.
+Safety is our priority.
+Finish priority tasks first.
+
+Delay.
+देरी।
+There is a delay in delivery.
+Sorry for the delay.
+The delay affected the timeline.
+We want to avoid delays.
+Traffic caused a delay.
+
+Approval.
+मंजूरी।
+We need approval from the manager.
+The design got approval.
+Waiting for final approval.
+Approval may take time.
+The budget received approval.
+
+Pending.
+बाकी / अधूरा।
+The task is still pending.
+Two issues are pending.
+Pending work must be completed.
+Approval is pending.
+Nothing is pending now.
+
+Review.
+जांच / देखना।
+Please review the document.
+The manager will review it.
+We reviewed the report.
+Review before submission.
+Thanks for the quick review.
+
+Confirm.
+पक्का करना।
+Please confirm the meeting time.
+I confirm receipt.
+Can you confirm this detail?
+She confirmed the booking.
+Let me confirm with the team.
+
+Support.
+मदद / सहयोग।
+Thanks for your support.
+The support team will help.
+We need technical support.
+She supports the idea.
+Customer support responded quickly.
+
+Schedule.
+समय तय करना।
+Let’s schedule a meeting.
+The demo is scheduled tomorrow.
+Check your schedule.
+We scheduled the call.
+Busy schedule today.
+
+Deadline.
+अंतिम तिथि।
+The deadline is tomorrow.
+We must meet the deadline.
+Deadline is very tight.
+Submit before the deadline.
+He missed the deadline.
+
+Let’s align.
+एक राय / दिशा में आना।
+Let’s align before presenting to the client.
+We need to align on priorities.
+Let’s align our goals.
+Teams aligned quickly.
+Alignment avoids confusion.
+
+Circle back.
+बाद में फिर बात करना।
+Let’s circle back after lunch.
+We’ll circle back tomorrow.
+Circle back once data is ready.
+She circled back with updates.
+We’ll circle back on this topic.
+
+On the same page.
+एक जैसी समझ होना।
+We are on the same page now.
+Let’s make sure we’re on the same page.
+The team is on the same page.
+Clients and managers are on the same page.
+Being on the same page saves time.
+
+Moving forward.
+आगे से / आगे चलकर।
+Moving forward, we follow this plan.
+Let’s improve moving forward.
+Moving forward, communication must be clear.
+We’ll do better moving forward.
+This will help us moving forward.
+
+Touchpoint.
+संपर्क का बिंदु / छोटा check-in।
+Let’s have a quick touchpoint tomorrow.
+Weekly touchpoints help teams.
+This meeting is just a touchpoint.
+We scheduled a touchpoint call.
+Touchpoints improve clarity.
+
+Deep dive.
+गहराई से देखना।
+Let’s do a deep dive into the issue.
+We need a deep dive analysis.
+The meeting was a deep dive session.
+Deep dive helps find root causes.
+We planned a deep dive review.
+
+Quick win.
+आसान और जल्दी सफलता।
+This task is a quick win.
+We need some quick wins.
+Quick wins boost morale.
+Let’s focus on quick wins first.
+The change was a quick win.
+
+Action plan.
+काम की योजना।
+We need a clear action plan.
+The manager shared an action plan.
+Follow the action plan strictly.
+The action plan solved the issue.
+We updated the action plan.
+
+Take it offline.
+अलग से बात करना।
+Let’s take this offline.
+We’ll take it offline after the meeting.
+This discussion should go offline.
+They took the issue offline.
+Let’s resolve it offline.
+
+Value add.
+अतिरिक्त फायदा देना।
+This feature is a value add.
+We must focus on value add.
+Her work is a value add to the team.
+Clients look for value add.
+Innovation creates value add.
+
+Client handling English
+
+We appreciate your patience.
+आपके धैर्य के लिए धन्यवाद।
+We appreciate your patience while we fix this issue.
+We appreciate your patience during the delay.
+We truly appreciate your patience.
+Thanks, we appreciate your patience.
+We appreciate your patience and understanding.
+
+Let me check and get back to you.
+मैं जांच करके बताता हूँ।
+Let me check and get back to you shortly.
+I’ll check and get back to you today.
+Let me check with the team and get back to you.
+I’ll get back to you with details.
+Sure, I’ll check and get back to you.
+
+We are working on it.
+हम इस पर काम कर रहे हैं।
+We are working on it as a priority.
+Our team is actively working on it.
+We are working on it right now.
+Don’t worry, we are working on it.
+We are working on it and will update you.
+
+Thanks for bringing this to our attention.
+ध्यान दिलाने के लिए धन्यवाद।
+Thanks for bringing this to our attention.
+We appreciate you bringing this up.
+Thanks for reporting this issue.
+We’re glad you informed us.
+Thanks for highlighting this concern.
+
+We’ll keep you posted.
+हम आपको अपडेट देते रहेंगे।
+We’ll keep you posted on progress.
+I’ll keep you posted by email.
+We’ll keep you posted regularly.
+Sure, we’ll keep you posted.
+We’ll keep you posted on any updates.
+
+Please feel free to reach out.
+बिना झिझक संपर्क करें।
+Please feel free to reach out anytime.
+Feel free to reach out for help.
+Please feel free to contact us.
+Reach out if you need support.
+Always feel free to reach out.
+
+We understand your concern.
+हम आपकी चिंता समझते हैं।
+We understand your concern completely.
+We understand your concern and apologize.
+Yes, we understand your concern.
+We understand your concern and are fixing it.
+Thanks, we understand your concern.
+
+We’ll resolve this ASAP.
+हम इसे जल्दी ठीक करेंगे।
+We’ll resolve this ASAP.
+Our team will resolve this ASAP.
+We’ll try to resolve this ASAP.
+This will be resolved ASAP.
+We are resolving it ASAP.
+
+Interview phrases
+I’m a quick learner.
+मैं जल्दी सीखता हूँ।
+I’m a quick learner and adapt fast.
+I’m a quick learner in new environments.
+I consider myself a quick learner.
+Being a quick learner helps me grow.
+I’m confident because I’m a quick learner.
+
+I take ownership of my work.
+मैं अपने काम की जिम्मेदारी लेता हूँ।
+I take ownership of my work completely.
+I always take ownership of tasks.
+Taking ownership is my strength.
+I believe in taking ownership.
+Ownership helps me deliver results.
+
+I work well under pressure.
+मैं दबाव में भी अच्छा काम करता हूँ।
+I work well under pressure and deadlines.
+Pressure motivates me to perform.
+I stay calm and work under pressure.
+I’ve handled pressure situations before.
+Working under pressure improved my skills.
+
+I’m a team player.
+मैं टीम के साथ काम करता हूँ।
+I’m a strong team player.
+I enjoy being a team player.
+Team success matters to me.
+I believe in teamwork.
+Being a team player is important to me.
+
+I’m open to feedback.
+मैं सुझाव स्वीकार करता हूँ।
+I’m always open to feedback.
+Feedback helps me improve.
+I welcome constructive feedback.
+I grow through feedback.
+I respect honest feedback.
+
+I focus on results.
+मैं परिणाम पर ध्यान देता हूँ।
+I focus on results and quality.
+Results drive my motivation.
+I always focus on final outcomes.
+I measure success by results.
+I focus on delivering results.
+
+I manage my time well.
+मैं समय का सही उपयोग करता हूँ।
+I manage my time well under deadlines.
+Time management is my strength.
+I plan my work carefully.
+Good time management helps productivity.
+I prioritize tasks effectively.
+
+I’m eager to grow.
+मैं आगे बढ़ना चाहता हूँ।
+I’m eager to grow professionally.
+Growth is important to me.
+I’m eager to learn new skills.
+I look for growth opportunities.
+I’m committed to growth.
+
+
+Daily office conversation
+
+Can we discuss this quickly?
+क्या हम इसे जल्दी discuss कर सकते हैं?
+
+I’ll finish this by today.
+मैं आज तक ये पूरा कर दूँगा।
+
+Give me a moment.
+मुझे एक मिनट दो।
+
+I’m on it.
+मैं इस पर काम कर रहा हूँ।
+
+Let’s finalize this.
+चलो इसे final करते हैं।
+
+I’ll share the update soon.
+मैं जल्दी update भेजूँगा।
+
+Can you clarify this?
+क्या आप इसे clear कर सकते हैं?
+
+I’ll handle it.
+मैं इसे संभाल लूँगा।
+
+Let’s keep it simple.
+इसे simple रखते हैं।
+
+We’re running late.
+हम late हो रहे हैं।
+
+I need some time.
+मुझे थोड़ा समय चाहिए।
+
+This works for me.
+ये मेरे लिए ठीक है।
+
+Let’s proceed.
+चलो आगे बढ़ते हैं।
+
+I’ll double-check.
+मैं दोबारा check कर लूँगा।
+
+That makes sense.
+ये समझ में आता है।
+
+Let’s wrap this up.
+चलो इसे खत्म करते हैं।
+
+I’ll get back to you.
+मैं आपको बताता हूँ।
+
+Any updates?
+कोई update?
+
+Thanks for the help.
+मदद के लिए धन्यवाद।
+
+Let’s connect later.
+बाद में बात करते हैं।
+
+🔥 Office meeting conversation
+
+Let’s start the meeting.
+Can we review the agenda?
+Let’s stay on topic.
+Any suggestions?
+Let’s hear your thoughts.
+We’ll discuss this later.
+Let’s move to the next point.
+Can you elaborate?
+That’s a good point.
+Let’s summarize this.
+Who will take this task?
+We need a decision today.
+Let’s keep it short.
+
+🔥 Boss se baat karne wali English
+
+I wanted to discuss something.
+Do you have a minute?
+I’ve completed the task.
+I need your approval.
+I’m facing an issue.
+Can you guide me?
+I’ll fix it immediately.
+I’ll improve next time.
+Thanks for the feedback.
+I’ll take responsibility.
+I’ll update you soon.
+Please let me know your thoughts.
+
+🔥 Client call English
+
+Thanks for joining the call.
+Can you hear me clearly?
+Let me explain briefly.
+We’re working on your request.
+We’ll deliver on time.
+Sorry for the inconvenience.
+We appreciate your feedback.
+Let me confirm that.
+We’ll share the report soon.
+Do you have any questions?
+We value your partnership.
+We’ll follow up by email.
+Thanks for your time.
+
+🔥 Casual office talk
+
+How’s your day going?
+Busy day today?
+Let’s grab coffee later.
+That was a long meeting.
+Good job on that task.
+Need any help?
+I’m a bit tired today.
+Weekend plans?
+Let’s leave on time today.
+That was funny.
+See you tomorrow.
+Take care.
+
+Let’s talk tomorrow.
+कल बात करते हैं।
+
+I’ll update you later.
+मैं बाद में अपडेट दूँगा।
+
+Give me some time.
+मुझे थोड़ा समय दो।
+
+I’m checking it now.
+मैं अभी चेक कर रहा हूँ।
+
+I’ll call you back.
+मैं आपको वापस कॉल करता हूँ।
+
+Let’s fix this.
+चलो इसे ठीक करते हैं।
+
+I’ll send it today.
+मैं आज भेज दूँगा।
+
+Please wait a moment.
+एक मिनट इंतज़ार करें।
+
+I understand.
+मैं समझ गया।
+
+No problem.
+कोई समस्या नहीं।
+
+I’ll manage it.
+मैं संभाल लूँगा।
+
+Let’s discuss later.
+बाद में चर्चा करते हैं।
+
+I’m almost done.
+मैं लगभग खत्म कर चुका हूँ।
+
+I’ll try my best.
+मैं पूरी कोशिश करूँगा।
+
+It’s under process.
+ये प्रक्रिया में है।
+
+I’ll confirm soon.
+मैं जल्दी कन्फर्म करूँगा।
+
+Let me check once.
+मुझे एक बार चेक करने दो।
+
+I agree with you.
+मैं आपसे सहमत हूँ।
+
+That’s fine.
+ठीक है।
+
+I’ll look into it.
+मैं इसे देखता हूँ।
+
+Let’s move ahead.
+चलो आगे बढ़ते हैं।
+
+I’ll take care of it.
+मैं इसका ध्यान रखूँगा।
+
+It will take time.
+इसमें समय लगेगा।
+
+I’m working on it.
+मैं इस पर काम कर रहा हूँ।
+
+I’ll share details soon.
+मैं जल्दी विवरण भेजूँगा।
+
+Can we talk now?
+क्या हम अभी बात कर सकते हैं?
+
+I’m available now.
+मैं अभी उपलब्ध हूँ।
+
+Let’s close this.
+चलो इसे खत्म करते हैं।
+
+I’ll respond shortly.
+मैं जल्दी जवाब दूँगा।
+
+Please confirm.
+कृपया पुष्टि करें।
+
+I’ll keep you informed.
+मैं आपको जानकारी देता रहूँगा।
+
+Let’s plan this.
+चलो इसकी योजना बनाते हैं।
+
+I’ll get it done.
+मैं इसे कर दूँगा।
+
+That works.
+ये ठीक है।
+
+Let’s review it.
+चलो इसे देखते हैं।
+
+I’ll arrange it.
+मैं व्यवस्था कर दूँगा।
+
+Please hold on.
+ज़रा रुको।
+
+I’ll update by evening.
+मैं शाम तक अपडेट दूँगा।
+
+Let’s finalize tomorrow.
+कल फाइनल करते हैं।
+
+I’ll send a reminder.
+मैं याद दिलाऊँगा।
+
+Thanks for informing.
+बताने के लिए धन्यवाद।
+
+I appreciate it.
+मैं इसकी सराहना करता हूँ।
+
+Let’s try again.
+चलो फिर कोशिश करते हैं।
+
+I’ll handle this part.
+ये हिस्सा मैं संभालूँगा।
+
+We’ll figure it out.
+हम समाधान निकाल लेंगे।
+
+Let’s keep in touch.
+संपर्क में रहते हैं।
+
+I’ll check and reply.
+मैं चेक करके जवाब दूँगा।
+
+Everything is set.
+सब तैयार है।
+
+We’re good to go.
+हम तैयार हैं।
+
+Talk to you soon.
+जल्द बात करते हैं।
+
+Let’s connect later once I finish the current task.
+मैं ये काम खत्म करके बाद में जुड़ता हूँ।
+
+I’ll update you as soon as I get confirmation from the team.
+टीम से पुष्टि मिलते ही मैं आपको अपडेट दूँगा।
+
+Give me some time so I can review everything properly.
+मुझे थोड़ा समय दें ताकि मैं सब ठीक से देख सकूँ।
+
+I’m currently checking the issue and will respond shortly.
+मैं अभी समस्या देख रहा हूँ और जल्दी जवाब दूँगा।
+
+I’ll call you back once I have complete information.
+पूरी जानकारी मिलते ही मैं वापस कॉल करूँगा।
+
+Let’s discuss this in detail after the meeting.
+मीटिंग के बाद इसे विस्तार से बात करते हैं।
+
+I’ll send you the document once it’s finalized.
+दस्तावेज़ फाइनल होते ही मैं भेज दूँगा।
+
+Please wait a moment while I verify the details.
+विवरण जांचने तक कृपया एक मिनट इंतज़ार करें।
+
+I understand your concern and we’re working on it.
+मैं आपकी चिंता समझता हूँ और हम इस पर काम कर रहे हैं।
+
+No problem, we’ll find a solution together.
+कोई समस्या नहीं, हम मिलकर समाधान निकालेंगे।
+
+I’ll manage the situation and keep you informed.
+मैं स्थिति संभाल लूँगा और आपको जानकारी देता रहूँगा।
+
+Let’s revisit this topic tomorrow with fresh input.
+कल नए सुझाव के साथ इसे फिर देखते हैं।
+
+I’m almost done, just making final adjustments.
+मैं लगभग खत्म कर चुका हूँ, बस आखिरी बदलाव कर रहा हूँ।
+
+I’ll try my best to complete it before the deadline.
+मैं डेडलाइन से पहले पूरा करने की पूरी कोशिश करूँगा।
+
+The request is under process and moving forward.
+अनुरोध प्रक्रिया में है और आगे बढ़ रहा है।
+
+I’ll confirm everything after speaking with the manager.
+मैनेजर से बात करके मैं सब कन्फर्म करूँगा।
+
+Let me check once more to avoid any mistakes.
+गलती से बचने के लिए मुझे एक बार फिर जांचने दें।
+
+I agree with your suggestion, it makes sense.
+मैं आपके सुझाव से सहमत हूँ, ये सही लगता है।
+
+That’s fine, we can proceed with this plan.
+ठीक है, हम इस योजना के साथ आगे बढ़ सकते हैं।
+
+I’ll look into the matter and get back to you.
+मैं इस मामले को देखूँगा और आपको बताऊँगा।
+
+Let’s move ahead and not waste more time.
+चलो आगे बढ़ते हैं और समय बर्बाद नहीं करते।
+
+I’ll take care of everything from my side.
+मैं अपनी तरफ से सब संभाल लूँगा।
+
+It might take some time, but we’ll complete it.
+इसमें थोड़ा समय लगेगा, लेकिन हम पूरा करेंगे।
+
+I’m actively working on this task right now.
+मैं अभी सक्रिय रूप से इस काम पर लगा हूँ।
+
+I’ll share all the details once the review is done.
+समीक्षा पूरी होते ही मैं सब विवरण भेजूँगा।
+
+Can we talk now, or should I call later?
+क्या हम अभी बात करें या बाद में कॉल करूँ?
+
+I’m available now if you want to discuss.
+अगर बात करनी है तो मैं अभी उपलब्ध हूँ।
+
+Let’s close this today and avoid further delay.
+चलो आज इसे खत्म करते हैं और देरी नहीं करते।
+
+I’ll respond shortly after checking with the team.
+टीम से बात करके मैं जल्दी जवाब दूँगा।
+
+Please confirm so we can move forward.
+कृपया पुष्टि करें ताकि हम आगे बढ़ सकें।
+
+I’ll keep you informed about every update.
+मैं हर अपडेट की जानकारी देता रहूँगा।
+
+Let’s plan this properly before execution.
+काम शुरू करने से पहले इसे ठीक से योजना बनाते हैं।
+
+I’ll get it done even if I have to stay late.
+ज़रूरत पड़ी तो देर तक रुककर भी मैं पूरा करूँगा।
+
+That works perfectly for our schedule.
+ये हमारे समय के हिसाब से बिल्कुल ठीक है।
+
+Let’s review everything once before submission.
+जमा करने से पहले सब एक बार देख लेते हैं।
+
+I’ll arrange everything and confirm shortly.
+मैं सब व्यवस्था करके जल्दी पुष्टि करूँगा।
+
+Please hold on while I check the system.
+सिस्टम चेक करते समय कृपया रुके रहें।
+
+I’ll update you by evening without fail.
+मैं शाम तक बिना चूके अपडेट दूँगा।
+
+Let’s finalize this tomorrow with the client.
+कल क्लाइंट के साथ इसे फाइनल करते हैं।
+
+I’ll send a reminder so we don’t forget.
+मैं याद दिला दूँगा ताकि हम भूलें नहीं।
+
+Thanks for informing me in advance.
+पहले से बताने के लिए धन्यवाद।
+
+I really appreciate your quick support.
+आपके जल्दी सहयोग की मैं सराहना करता हूँ।
+
+Let’s try again and improve the outcome.
+चलो फिर कोशिश करते हैं और बेहतर करते हैं।
+
+I’ll handle this part and update you.
+ये हिस्सा मैं संभालकर अपडेट दूँगा।
+
+We’ll figure it out no matter what.
+हम किसी भी तरह समाधान निकाल लेंगे।
+
+Let’s stay in touch regarding this matter.
+इस मामले में संपर्क में रहते हैं।
+
+I’ll check carefully and reply soon.
+मैं ध्यान से चेक करके जल्दी जवाब दूँगा।
+
+Everything is set and ready to go.
+सब तैयार है और शुरू किया जा सकता है।
+
+We’re good to go from our side.
+हमारी तरफ से सब तैयार है।
+
+Talk to you soon after I finish this.
+ये खत्म करके जल्द बात करता हूँ।
+
+
+
